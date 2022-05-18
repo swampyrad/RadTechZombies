@@ -1,1 +1,2 @@
-Looting:TenMilRifleman:HD10mMag12*6,HDSpent10mm,PortableStimpack,HD10mAmmo*9,HD10mMag25*3
+Looting:TenMilRifleman:HD10mMag25*3,HDSpent10mm,PortableStimpack,HD10mAmmo*9,HDRadiCola
+Looting:TenMilHomeboy:HD20mMag8*3,HDSpent10mm,PortableStimpack,HD10mAmmo*9,HDRadiCola
