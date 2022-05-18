@@ -1,0 +1,215 @@
+// A sprites
+
+sprite HB1MA1,41,55{
+ offset 20,53
+ patch HB1MA1,0,0{}
+}
+
+sprite HB1MA2A8,36,54{
+ offset 18,52
+ patch HB1MA2A8,0,0{}
+}
+
+sprite HB1MA3A7,43,53{
+ offset 21,51
+ patch HB1MA3A7,0,0{}
+}
+
+sprite HB1MA4A6,45,50{
+ offset 22,48
+ patch HB1MA4A6,0,0{}
+}
+
+sprite HB1MA5,36,51{
+ offset 18,49
+ patch HB1MA5,0,0{}
+}
+
+// B sprites
+
+sprite HB1MB1,37,55{
+ offset 18,53
+ patch HB1MB1,0,0{}
+}
+
+sprite HB1MB2B8,35,54{
+ offset 17,52
+ patch HB1MB2B8,0,0{}
+}
+
+sprite HB1MB3B7,36,55{
+ offset 18,53
+ patch HB1MB3B7,0,0{}
+}
+
+sprite HB1MB4B6,40,54{
+ offset 20,52
+ patch HB1MB4B6,0,0{}
+}
+
+sprite HB1MB5,35,54{
+ offset 17,52
+ patch HB1MB5,0,0{}
+}
+
+// C sprites
+
+sprite HB1MC1,36,55{
+ offset 20,53
+ patch HB1MC1,0,0{}
+}
+
+sprite HB1MC2C8,37,54{
+ offset 18,52
+ patch HB1MC2C8,0,0{}
+}
+
+sprite HB1MC3C7,37,55{
+ offset 18,53
+ patch HB1MC3C7,0,0{}
+}
+
+sprite HB1MC4C6,41,55{
+offset 20,53
+patch HB1MC4C6,0,0{}
+}
+
+sprite HB1MC5,34,55{
+offset 17,53
+patch HB1MC5,0,0{}
+}
+
+// D sprites
+
+sprite HB1MD1,40,55{
+ offset 20,53
+ patch HB1MD1,0,0{}
+}
+
+sprite HB1MD2D8,35,54{
+ offset 17,52
+ patch HB1MD2D8,0,0{}
+}
+
+sprite HB1MD3D7,34,54{
+ offset 17,52
+ patch HB1MD3D7,0,0{}
+}
+
+sprite HB1MD4D6,41,54{
+ offset 20,52
+ patch HB1MD4D6,0,0{}
+}
+
+sprite HB1MD5,35,54{
+ offset 17,52
+ patch HB1MD5,0,0{}
+}
+
+// E (aiming sprites)
+
+
+sprite HB1ME1,26,55{
+ offset 13,53
+ patch HB1ME1,0,0{}
+}
+
+sprite HB1ME2E8,43,54{
+ offset 21,52
+ patch HB1ME2E8,0,0{}
+}
+
+sprite HB1ME3E7,51,53{
+ offset 25,51
+ patch HB1ME3E7,0,0{}
+}
+
+sprite HB1ME4E6,39,52{
+ offset 20,50
+ patch HB1ME4E6,0,0{}
+}
+
+sprite HB1ME5,26,51{
+ offset 13,49
+ patch HB1ME5,0,0{}
+}
+
+// F (firing sprites)
+
+sprite HB1MF1,27,55{
+ offset 14,53
+ patch HB1MF1,0,0{}
+}
+
+sprite HB1MF2F8,45,54{
+ offset 20,52
+ patch HB1MF2F8,0,0{}
+}
+
+sprite HB1MF3F7,52,53{
+ offset 26,51
+ patch HB1MF3F7,0,0{}
+}
+
+sprite HB1MF4F6,42,52{
+ offset 21,50
+ patch HB1MF4F6,0,0{}
+}
+
+sprite HB1MF5,24,51{
+ offset 12,49
+ patch HB1MF5,0,0{}
+}
+
+// G (pain sprites)
+
+sprite HB1MG1,39,55{
+ offset 19,53
+ patch HB1MG1,0,0{}
+}
+
+sprite HB1MG2G8,36,55{
+ offset 18,53
+ patch HB1MG2G8,0,0{}
+}
+
+sprite HB1MG3G7,43,54{
+ offset 21,52
+ patch HB1MG3G7,0,0{}
+}
+
+sprite HB1MG4G6,43,53{
+ offset 21,51
+ patch HB1MG4G6,0,0{}
+}
+
+sprite HB1MG5,34,53{
+ offset 17,51
+ patch HB1MG5,0,0{}
+}
+
+// HIJKLM (death sprites)
+
+sprite HB1MH0,39,55{
+offset 19,53
+patch HB1MH0,0,0{}
+}
+sprite HB1MI0,35,46{
+offset 17,44
+patch HB1MI0,0,0{}
+}
+sprite HB1MJ0,43,34{
+offset 21,32
+patch HB1MJ0,0,0{}
+}
+sprite HB1MK0,48,27{
+offset 24,21
+patch HB1MK0,0,0{}
+}
+sprite HB1ML0,47,27{
+offset 23,14
+patch HB1ML0,0,0{}
+}
+
+
+//END OF TEXTURES

@@ -1,0 +1,5 @@
+GameInfo { 	AddEventHandlers = "TenMilRifleman_Spawner" } 
+
+GameInfo { 	AddEventHandlers = "TenMilHomeboy_Spawner" } 
+
+GameInfo { 	AddEventHandlers = "DoomedShotgunner_Spawner" } 

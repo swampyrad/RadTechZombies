@@ -1,0 +1,1 @@
+Looting:TenMilRifleman:HD10mMag12*6,HDSpent10mm,PortableStimpack,HD10mAmmo*9,HD10mMag25*3
