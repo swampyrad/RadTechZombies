@@ -1,3 +1,4 @@
 Looting:TenMilRifleman:HD10mMag25*3,HDSpent10mm,PortableStimpack,HD10mAmmo*9,HDRadiCola
 Looting:TenMilHomeboy:HD20mMag8*3,HDSpent10mm,PortableStimpack,HD10mAmmo*9,HDRadiCola
 Looting:DoomedJackboot:ShellPickup*3,FumbledShell*9,PortableStimpack,HDRadiCola
+Looting:MinervaZombie:HD9mMag30*3,HDLoose9mm*9,PortableStimpack,HDRadiCola
