@@ -1,16 +1,6 @@
 // ------------------------------------------------------------
 // Minerva Guy
 // ------------------------------------------------------------
-/*
-class HDChainReplacer:RandomSpawner replaces ChaingunGuy{
-	default{
-		dropitem "VulcanetteZombie",256,6;
-		dropitem "UndeadRifleman",256,2;
-		dropitem "EnemyHERP",256,1;
-		dropitem "EnemyDERP",256,1;
-	}
-}
-*/
 
 class MinervaZombie:HDHumanoid{
 	default{
