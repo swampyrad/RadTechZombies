@@ -11,3 +11,7 @@ version "4.6"
 //Doomed Shotgun Guy, attack has wider spread than normal
 #include "zscript/DoomedShotgunGuy/mob_DoomedShotgunZombie.zs"
 #include "zscript/DoomedShotgunGuy/DoomedShotgunner_Spawner.zs"
+
+//Minerva Chaingun Guy, fires 9mm instead of 4mm
+#include "zscript/MinervaZombie/mob_minervazombie.zs"
+#include "zscript/MinervaZombie/MinervaZombie_Spawner.zs"
