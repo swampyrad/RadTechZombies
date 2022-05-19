@@ -46,12 +46,11 @@ class MinervaZombie:HDHumanoid{
 		burstcount=random(4,20);
 		superauto=randompick(0,0,0,1);
 		mags=4;
-		thismag=50;
-		bhashelmet=!bplayingid;
-		bnoincap=bplayingid;
+		thismag=30;
+		bhashelmet=false;
+		bnoincap=false;
 
-		if(bplayingid)givearmour(1.,0.06,-0.4);
-		else givearmour(1.,0.2,-0.4);
+		givearmour(1.,0.2,-0.4);
 	}
 	void A_ScanForTargets(){
 		if(noammo()){
