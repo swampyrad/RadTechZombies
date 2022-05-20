@@ -2,6 +2,9 @@
 A monster pack addon for use with the 
 RadTech Weapons Pack
 
+WARNING: MUST BE LOADED AFTER RADTECH WEAPONS
+OR ELSE IT WILL NOT WORK
+
 Monster code based off the work of 
 MatthewTheGlutton aka mc776, author
 of the Hideous Destructor mod for GZDoom
