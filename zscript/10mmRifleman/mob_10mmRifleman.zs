@@ -104,7 +104,9 @@ class TenMilRifleman:HDHumanoid{
 	}
 
 void A_Eject10mmPistolCasing(){
-		HDWeapon.EjectCasing(self,"TenMilBrass",12,-frandom(89,92),frandom(6,7),frandom(0,1));
+		HDWeapon.EjectCasing(self,"TenMilBrass",
+      -frandom(89,92),
+      (frandom(6,7),0,0),(13,0,0));
 	}
 
 
