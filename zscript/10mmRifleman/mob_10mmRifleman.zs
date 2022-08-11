@@ -9,8 +9,6 @@ class TenMilRifleman:HDHumanoid{
 
 	double spread;
 
-
-	//specific to undead homeboy
 	int user_weapon; //0 random, 1 semi, 2 auto
 
 	override void postbeginplay(){
@@ -19,7 +17,7 @@ class TenMilRifleman:HDHumanoid{
 		aimpoint1=(-1,-1);
 		aimpoint2=(-1,-1);
 
-		//specific to undead homeboy
+
 		thismag=random(1,25);
 		chamber=2;
 		if(
@@ -191,7 +189,7 @@ void A_Eject10mmPistolCasing(){
 	}
 	bool A_HDReload(int which=0){
 		if(thismag>=0)return false;
-		thismag=8;
+		thismag=25;
 		if(chamber<2){
 			if(chamber>0)A_Eject10mmPistolCasing();
 			chamber=2;
@@ -364,8 +362,54 @@ void A_Eject10mmPistolCasing(){
 		#### PONM 4;
 		HB1M A 0 A_Jump(256,"see");
 	}
+  
+  //modified melee attack for bayonet stab
+  action void A_HumanoidMeleeAttack(double hitheight,double mult=1.){
+
+		flinetracedata mtrace;
+		linetrace(
+			angle,
+			meleerange,
+			pitch,
+			offsetz:hitheight,
+			data:mtrace
+		);
+		if(!mtrace.hitactor){
+			A_StartSound("misc/fwoosh",CHAN_WEAPON,CHANF_OVERLAP,volume:min(0.1*mult,1.));
+			return;
+		}
+		A_StartSound("imp/melee",CHAN_WEAPON,CHANF_OVERLAP);//pov: you are being ripped and teared apart
+
+		hitheight=mtrace.hitlocation.z-mtrace.hitactor.pos.z;
+		double hitheightproportion=hitheight/mtrace.hitactor.height;
+		string hitloc="";
+		int dmfl=0;
+
+		double dmg=
+			clamp(20-absangle(angle,angleto(mtrace.hitactor))*0.5,1,10)
+			*0.0084*(mass+speed)
+			*mult
+			*frandom(0.61803,1.61803)
+		;
+
+		if(hitheightproportion>0.8){
+			hitloc="HEAD";
+			dmg*=2.;
+		}else if(hitheightproportion>0.5){
+			hitloc="BODY";
+		}else{
+			hitloc="LEGS";
+			dmg*=1.3;
+		}
+
+		if(hd_debug)console.printf(gettag().." shanked "..mtrace.hitactor.gettag().." in the "..hitloc.." for "..dmg);
+
+		addz(hitheight);
+		mtrace.hitactor.damagemobj(self,self,int(dmg),"slashing",flags:dmfl);
+		addz(-hitheight);
+		
+	}
+
+
 }
-
-
-
 
