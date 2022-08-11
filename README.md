@@ -28,7 +28,6 @@ side-saddles for mobility, resulting in slower
 firerate and taking longer to reload than usual.
 
 - Riot Police Jackboots:
-
 Wields Less-Lethal Shotguns, members of UAC's
 private security firm, these undead guards now
 roam the corridors looking for any "criminal
