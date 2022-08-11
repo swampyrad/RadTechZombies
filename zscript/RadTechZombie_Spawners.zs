@@ -45,6 +45,13 @@ override void CheckReplacement(ReplaceEvent e) {
    case 'DeadJackboot'      : if (!random(0, 3))        
     {e.Replacement = "DeadCombatJackboot";} break;
 
+// Riot Cop Zombies
+   case 'HideousJackbootReplacer' : if (!random(0, 3)) 
+    {e.Replacement = "RiotCopZombie";} break;
+
+   case 'DeadJackboot'      : if (!random(0, 3))        
+    {e.Replacement = "DeadRiotCopZombie";} break;
+
 // Minerva Zombies	
    case 'VulcanetteZombie' : if (!random(0, 3))
     {e.Replacement = "MinervaZombie";} break;
