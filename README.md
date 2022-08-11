@@ -20,6 +20,21 @@ Wields Doomed Shotguns, giving their shots
 a wider horizontal spread akin to their 
 vanilla Doom counterparts.
 
+- Combat Jackboots:
+Wields Combat Shotguns, these blood-drenched 
+goons wear body armor for better defense, but 
+as a tradeoff they sacrifice semi-auto and 
+side-saddles for mobility, resulting in slower
+firerate and taking longer to reload than usual.
+
+- Riot Police Jackboots:
+
+Wields Less-Lethal Shotguns, members of UAC's
+private security firm, these undead guards now
+roam the corridors looking for any "criminal
+scum" to bring swift justice to in the form of
+hardened rubber.
+
 - Minerva Zombies:
 Wields the Minerva 9mm Chaingun, has slower 
 firerate, but unlike Vulcanette Zombies, 
