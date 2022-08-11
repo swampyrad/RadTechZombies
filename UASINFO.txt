@@ -3,3 +3,4 @@ Looting:TenMilHomeboy:HD20mMag8*3,HDSpent10mm,PortableMedikit,PortableStimpack,H
 Looting:DoomedJackboot:ShellPickup*3,FumbledShell*9,PortableMedikit,PortableStimpack,HDRadiCola
 Looting:MinervaZombie:HD9mMag30*3,HDLoose9mm*9,PortableMedikit,PortableStimpack,HDRadiCola
 Looting:CombatJackboot:ShellPickup*3,FumbledShell*9,PortableMedikit,PortableStimpack,HDRadiCola
+Looting:RiotCopZombie:LLShellPickup*3,LLFumbledShell*9,PortableMedikit,PortableStimpack,HDRadiCola

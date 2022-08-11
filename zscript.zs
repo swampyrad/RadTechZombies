@@ -15,5 +15,8 @@ version "4.8"
 //Combat Shotgun Guy, carries a smaller shotgun
 #include "zscript/CombatShotgunGuy/mob_CombatShotgunZombie.zs"
 
+//Riot Cop Zombie, carries a less-lethal pellet shotgun
+#include "zscript/RiotCopZombie/mob_RiotCopZombie.zs"
+
 //Zombie epawner event handler
 #include "zscript/RadTechZombie_Spawners.zs"
