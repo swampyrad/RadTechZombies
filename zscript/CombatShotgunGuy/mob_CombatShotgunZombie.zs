@@ -161,9 +161,9 @@ class CombatZombieShotgunner:HDHumanoid{
 
 	see:
 		#### A 0{
-			if(jammed)return;
-			else if(gunloaded<1)setstatelabel("reload");
-			else if(!wep&&gunspent>0)setstatelabel("chambersg");
+			//if(jammed)return;
+		 if(gunloaded<1)setstatelabel("reload");
+			else if(!gunspent>0)setstatelabel("chambersg");
 		}
 		#### ABCD 4 A_HDChase();
 		#### A 0 A_JumpIfTargetInLOS("see");
@@ -309,19 +309,19 @@ class CombatZombieShotgunner:HDHumanoid{
 		#### B 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
-			if(gunloaded>=6)setstatelabel("reloadsgend");
+			if(gunloaded>5)setstatelabel("reloadsgend");
 		}
 		#### CC 3 A_HDWander(flags:CHF_FLEE);
 		#### C 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
-			if(gunloaded>=6)setstatelabel("reloadsgend");
+			if(gunloaded>5)setstatelabel("reloadsgend");
 		}
 		#### DD 3 A_HDChase("melee",null,CHF_FLEE);
 		#### D 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
-			if(gunloaded>=6)setstatelabel("reloadsgend");
+			if(gunloaded>5)setstatelabel("reloadsgend");
 		}
 		#### A 0 A_StartSound("weapons/pocket",9);
 		#### ABCDA 2 A_HDWander();
