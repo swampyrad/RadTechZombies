@@ -1,0 +1,12 @@
+//Spawner Toggles
+
+server bool Allow_10mmHomeboys = false;
+server bool Allow_10mmRiflemen = false;
+
+server bool Allow_CombatJackboots = false;
+
+server bool Allow_DoomedJackboots = false;
+
+server bool Allow_RiotJackboots = false;
+
+server bool Allow_MinervaGunners = false;
