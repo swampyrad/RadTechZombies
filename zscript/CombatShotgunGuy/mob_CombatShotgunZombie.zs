@@ -1,30 +1,16 @@
-// ------------------------------------------------------------
-// Former Human Sergeant
-// ------------------------------------------------------------
-class HideousCombatJackbootReplacer:RandomSpawner{
-	default{
-		dropitem "CombatJackboot",256,120;
-	}
-}
 
-class CombatJackboot:CombatZombieShotgunner{default{
-		//$Category "Monsters/Hideous Destructor"
-		//$Title "Shotgun Guy (Pump)"
-		//$Sprite "SPOSA1"
-		accuracy 1;
-}}
 
-class CombatZombieShotgunner:HDHumanoid{
+class CombatJackboot:HDHumanoid{
 	default{
 		//$Category "Monsters/Hideous Destructor"
-		//$Title "CombatShotgun Guy"
+		//$Title "Combat Shotgun Guy"
 		//$Sprite "SPOSA1"
 
 		seesound "shotguy/sight";
 		painsound "shotguy/pain";
 		deathsound "shotguy/death";
 		activesound "shotguy/active";
-		tag "doomed jackboot";
+		tag "combat jackboot";
 
 		speed 10;
 		decal "BulletScratch";
@@ -32,11 +18,10 @@ class CombatZombieShotgunner:HDHumanoid{
 		meleedamage 4;
 		maxtargetrange 4000;
 		painchance 200;
-		accuracy 0;
+		accuracy 1;
 
-		//placeholder
-		obituary "%o was shot up by the Tyrant's jack-booted thugs.";
-		hitobituary "%o was beaten up by the Tyrant's jack-booted thugs.";
+		obituary "%o was mortally wounded by a combat jackboot.";
+		hitobituary "%o needs to brush up on their CQC training.";
 	}
 	bool semi;
 	int gunloaded;
@@ -49,14 +34,8 @@ class CombatZombieShotgunner:HDHumanoid{
 		super.beginplay();
 		bhasdropped=0;
 
-		//-1 zm66, 0 sg, 1 ssg
-		if(!accuracy) wep=random(0,1)-random(0,1);
-		else if(accuracy==1)wep=0;
-		else if(accuracy==2)wep=1;
-		else if(accuracy==3)wep=-1;
+	wep=0;
 
-		//if no ssg, sg
-		if(Wads.CheckNumForName("SHT2B0",wads.ns_sprites,-1,false)<0&&wep==1)wep=0;
 	}
 	override void postbeginplay(){
 		super.postbeginplay();
@@ -64,7 +43,6 @@ class CombatZombieShotgunner:HDHumanoid{
 			bhashelmet=true;
 			sprite=GetSpriteIndex("PLAYA1");
 			A_SetTranslation("BlackRedshirt");
-			//gunloaded=random(10,50);
      gunloaded=random(3,6);//5+1=6
      givearmour(1.,0.06,-0.4);
      choke=0;//no choke on combay0t shotgun
@@ -408,9 +386,8 @@ class CombatZombieShotgunner:HDHumanoid{
 	}
 }
 
-class DeadCombatJackboot:DeadCombatZombieShotgunner{default{accuracy 1;}}
 
-class DeadCombatZombieShotgunner:CombatZombieShotgunner{
+class DeadCombatJackboot:CombatJackboot{
 	override void postbeginplay(){
 		super.postbeginplay();
 		A_Die("spawndead");
