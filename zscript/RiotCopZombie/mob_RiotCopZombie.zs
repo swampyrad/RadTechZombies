@@ -192,7 +192,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 	missile:
 		#### A 0 A_JumpIfTargetInLOS(3,120);
 		#### CD 2 A_FaceTarget(90,90);
-		#### E 1 A_SetTics(random(4,10)); //when they just start to aim,not for followup shots!
+		#### E 1 A_SetTics(random(3,7)); //when they just start to aim,not for followup shots!
 		#### A 0 A_JumpIf(!hdmobai.tryshoot(self,pradius:5,pheight:5),"see");
 	missile2:
 		#### A 0{
@@ -259,7 +259,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		#### E 3;
 		#### E 1{
 			if(gunspent)setstatelabel("chambersg");
-			else A_SetTics(random(4,12));
+			else A_SetTics(random(3,7));
 		}
 		#### E 0 A_Jump(127,"see");
 		#### E 0 A_SpidRefire();
@@ -267,7 +267,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 	chambersg:
 		#### E 8{
 			if(gunspent){
-				A_SetTics(random(4,12));
+				A_SetTics(random(3,7));
 				A_StartSound("weapons/huntrack",8);
 				gunspent=0;
 				if(gunloaded>0)gunloaded--;
@@ -281,7 +281,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 			}
 			semi=false;//no semiauto!
 		}
-		#### E 1 A_SetTics(random(3,8));
+		#### E 1 A_SetTics(random(3,7));
 		#### E 0 A_Jump(127,"see");
 		#### E 0 A_SpidRefire();
 		goto turntoaim;
