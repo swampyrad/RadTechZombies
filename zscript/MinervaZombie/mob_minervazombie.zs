@@ -305,7 +305,7 @@ class MinervaZombie:HDHumanoid{
 			thismag=-1;
 			if(mags>0){
 				mags--;
-				thismag=50;
+				thismag=30;
 			}
 		}
 		---- A 0 setstatelabel("shoot");
@@ -329,7 +329,7 @@ class MinervaZombie:HDHumanoid{
 		MINZ E 9 A_StartSound("weapons/pocket",9);
 		MINZ E 7 A_StartSound("weapons/vulcmag",8);
 		MINZ E 10{
-			if(thismag<0)thismag=50;
+			if(thismag<0)thismag=30;
 			else if(mags<4)mags++;
 			else{
 				setstatelabel("see2");
