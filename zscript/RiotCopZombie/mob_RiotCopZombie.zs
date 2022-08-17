@@ -24,7 +24,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		painsound "shotguy/pain";
 		deathsound "shotguy/death";
 		activesound "shotguy/active";
-		tag "doomed jackboot";
+		tag "riot jackboot";
 
 		speed 10;
 		decal "BulletScratch";
