@@ -13,6 +13,7 @@ class TenMilRifleman:HDHumanoid{
 
 	override void postbeginplay(){
 		super.postbeginplay();
+   A_SetTranslation("TenMilZombie");
 		bhasdropped=false;
 		aimpoint1=(-1,-1);
 		aimpoint2=(-1,-1);
@@ -204,7 +205,7 @@ void A_Eject10mmPistolCasing(){
 	default{
 		//$Category "Monsters/Hideous Destructor"
 		//$Title "10mm Rifle Zombie"
-		//$Sprite "HB1MA1"
+		//$Sprite "POSSA1"
 
 		seesound "grunt/sight";
 		painsound "grunt/pain";
@@ -221,7 +222,7 @@ void A_Eject10mmPistolCasing(){
 	}
 	states{
 	spawn:
-		HB1M E 1{
+		POSS E 1{
 			A_HDLook();
 			A_Recoil(frandom(-0.1,0.1));
 		}
@@ -236,7 +237,7 @@ void A_Eject10mmPistolCasing(){
 		#### B 8 A_Recoil(frandom(-0.2,0.2));
 		loop;
 	spawngrunt:
-		HB1M G 1{
+		POSS G 1{
 			A_Recoil(frandom(-0.4,0.4));
 			A_SetTics(random(30,80));
 			if(!random(0,7))A_Vocalize(activesound);
@@ -292,14 +293,14 @@ void A_Eject10mmPistolCasing(){
 	nope:
 		#### E 10;
 	reload:
-		HB1M ABCD 4 A_HDChase("melee",null,CHF_FLEE);
+		POSS ABCD 4 A_HDChase("melee",null,CHF_FLEE);
 		#### A 7 A_PistolGuyUnload();
 		#### BC 6 A_HDChase("melee",null,CHF_FLEE);
 		#### D 8 A_HDReload();
 		---- A 0 setstatelabel("see");
 
 	pain:
-		HB1M G 2;
+		POSS G 2;
 		#### G 3 A_Vocalize(painsound);
 		#### G 0{
 			A_ShoutAlert(0.1,SAF_SILENT);
@@ -320,12 +321,12 @@ void A_Eject10mmPistolCasing(){
 		#### G 0{bfrightened=false;}
 		---- A 0 setstatelabel("see");
 	death:
-		HB1M H 5;
+		POSS H 5;
 		#### I 5 A_Vocalize(deathsound);
 		#### J 5 A_NoBlocking();
 		#### K 5;
 	dead:
-		HB1M K 3 canraise{if(abs(vel.z)<2.)frame++;}
+		POSS K 3 canraise{if(abs(vel.z)<2.)frame++;}
 		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	xxxdeath:
@@ -351,7 +352,7 @@ void A_Eject10mmPistolCasing(){
 		#### U 5 canraise A_JumpIf(abs(vel.z)>=2.,"xdead");
 		wait;
 	raise:
-		HB1M L 4;
+		POSS L 4;
 		#### LK 6;
 		#### JIH 4;
 		#### A 0 A_Jump(256,"see");
@@ -360,7 +361,7 @@ void A_Eject10mmPistolCasing(){
 		#### T 8;
 		#### SRQ 6;
 		#### PONM 4;
-		HB1M A 0 A_Jump(256,"see");
+		POSS A 0 A_Jump(256,"see");
 	}
   
   //modified melee attack for bayonet stab
