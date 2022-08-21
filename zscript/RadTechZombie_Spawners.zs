@@ -11,12 +11,16 @@ override void CheckReplacement(ReplaceEvent RadTech) {
    case 'ZombieSemiStormtrooper' 	: 
     if (Allow_10mmHomeboys&&!random(0, 3)){
       RadTech.Replacement = "TenMilHomeboy";}
-    if (Allow_10mmRiflemen&&!random(0, 5)){
-     RadTech.Replacement = "TenMilRifleman";} break;
+    if (Allow_10mmRiflemen&&!random(0, 7)){
+     RadTech.Replacement = "TenMilRifleman";}
+    if (Allow_BayonetRiflemen&&!random(0, 3)){
+     RadTech.Replacement = "BayonetRifleman";} break;
 
    case 'ZombieAutoStormtrooper' 	: 
     if (Allow_10mmRiflemen&&!random(0, 5)){
-      RadTech.Replacement = "TenMilRifleman";} break;
+      RadTech.Replacement = "TenMilRifleman";} 
+    if (Allow_BayonetRiflemen&&!random(0, 3)){
+     RadTech.Replacement = "BayonetRifleman";} break;
 
    case 'Jackboot'            : 
     if (Allow_CombatJackboots&&!random(0, 3)){
@@ -36,7 +40,6 @@ override void CheckReplacement(ReplaceEvent RadTech) {
       RadTech.Replacement = "RiotCopZombie";} 
     if (Allow_10mmHomeboys&&!random(0, 3)){
       RadTech.Replacement = "TenMilHomeboy";} break;
-;
 
 
    case 'DeadJackboot'        : 
