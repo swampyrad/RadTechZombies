@@ -11,6 +11,8 @@ OptionMenu RadTechZombies{
 
   Option "Allow 10mm Rifle Zombie Spawns", "Allow_10mmRiflemen", "OnOff"
 
+  Option "Allow Bayonet Zombie Spawns", "Allow_BayonetRiflemen", "OnOff"
+
   Option "Allow Combat Jackboot Spawns", "Allow_CombatJackboots", "OnOff"
 
   Option "Allow Doomed Jackboot Spawns", "Allow_DoomedJackboots", "OnOff"
