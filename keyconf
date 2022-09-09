@@ -1,0 +1,10 @@
+// Most of this is futureproofing, it allows for much easier creation of more advanced menus though. Helpful for the future plus funne name :) - [Ted]
+alias 10Homies_reset_cvars "resetcvar Allow_10mmHomeboys;"
+alias 10Riflemen_reset_cvars "resetcvar Allow_10mmRiflemen;"
+alias Bayonetta_reset_cvars "resetcvar Allow_BayonetRiflemen;"
+alias CJB_reset_cvars "resetcvar Allow_CombatJackboots;"
+alias Doomer_reset_cvars "resetcvar Allow_DoomedJackboots;"
+alias Popo_reset_cvars "resetcvar Allow_RiotJackboots;"
+alias Mgunna_reset_cvars "resetcvar Allow_MinervaGunners;"
+
+alias RTZ_Reset_Cvars "10Homies_reset_cvars; 10Riflemen_reset_cvars; Bayonetta_reset_cvars; CJB_reset_cvars; Doomer_reset_cvars; Popo_reset_cvars; Mgunna_reset_cvars;"

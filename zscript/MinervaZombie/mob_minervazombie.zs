@@ -151,6 +151,29 @@ class MinervaZombie:HDHumanoid{
 			bhasdropped=true;
 			DropNewItem("HDBattery",16);
 			DropNewItem("HDHandgunRandomDrop");
+			if(minerva_chaingun_spawn_bias == -1)
+			{
+			let vvv=DropNewWeapon("Vulcanette");
+			if(!vvv)return;
+			vvv.weaponstatus[VULCS_MAG1]=thismag;
+			for(int i=VULCS_MAG2;i<=VULCS_MAG5;i++){
+				if(mags>0){
+					vvv.weaponstatus[i]=30;
+					mags--;
+				}else vvv.weaponstatus[i]=-1;
+			}
+			vvv.weaponstatus[VULCS_CHAMBER1]=(!random(0,3))?2:1;
+			vvv.weaponstatus[VULCS_CHAMBER2]=(!random(0,3))?2:1;
+			vvv.weaponstatus[VULCS_CHAMBER3]=(!random(0,3))?2:1;
+			vvv.weaponstatus[VULCS_CHAMBER4]=(!random(0,3))?2:1;
+			vvv.weaponstatus[VULCS_CHAMBER5]=(!random(0,3))?2:1;
+			if(superauto)vvv.weaponstatus[0]|=VULCF_FAST;
+			vvv.weaponstatus[VULCS_BATTERY]=random(1,20);
+			vvv.weaponstatus[VULCS_BREAKCHANCE]=random(0,random(1,500));
+			vvv.weaponstatus[VULCS_ZOOM]=random(16,70);
+			}
+			else
+			{
 			let vvv=DropNewWeapon("MinervaChaingun");
 			if(!vvv)return;
 			vvv.weaponstatus[VULCS_MAG1]=thismag;
@@ -169,6 +192,7 @@ class MinervaZombie:HDHumanoid{
 			vvv.weaponstatus[VULCS_BATTERY]=random(1,20);
 			vvv.weaponstatus[VULCS_BREAKCHANCE]=random(0,random(1,500));
 			vvv.weaponstatus[VULCS_ZOOM]=random(16,70);
+			}
 		}else if(!bfriendly){
 			DropNewItem("HD9mMag30",96);
 			DropNewItem("HD9mMag30",96);

@@ -74,38 +74,46 @@ class RiotCopZombieShotgunner:HDHumanoid{
 	override void deathdrop(){
 		A_NoBlocking();
 		if(bhasdropped){
-			if(!bfriendly){
+			if(!bfriendly && llh_shotgun_spawn_bias > -1)
+			{
 				DropNewItem("LLShellPickup",200);
+			}
+			if(!bfriendly && llh_shotgun_spawn_bias == -1)
+			{
+				DropNewItem("ShellPickup",200);
 			}
 		}else{
 			DropNewItem("HDHandgunRandomDrop");
 			bhasdropped=true;
 			hdweapon wp=null;
 
-			if(wep==0){
+			if(wep==0 && llh_shotgun_spawn_bias == -1)
+			{
+				DropNewItem("ShellPickup");
+			}
+			if(wep==0 && llh_shotgun_spawn_bias > -1)
+			{
 				wp=DropNewWeapon("LLHunter");
 				if(wp){
-					wp.weaponstatus[HUNTS_FIREMODE]=semi?0:0;
-        wp.weaponstatus[SHOTS_SIDESADDLE]=random(0,12);
+					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
 					if(gunspent)wp.weaponstatus[HUNTS_CHAMBER]=1;
 					else if(gunloaded>0){
 						wp.weaponstatus[HUNTS_CHAMBER]=2;
 						gunloaded--;
 					}
 					if(gunloaded>0)wp.weaponstatus[HUNTS_TUBE]=gunloaded;
-			
+					wp.weaponstatus[SHOTS_SIDESADDLE]=random(0,12);
+					wp.weaponstatus[0]&=~HUNTF_CANFULLAUTO;
+					wp.weaponstatus[HUNTS_CHOKE]=choke;
+
 					gunloaded=6;
 				}
 			}
-
 		}
-
 		if(wep==0){
 			gunloaded=6;//5+1
 		}
-
 	}
-
 	states{
 	spawn:
 		SPOS A 0 nodelay A_JumpIf(wep>=0,"spawn2");

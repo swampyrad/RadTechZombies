@@ -1,0 +1,33 @@
+// babby's first menudef :p
+
+AddOptionMenu "OptionsMenu"
+{
+  Submenu "Rad-Tech Zombies", "RadTechZombies"
+}
+
+// Eventually I do want to make these unique option menus, though that's for another time for when I give them spawn chances and the like. Fancy first, functional later or something :) - [Ted]
+OptionMenu RadTechZombies
+{
+  Title "------ RadTech Zombies ------"
+  StaticText "Notice:", "Yellow"
+  StaticText "Enemies in this pack respect Radtech Weapon Pack's Spawning options.", "white"
+  StaticText "Setting them to 'Disabled' in RTWP will make these enemies drop vanilla counterparts.", "white"
+  StaticText ""
+  Option "Allow 10mm Pistol Zombie Spawns", "Allow_10mmHomeboys", "OnOff"
+  StaticText ""
+  Option "Allow 10mm Rifle Zombie Spawns", "Allow_10mmRiflemen", "OnOff"
+  StaticText ""
+  Option "Allow Bayonet Zombie Spawns", "Allow_BayonetRiflemen", "OnOff"
+  StaticText ""
+  Option "Allow Combat Jackboot Spawns", "Allow_CombatJackboots", "OnOff"
+  StaticText ""
+  Option "Allow Doomed Jackboot Spawns", "Allow_DoomedJackboots", "OnOff"
+  StaticText ""
+  Option "Allow Riot Police Jackboot Spawns", "Allow_RiotJackboots", "OnOff"
+  StaticText ""
+  Option "Allow Minerva Gunner Spawns", "Allow_MinervaGunners", "OnOff"
+  StaticText ""
+	StaticText "--- Reset Options ---", "red"
+	StaticText ""
+	SafeCommand "Reset all options for Rad-Tech Zombies", "RTZ_Reset_Cvars"
+}
