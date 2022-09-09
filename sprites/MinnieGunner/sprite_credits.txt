@@ -1,9 +1,0 @@
-Minigunner Sprite Credits (copied from Realm667):
-
-Submitted: TheMightyHeracross
-Code: TheMightyHeracross, Ghastly (ZScript conversion)
-GLDefs: Graf Zhal (lights.pk3)
-Sounds: Skulltag
-Sprites: id Software, Skulltag
-Sprite Edit: ItsNatureToDie
-Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary

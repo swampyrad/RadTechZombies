@@ -151,31 +151,59 @@ void A_Eject10mmPistolCasing(){
 		else chamber=0;
 	}
 	override void deathdrop(){
-		if(bhasdropped){
-			DropNewItem("HD10mMag8",96);
-		  }
-  
- else{
-			bhasdropped=true;
-
-    
-    let ppp=DropNewWeapon("HD10mmPistol");
-			ppp.weaponstatus[PISS_MAG]=thismag;
-			ppp.weaponstatus[PISS_CHAMBER]=chamber;
-    DropNewItem("HD10mMag8",96);
-			if(firemode>=0){
-				ppp.weaponstatus[0]|=PISF_SELECTFIRE;
-				if(firemode>0)ppp.weaponstatus[0]|=PISF_FIREMODE;
-      
-
-			}
-
+		if(bhasdropped && tenpis_handgun_spawn_bias == -1)
+		{
+			DropNewItem("HD9mMag15",96);
 		}
-
+		if (bhasdropped && tenpis_handgun_spawn_bias > -1)
+		{
+			DropNewItem("HD10mMag8", 96);
+		}
+ 		else
+		{
+			bhasdropped=true;
+    		if (tenpis_handgun_spawn_bias == -1)
+			{
+				let ppp=DropNewWeapon("HDPistol");
+				ppp.weaponstatus[PISS_MAG]=thismag;
+				ppp.weaponstatus[PISS_CHAMBER]=chamber;
+    			DropNewItem("HD9mMag15",96);
+				if(firemode>=0)
+				{
+					ppp.weaponstatus[0]|=PISF_SELECTFIRE;
+					if(firemode>0)ppp.weaponstatus[0]|=PISF_FIREMODE;
+				}
+			}
+			else
+			{
+				let ppp=DropNewWeapon("HD10mmPistol");
+				ppp.weaponstatus[PISS_MAG]=thismag;
+				ppp.weaponstatus[PISS_CHAMBER]=chamber;
+    			DropNewItem("HD10mMag8",96);
+				if(firemode>=0)
+				{
+					ppp.weaponstatus[0]|=PISF_SELECTFIRE;
+					if(firemode>0)ppp.weaponstatus[0]|=PISF_FIREMODE;
+				}
+			}
+		}
 	}
 
 	void A_PistolGuyUnload(int which=0){
-		if(thismag>=0){
+		if(thismag>=0 && tenpis_handgun_spawn_bias == -1)
+		{
+			actor aaa;int bbb;
+			[bbb,aaa]=A_SpawnItemEx("HD9mMag15",
+				cos(pitch)*10,0,height-8-sin(pitch)*10,
+				vel.x,vel.y,vel.z,
+				0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH
+			);
+			hdmagammo(aaa).mags.clear();
+			hdmagammo(aaa).mags.push(thismag);
+			A_StartSound("weapons/pismagclick",8);
+		}
+		if(thismag>=0&& tenpis_handgun_spawn_bias < -1)
+		{
 			actor aaa;int bbb;
 			[bbb,aaa]=A_SpawnItemEx("HD10mMag8",
 				cos(pitch)*10,0,height-8-sin(pitch)*10,
@@ -364,7 +392,3 @@ void A_Eject10mmPistolCasing(){
 		POSS A 0 A_Jump(256,"see");
 	}
 }
-
-
-
-

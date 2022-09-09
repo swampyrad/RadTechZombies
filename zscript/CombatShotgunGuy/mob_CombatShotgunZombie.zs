@@ -1,5 +1,3 @@
-
-
 class CombatJackboot:HDHumanoid{
 	default{
 		//$Category "Monsters/Hideous Destructor"
@@ -45,7 +43,7 @@ class CombatJackboot:HDHumanoid{
 			A_SetTranslation("BlackRedshirt");
      gunloaded=random(3,6);//5+1=6
      givearmour(1.,0.06,-0.4);
-     choke=0;//no choke on combay0t shotgun
+     choke=0;//no choke on combat shotgun
   		semi=0;//no semiauto on combat shotgun
 	}
 
@@ -60,31 +58,47 @@ class CombatJackboot:HDHumanoid{
 			bhasdropped=true;
 			hdweapon wp=null;
 
-			if(wep==0){
-				wp=DropNewWeapon("HDCombatShotgun");
+			if(wep==0 && cshotgun_shotgun_spawn_bias == -1)
+			{
+				wp=DropNewWeapon("Hunter");
 				if(wp){
-					wp.weaponstatus[HUNTS_FIREMODE]=semi?0:0;
+					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
 					if(gunspent)wp.weaponstatus[HUNTS_CHAMBER]=1;
 					else if(gunloaded>0){
 						wp.weaponstatus[HUNTS_CHAMBER]=2;
 						gunloaded--;
 					}
 					if(gunloaded>0)wp.weaponstatus[HUNTS_TUBE]=gunloaded;
-			
+					wp.weaponstatus[SHOTS_SIDESADDLE]=random(0,12);
+					wp.weaponstatus[0]&=~HUNTF_CANFULLAUTO;
+					wp.weaponstatus[HUNTS_CHOKE]=choke;
+
+					gunloaded=8;
+				}
+			}
+			if(wep==0 && cshotgun_shotgun_spawn_bias > -1)
+			{
+				wp=DropNewWeapon("HDCombatShotgun");
+				if(wp){
+					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
+					if(gunspent)wp.weaponstatus[HUNTS_CHAMBER]=1;
+					else if(gunloaded>0){
+						wp.weaponstatus[HUNTS_CHAMBER]=2;
+						gunloaded--;
+					}
+					if(gunloaded>0)wp.weaponstatus[HUNTS_TUBE]=gunloaded;
+					wp.weaponstatus[SHOTS_SIDESADDLE]=random(0,12);
+					wp.weaponstatus[0]&=~HUNTF_CANFULLAUTO;
+					wp.weaponstatus[HUNTS_CHOKE]=choke;
+
 					gunloaded=6;
 				}
 			}
-
-
-
-		}
-
 		if(wep==0){
 			gunloaded=6;//5+1
 		}
-
 	}
-
+	}
 	states{
 	spawn:
 		SPOS A 0 nodelay A_JumpIf(wep>=0,"spawn2");

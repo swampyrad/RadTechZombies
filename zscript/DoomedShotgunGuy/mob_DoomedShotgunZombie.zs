@@ -128,6 +128,23 @@ class DoomedZombieShotgunner:HDHumanoid{
 					gunloaded=8;
 				}
 			}
+			if(wep==0 && dHunt_shotgun_spawn_bias == -1){
+				wp=DropNewWeapon("Hunter");
+				if(wp){
+					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
+					if(gunspent)wp.weaponstatus[HUNTS_CHAMBER]=1;
+					else if(gunloaded>0){
+						wp.weaponstatus[HUNTS_CHAMBER]=2;
+						gunloaded--;
+					}
+					if(gunloaded>0)wp.weaponstatus[HUNTS_TUBE]=gunloaded;
+					wp.weaponstatus[SHOTS_SIDESADDLE]=random(0,12);
+					wp.weaponstatus[0]&=~HUNTF_CANFULLAUTO;
+					wp.weaponstatus[HUNTS_CHOKE]=choke;
+
+					gunloaded=8;
+				}
+			}
 			if(wep==1){
 				wp=DropNewWeapon("Slayer");
 				if(wp){
