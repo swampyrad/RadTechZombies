@@ -23,7 +23,9 @@ override void CheckReplacement(ReplaceEvent RadTech) {
      RadTech.Replacement = "BayonetRifleman";} break;
 
    case 'Jackboot'            : 
-    if (Allow_CombatJackboots&&!random(0, 3)){
+    if (Allow_BrawlerJackboots&&!random(0, 3)){
+      RadTech.Replacement = "BrawlerJackboot";}  
+	if (Allow_CombatJackboots&&!random(0, 3)){
       RadTech.Replacement = "CombatJackboot";}  
     if (Allow_DoomedJackboots&&!random(0, 5)){
       RadTech.Replacement = "DoomedJackboot";} 
@@ -69,6 +71,5 @@ override void CheckReplacement(ReplaceEvent RadTech) {
 	RadTech.IsFinal = false;
 	}
 }
-
 
 
