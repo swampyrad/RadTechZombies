@@ -19,6 +19,8 @@ OptionMenu RadTechZombies
   StaticText ""
   Option "Allow Bayonet Zombie Spawns", "Allow_BayonetRiflemen", "OnOff"
   StaticText ""
+  Option "Allow Brawler Jackboot Spawns", "Allow_BrawlerJackboots", "OnOff"
+  StaticText ""
   Option "Allow Combat Jackboot Spawns", "Allow_CombatJackboots", "OnOff"
   StaticText ""
   Option "Allow Doomed Jackboot Spawns", "Allow_DoomedJackboots", "OnOff"
