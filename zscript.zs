@@ -1,9 +1,9 @@
 version "4.8"
 
-//10mm Rifleman a.k.a. William Gates
+//10mm Rifleman
 #include "zscript/10mmRifleman/mob_10mmRifleman.zs"
 
-//10mm Pistol a.k.a. Billy lost his rifle lol
+//10mm Pistol Zombie
 #include "zscript/10mmPistolZombie/mob_10mmpistolzombie.zs"
 
 //Doomed Shotgun Guy, attack has wider spread than normal
@@ -12,11 +12,14 @@ version "4.8"
 //Minerva Chaingun Guy, fires 9mm instead of 4mm
 #include "zscript/MinervaZombie/mob_minervazombie.zs"
 
+//Brawler Shotgun Guy, uses their shotgun as a club
+#include "zscript/BrawlerJackboot/mob_BrawlerJackboot.zs"
+
 //Combat Shotgun Guy, carries a smaller shotgun
 #include "zscript/CombatShotgunGuy/mob_CombatShotgunZombie.zs"
 
 //Riot Cop Zombie, carries a less-lethal pellet shotgun
 #include "zscript/RiotCopZombie/mob_RiotCopZombie.zs"
 
-//Zombie epawner event handler
+//RadTech Zombie Spawner event handler
 #include "zscript/RadTechZombie_Spawners.zs"
