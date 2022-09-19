@@ -12,6 +12,10 @@ version "4.8"
 //Minerva Chaingun Guy, fires 9mm instead of 4mm
 #include "zscript/MinervaZombie/mob_minervazombie.zs"
 
+//Melee Zombie, they're hungry, and you look delicious
+#include "zscript/MeleeZombie/mob_MeleeZombie.zs"
+
+
 //Brawler Shotgun Guy, uses their shotgun as a club
 #include "zscript/BrawlerJackboot/mob_BrawlerJackboot.zs"
 

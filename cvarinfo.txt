@@ -4,6 +4,8 @@ server bool Allow_10mmHomeboys = false;
 server bool Allow_10mmRiflemen = false;
 server bool Allow_BayonetRiflemen = false;
 
+server bool Allow_MeleeZombies =  false;
+
 server bool Allow_BrawlerJackboots = false;
 
 server bool Allow_CombatJackboots = false;
