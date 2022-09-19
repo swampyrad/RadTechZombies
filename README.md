@@ -22,6 +22,9 @@ Wields Less-Lethal Shotguns, members of UAC's private security firm, these undea
 - Minerva Zombies:
 Wields the Minerva 9mm Chaingun, has slower firerate, but unlike Vulcanette Zombies, they can be incapacitated.
 
+- Melee and Brawler Zombies
+Melee variants of the standard zombies, instead of shooting you, they want to beat you to a bloody pulp. Don't get cornered, or they can easily surround you if you're not careful.
+
 Minerva Minigunner Sprite Credits (copied from Realm667):
 
 Submitted: TheMightyHeracross
