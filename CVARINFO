@@ -1,0 +1,52 @@
+// Most of these are server variables so in a multiplayer session they can be synced to other players.
+// Every weapon has a comment before it's cvars based on it's name in-game for organization.
+// Hopefully this and the menu will be readable on mobile, I have no idea and no real way to test it. - [Ted]
+
+// NOTE: Values need to either be -1, 0, 2, 4, 9, 14, 19, 24, 49, 99, 149 or 199 to work for the spawners!
+// Anything else would require remaking the option values in the menus.
+// They'll still function in-game correctly, but the menus won't properly display them.
+// Stick to it please and have less "bug" reports to explain for pls. - [Ted]
+
+// --------------------
+// Enemies
+// --------------------
+
+// 10mm Riflemen
+server int tenmilrifl_zombieman_spawn_bias = 19;
+server bool tenmilrifl_persistent_spawning = false;
+
+// 10mm Pistol Zombies
+server int tenmilpis_zombieman_spawn_bias = 24;
+server bool tenmilpis_persistent_spawning = false;
+
+// Bayonet Zombiemen
+server int bayonetta_zombieman_spawn_bias = 14;
+server bool bayonetta_persistent_spawning = false;
+
+// Melee Zombiemen
+server int meleezomb_homeboy_spawn_bias = 9;
+server int meleezomb_zombieman_spawn_bias = 14;
+server int meleezomb_jackboot_spawn_bias = 14;
+server int meleezomb_chaingunner_spawn_bias = 24;
+server bool meleezomb_persistent_spawning = false;
+
+// Brawler Jackboots
+server int brawler_jackboot_spawn_bias = 9;
+server bool brawler_persistent_spawning = false;
+
+// Combat Shotgunners
+server int combshot_jackboot_spawn_bias = -1;
+server bool combshot_persistent_spawning = false;
+
+// Doomed Jackboots
+server int doomjack_jackboot_spawn_bias = 19;
+server bool doomjack_persistent_spawning = false;
+
+// Riot Police Zombies
+server int riot_jackboot_spawn_bias = -1;
+server bool riot_persistent_spawning = false;
+
+// Minerva Chaingunners
+server int minervazomb_chaingunner_spawn_bias = 9;
+server int minervazomb_herp_spawn_bias = 2;
+server bool minervazomb_persistent_spawning = false;

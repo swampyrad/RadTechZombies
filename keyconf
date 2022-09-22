@@ -1,12 +1,12 @@
-// Most of this is futureproofing, it allows for much easier creation of more advanced menus though. Helpful for the future plus funne name :) - [Ted]
-alias 10Homies_reset_cvars "resetcvar Allow_10mmHomeboys;"
-alias 10Riflemen_reset_cvars "resetcvar Allow_10mmRiflemen;"
-alias Bayonetta_reset_cvars "resetcvar Allow_BayonetRiflemen;"
-alias Brolie_reset_cvars "resetcvar Allow_BrawlerJackboots;"
-alias Walker_reset_cvars "resetcvar Allow_MeleeZombies;"
-alias CJB_reset_cvars "resetcvar Allow_CombatJackboots;"
-alias Doomer_reset_cvars "resetcvar Allow_DoomedJackboots;"
-alias Popo_reset_cvars "resetcvar Allow_RiotJackboots;"
-alias Mgunna_reset_cvars "resetcvar Allow_MinervaGunners;"
+// Futureproofing gone right. Now resets the persistence options and spawn options like RTWP. - [Ted]
+alias 10Homies_reset_cvars "resetcvar tenmilpis_zombieman_spawn_bias; resetcvar tenmilpis_persistent_spawning;"
+alias 10Riflemen_reset_cvars "resetcvar tenmilrifl_zombieman_spawn_bias; resetcvar tenmilrifl_persistent_spawning;"
+alias Bayonetta_reset_cvars "resetcvar bayonetta_zombieman_spawn_bias; resetcvar bayonetta_persistent_spawning;"
+alias Brolie_reset_cvars "resetcvar brawler_jackboot_spawn_bias; resetcvar brawler_persistent_spawning;"
+alias Walker_reset_cvars "resetcvar meleezomb_homeboy_spawn_bias; resetcvar meleezomb_zombieman_spawn_bias; resetcvar meleezomb_jackboot_spawn_bias; resetcvar meleezomb_chaingunner_spawn_bias; resetcvar meleezomb_persistent_spawning;"
+alias CJB_reset_cvars "resetcvar combshot_jackboot_spawn_bias; resetcvar combshot_persistent_spawning;"
+alias Doomer_reset_cvars "resetcvar doomjack_jackboot_spawn_bias; resetcvar doomjack_persistent_spawning;"
+alias Popo_reset_cvars "resetcvar riot_jackboot_spawn_bias; resetcvar riot_persistent_spawning;"
+alias Mgunna_reset_cvars "resetcvar minervazomb_chaingunner_spawn_bias; resetcvar minervazomb_herp_spawn_bias; resetcvar minervazomb_persistent_spawning;"
 
 alias RTZ_Reset_Cvars "10Homies_reset_cvars; 10Riflemen_reset_cvars; Bayonetta_reset_cvars; Brolie_reset_cvars; Walker_reset_cvars; CJB_reset_cvars; Doomer_reset_cvars; Popo_reset_cvars; Mgunna_reset_cvars;"
