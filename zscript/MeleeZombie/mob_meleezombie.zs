@@ -28,9 +28,10 @@ class MeleeZombie:UndeadHomeboy{
 		+SLIDESONWALLS
 
 		radius 10;
-		speed 6;
+		speed 4;
 		mass 100;
 		painchance 200;
+		obituary "%o became zombie chow.";
 		hitobituary "%o became zombie chow.";
 	}
 
@@ -99,7 +100,6 @@ override void deathdrop(){}
 		}
 		#### E 2 A_FaceTarget(6,6,FAF_TOP);
 		#### E 1 A_ChangeVelocity(cos(pitch)*8,0,sin(-pitch-frandom(-4,1))*8,CVF_RELATIVE);
-  	    //jumps less distance than brawler zombies
   	    #### ABCD 2 A_HDChase();
 		---- A 0 setstatelabel("missile");
 
