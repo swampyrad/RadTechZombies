@@ -111,7 +111,7 @@ class DoomedZombieShotgunner:HDHumanoid{
 					gunloaded=50;
 				}
 			}
-			if(wep==0){
+			if(wep==0 && dHunt_shotgun_spawn_bias > -1){
 				wp=DropNewWeapon("DoomHunter");
 				if(wp){
 					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
