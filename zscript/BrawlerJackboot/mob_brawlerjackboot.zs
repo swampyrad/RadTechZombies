@@ -1,16 +1,13 @@
 // ------------------------------------------------------------
 // Shotgun Zombie, but their gun can't shot
 //   ------------------------------------------------------------
-class BrawlerJackboot:UndeadHomeboy{
+class BrawlerJackboot:Jackboot{
 	
   override void postbeginplay(){
 		super.postbeginplay();
    
 		bhasdropped=false;
 
-	thismag=0;
-	chamber=0;
-	firemode=-1;
 	}
 
 	default{
@@ -28,7 +25,7 @@ class BrawlerJackboot:UndeadHomeboy{
 		+SLIDESONWALLS
 
 		radius 10;
-		speed 10;
+		speed 8;
 		mass 100;
 		painchance 200;
 		hitobituary "%o got headbutted by a brawler zombie.";
@@ -98,7 +95,7 @@ override void deathdrop(){}
 			A_Changevelocity(cos(pitch)*2,0,sin(-pitch)*2,CVF_RELATIVE);
 		}
 		#### E 2 A_FaceTarget(6,6,FAF_TOP);
-		#### E 1 A_ChangeVelocity(cos(pitch)*12,0,sin(-pitch-frandom(-4,1))*12,CVF_RELATIVE);
+		#### E 1 A_ChangeVelocity(cos(pitch)*8,0,sin(-pitch-frandom(-4,1))*8,CVF_RELATIVE);
   	  #### ABCD 2 A_HDChase();
 		---- A 0 setstatelabel("missile");
 
