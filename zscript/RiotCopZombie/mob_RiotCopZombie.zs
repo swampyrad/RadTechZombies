@@ -7,24 +7,17 @@ class RiotCopZombieReplacer:RandomSpawner{
 	}
 }
 
-class RiotCopZombie:RiotCopZombieShotgunner{default{
-		//$Category "Monsters/Hideous Destructor"
-		//$Title "Shotgun Guy (Pump)"
-		//$Sprite "SPOSA1"
-		accuracy 1;
-}}
-
-class RiotCopZombieShotgunner:HDHumanoid{
+class RiotCopZombie:Jackboot{
 	default{
 		//$Category "Monsters/Hideous Destructor"
 		//$Title "Riot Cop Shotgun Zombie"
-		//$Sprite "SPOSA1"
+		//$Sprite "RCOPA1"
 
 		seesound "shotguy/sight";
 		painsound "shotguy/pain";
 		deathsound "shotguy/death";
 		activesound "shotguy/active";
-		tag "riot jackboot";
+		tag "UAC Police";
 
 		speed 10;
 		decal "BulletScratch";
@@ -32,7 +25,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		meleedamage 4;
 		maxtargetrange 4000;
 		painchance 200;
-		accuracy 0;
+		accuracy 1;
 
 		//placeholder
 		obituary "%o thought less-lethal meant non-lethal.";
@@ -49,26 +42,19 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		super.beginplay();
 		bhasdropped=0;
 
-		//-1 zm66, 0 sg, 1 ssg
-		if(!accuracy) wep=random(0,1)-random(0,1);
-		else if(accuracy==1)wep=0;
-		else if(accuracy==2)wep=1;
-		else if(accuracy==3)wep=-1;
-
-		//if no ssg, sg
-		if(Wads.CheckNumForName("SHT2B0",wads.ns_sprites,-1,false)<0&&wep==1)wep=0;
+		wep=0;
 	}
 	override void postbeginplay(){
 		super.postbeginplay();
 
-			bhashelmet=true;
-			sprite=GetSpriteIndex("PLAYA1");
-			A_SetTranslation("RiotCopZombie");
-			//gunloaded=random(10,50);
-     gunloaded=random(3,6);//5+1=6
-     givearmour(1.,0.06,-0.4);
-     choke=0;//no choke on combat shotgun
-  		semi=0;//no semiauto on combat shotgun
+		bhashelmet=false;
+		sprite=GetSpriteIndex("RCOPA1");
+			
+        gunloaded=random(2,6);
+        givearmour(1.,0.06,-0.4);
+        choke=0;//no choke 
+  		semi=0;//no semiauto
+  		jammed=false;//just in case
 	}
 
 	override void deathdrop(){
@@ -95,7 +81,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 			{
 				wp=DropNewWeapon("LLHunter");
 				if(wp){
-					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
+					wp.weaponstatus[HUNTS_FIREMODE]=0;
 					if(gunspent)wp.weaponstatus[HUNTS_CHAMBER]=1;
 					else if(gunloaded>0){
 						wp.weaponstatus[HUNTS_CHAMBER]=2;
@@ -116,8 +102,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 	}
 	states{
 	spawn:
-		SPOS A 0 nodelay A_JumpIf(wep>=0,"spawn2");
-		PLAY A 0;
+		RCOP A 0;
 	idle:
 	spawn2:
 		#### EEEEEE 1{
@@ -361,7 +346,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	xxxdeath:
-		#### M 0 A_JumpIf(wep<0,"xxxdeath2");
+		SPOS M 0 A_JumpIf(wep<0,"xxxdeath2");
 		#### M 5;
 		#### N 5 A_XScream();
 		#### OPQRST 5;
@@ -399,7 +384,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		#### W 5 canraise{if(abs(vel.z)>=2.)setstatelabel("xdead2");}
 		wait;
 	raise:
-		#### A 0{
+		RCOP A 0{
 			jammed=false;
 		}
 		#### L 4 spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
@@ -407,7 +392,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 		#### JIH 4;
 		#### A 0 A_Jump(256,"see");
 	ungib:
-		#### U 12;
+		SPOS U 12;
 		#### T 8;
 		#### SRQ 6;
 		#### PON 4;
@@ -415,9 +400,7 @@ class RiotCopZombieShotgunner:HDHumanoid{
 	}
 }
 
-class DeadRiotCopZombie:DeadRiotCopZombieShotgunner{default{accuracy 1;}}
-
-class DeadRiotCopZombieShotgunner:RiotCopZombieShotgunner{
+class DeadRiotCopZombie:RiotCopZombie{
 	override void postbeginplay(){
 		super.postbeginplay();
 		A_Die("spawndead");
@@ -428,4 +411,3 @@ class DeadRiotCopZombieShotgunner:RiotCopZombieShotgunner{
 		goto dead;
 	}
 }
-
