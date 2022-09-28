@@ -117,17 +117,17 @@ sprite RCOPE1, 26,58{
 }
 
 sprite RCOPE2E8, 39,57{
-    offset 18, 57
+    offset 34, 57
     patch RCOPE2E8,0,0
 }
 
 sprite RCOPE3E7, 44,59{
-    offset 22, 59
+    offset 30, 59
     patch RCOPE3E7,0,0
 }
 
 sprite RCOPE4E6, 34,58{
-    offset 17, 58
+    offset 25, 58
     patch RCOPE4E6,0,0
 }
 
@@ -144,17 +144,17 @@ sprite RCOPF1, 26,58{
 }
 
 sprite RCOPF2F8, 43,57{
-    offset 22, 57
+    offset 30, 57
     patch RCOPF2F8,0,0
 }
 
 sprite RCOPF3F7, 49,59{
-    offset 20, 59
+    offset 36, 59
     patch RCOPF3F7,0,0
 }
 
 sprite RCOPF4F6, 41,58{
-    offset 24, 58
+    offset 28, 58
     patch RCOPF4F6,0,0
 }
 
