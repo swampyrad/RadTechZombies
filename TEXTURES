@@ -1,0 +1,244 @@
+//UAC Police sprites by Swampyrad
+//based off Bloodless Sargeant sprites by HorrorMovieRei
+//police cap based off Wolfensten 3D Nazi Guard sprites
+//from Spriter's Resource, ripped by Grim
+
+sprite RCOPA1, 36,58{
+    offset 18, 58
+    patch RCOPA1,0,0
+}
+
+sprite RCOPA2A8, 32,57{
+    offset 16, 57
+    patch RCOPA2A8,0,0
+}
+
+sprite RCOPA3A7, 40,59{
+    offset 20, 59
+    patch RCOPA3A7,0,0
+}
+
+sprite RCOPA4A6, 45,58{
+    offset 22, 58
+    patch RCOPA4A6,0,0
+}
+
+sprite RCOPA5, 35,56{
+    offset 17, 56
+    patch RCOPA5,0,0
+}
+
+
+
+sprite RCOPB1, 35,58{
+    offset 17, 58
+    patch RCOPB1,0,0
+}
+
+sprite RCOPB2B8, 27,57{
+    offset 13, 57
+    patch RCOPB2B8,0,0
+}
+
+sprite RCOPB3B7, 32,59{
+    offset 16, 59
+    patch RCOPB3B7,0,0
+}
+
+sprite RCOPB4B6, 40,58{
+    offset 20, 58
+    patch RCOPB4B6,0,0
+}
+
+sprite RCOPB5, 34,56{
+    offset 17, 56
+    patch RCOPB5,0,0
+}
+
+
+
+sprite RCOPC1, 32,58{
+    offset 16, 58
+    patch RCOPC1,0,0
+}
+
+sprite RCOPC2C8, 29,57{
+    offset 14, 57
+    patch RCOPC2C8,0,0
+}
+
+sprite RCOPC3C7, 38,59{
+    offset 19, 59
+    patch RCOPC3C7,0,0
+}
+
+sprite RCOPC4C6, 39,58{
+    offset 19, 58
+    patch RCOPC4C6,0,0
+}
+
+sprite RCOPC5, 34,56{
+    offset 17, 56
+    patch RCOPC5,0,0
+}
+
+
+
+sprite RCOPD1, 34,58{
+    offset 17, 58
+    patch RCOPD1,0,0
+}
+
+sprite RCOPD2D8, 28,57{
+    offset 14, 57
+    patch RCOPD2D8,0,0
+}
+
+sprite RCOPD3D7, 30,59{
+    offset 15, 59
+    patch RCOPD3D7,0,0
+}
+
+sprite RCOPD4D6, 38,58{
+    offset 19, 58
+    patch RCOPD4D6,0,0
+}
+
+sprite RCOPD5, 35,56{
+    offset 17, 56
+    patch RCOPD5,0,0
+}
+
+
+
+sprite RCOPE1, 26,58{
+    offset 13, 58
+    patch RCOPE1,0,0
+}
+
+sprite RCOPE2E8, 39,57{
+    offset 18, 57
+    patch RCOPE2E8,0,0
+}
+
+sprite RCOPE3E7, 44,59{
+    offset 22, 59
+    patch RCOPE3E7,0,0
+}
+
+sprite RCOPE4E6, 34,58{
+    offset 17, 58
+    patch RCOPE4E6,0,0
+}
+
+sprite RCOPE5, 26,56{
+    offset 13, 56
+    patch RCOPE5,0,0
+}
+
+
+
+sprite RCOPF1, 26,58{
+    offset 13, 58
+    patch RCOPF1,0,0
+}
+
+sprite RCOPF2F8, 43,57{
+    offset 22, 57
+    patch RCOPF2F8,0,0
+}
+
+sprite RCOPF3F7, 49,59{
+    offset 20, 59
+    patch RCOPF3F7,0,0
+}
+
+sprite RCOPF4F6, 41,58{
+    offset 24, 58
+    patch RCOPF4F6,0,0
+}
+
+sprite RCOPF5, 26,56{
+    offset 13, 56
+    patch RCOPF5,0,0
+}
+
+
+
+sprite RCOPG1, 31,60{
+    offset 13, 60
+    patch RCOPG1,0,0
+}
+
+sprite RCOPG2G8, 33,60{
+    offset 16, 60
+    patch RCOPE2E8,0,0
+}
+
+sprite RCOPG3G7, 43,60{
+    offset 21, 60
+    patch RCOPG3G7,0,0
+}
+
+sprite RCOPG4G6, 43,60{
+    offset 21, 60
+    patch RCOPG4G6,0,0
+}
+
+sprite RCOPG5, 31,60{
+    offset 15, 60
+    patch RCOPG5,0,0
+}
+
+
+
+sprite RCOPH0, 33,60{
+    offset 16, 60
+    patch RCOPH0,0,0
+}
+
+sprite RCOPI0, 35,60{
+    offset 14, 60
+    patch RCOPI0,0,0
+}
+
+sprite RCOPJ0, 42,60{
+    offset 21, 60
+    patch RCOPJ0,0,0
+}
+
+sprite RCOPK0, 48,60{
+    offset 24, 60
+    patch RCOPK0,0,0
+}
+
+sprite RCOPL0, 52,60{
+    offset 26, 60
+    patch RCOPL0,0,0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
