@@ -30,12 +30,14 @@ OptionMenu RadTechZombies
   StaticText ""
   Submenu "Minerva Minigunners", "MinervaGunners", 0, 1
   StaticText ""
+  /* i fixed them, they work now :3
   StaticText "------------", "Yellow"
   StaticText ""
   StaticText "Warning:", "red"
   StaticText "These enemies are still WIP, and they may not behave normally.", "grey"
   StaticText "Please bear that in mind if you plan on loading them anyways.", "grey"
   StaticText ""
+  */
   Submenu "Combat Shotgunners", "CombatShotgunners", 0, 1
   StaticText ""
   Submenu "Riot Police Jackboots", "RiotPoliceJackboots", 0, 1
