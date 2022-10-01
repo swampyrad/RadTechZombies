@@ -172,7 +172,7 @@ sprite RCOPG1, 31,60{
 
 sprite RCOPG2G8, 33,60{
     offset 16, 60
-    patch RCOPE2E8,0,0
+    patch RCOPG2G8,0,0
 }
 
 sprite RCOPG3G7, 43,60{
