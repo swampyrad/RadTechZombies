@@ -2,7 +2,7 @@ class CombatJackboot:HDHumanoid{
 	default{
 		//$Category "Monsters/Hideous Destructor"
 		//$Title "Combat Shotgun Guy"
-		//$Sprite "SPOSA1"
+		//$Sprite "PLAYA1"
 
 		seesound "shotguy/sight";
 		painsound "shotguy/pain";
@@ -101,7 +101,6 @@ class CombatJackboot:HDHumanoid{
 	}
 	states{
 	spawn:
-		SPOS A 0 nodelay A_JumpIf(wep>=0,"spawn2");
 		PLAY A 0;
 	idle:
 	spawn2:
@@ -153,114 +152,64 @@ class CombatJackboot:HDHumanoid{
 
 	see:
 		#### A 0{
-			//if(jammed)return;
-		 if(gunloaded<1)setstatelabel("reload");
-			else if(!gunspent>0)setstatelabel("chambersg");
+			if(jammed)return;
+			else if(gunloaded<1)setstatelabel("reload");
+			else if(!wep&&gunspent>0)setstatelabel("chambersg");
 		}
 		#### ABCD 4 A_HDChase();
-		#### A 0 A_JumpIfTargetInLOS("see");
-		#### A 0 A_Jump(16,"roam");
+		#### A 0 A_Jump(116,"roam","roam","roam","roam2","roam2");
 		loop;
 	roam:
-		#### A 0 A_Jump(60,"roam2");
-	roam1:
-		#### E 4{bmissileevenmore=true;}
-		#### EEEE 3 A_HDChase("melee","turnaround",CHF_DONTMOVE);
-		#### A 0{bmissileevenmore=false;}
+		#### EEEE 3 A_Watch();
 		#### A 0 A_Jump(60,"roam");
 	roam2:
-		#### A 0 A_Jump(8,"see");
-		#### ABCD 6 A_HDChase();
-		#### A 0 A_Jump(200,"Roam");
-		#### A 0 A_JumpIfTargetInLOS("see");
+		#### A 0 A_JumpIf(targetinsight||!random(0,31),"see");
+		#### ABCD 6 A_HDChase(speedmult:0.6);
+		#### A 0 A_Jump(80,"roam");
 		loop;
-	turnaround:
-		#### A 0 A_FaceTarget(15,0);
-		#### E 2 A_JumpIfTargetInLOS("missile2",40);
-		#### A 0 A_FaceTarget(15,0);
-		#### E 2 A_JumpIfTargetInLOS("missile2",40);
-		#### ABCD 3 A_HDChase();
-		---- A 0 setstatelabel("see");
 
 	missile:
-		#### A 0 A_JumpIfTargetInLOS(3,120);
-		#### CD 2 A_FaceTarget(90,90);
-		#### E 1 A_SetTics(random(3,7)); //when they just start to aim,not for followup shots!
-		#### A 0 A_JumpIf(!hdmobai.tryshoot(self,pradius:5,pheight:5),"see");
-	missile2:
-		#### A 0{
-			if(!target){
-				setstatelabel("see");
-				return;
-			}
-			double dist=distance3d(target);
-			if(dist<300){
-				turnamount=40;
-			}else if(dist<800){
-				turnamount=30;
-			}else{
-				turnamount=20;
-			}
-		}//fallthrough to turntoaim
-	turntoaim:
-		#### E 2 A_FaceTarget(turnamount,turnamount);
-		#### A 0 A_JumpIfTargetInLOS(2);
-		---- A 0 setstatelabel("see");
-		#### A 0 A_JumpIfTargetInLOS(1,10);
+		#### ABCD 3 A_TurnToAim(40,shootstate:"aiming");
 		loop;
-		#### A 0 A_FaceTarget(turnamount,turnamount);
-		#### E 1 A_SetTics(random(1,100/clamp(1,turnamount,turnamount+1)+6));
-		#### E 0{
-			if(
-				gunloaded<1
-			){
-				setstatelabel("ohforfuckssake");
-				return;
-			}
-			shotspread=frandom(0.07,0.27)*turnamount;
-			setstatelabel("shoot");
-		}
+	aiming:
+		#### E 1 A_StartAim(rate:0.88,maxtics:random(10,40));
+		//fallthrough to shoot
 	shoot:
-		#### E 1 A_JumpIf(jammed,"jammed");
+		#### E 2 A_LeadTarget(tics);
 		#### E 0{
 			if(gunloaded<1){
 				setstatelabel("ohforfuckssake");
 				return;
 			}
-			if(wep==1)shotspread*=0.8;
-			angle+=frandom(0,shotspread)-frandom(0,shotspread);
-			pitch+=frandom(0,shotspread)-frandom(0,shotspread);
+			angle+=frandom(0,spread)-frandom(0,spread);
+			pitch+=frandom(0,spread)-frandom(0,spread);
 
-			pitch+=frandom(0,0.3);  //anticipate recoil
-
-    setstatelabel("shootsg");
+			setstatelabel("shootsg");
 		}
 
+	
 	shootsg:
 		#### F 1 bright light("SHOT"){
 			if(gunspent>0){
 				setstatelabel("chambersg");
 				return;
-			}else if(vel dot vel > 400){
-				setstatelabel("see");
-				return;
 			}
-
-			if(Hunter.Fire(self,choke)<=Hunter.HUNTER_MINSHOTPOWER)semi=false;
+			Hunter.Fire(self,choke);
+			semi=false;
 			gunspent=1;
 		}
 		#### E 3;
 		#### E 1{
 			if(gunspent)setstatelabel("chambersg");
-			else A_SetTics(random(3,7));
+			else A_SetTics(random(3,8));
 		}
 		#### E 0 A_Jump(127,"see");
-		#### E 0 A_SpidRefire();
-		goto turntoaim;
+		#### E 0 A_Jump(32,"missile");
+		---- A 0 setstatelabel("roam");
 	chambersg:
 		#### E 8{
 			if(gunspent){
-				A_SetTics(random(3,7));
+				A_SetTics(random(3,10));
 				A_StartSound("weapons/huntrack",8);
 				gunspent=0;
 				if(gunloaded>0)gunloaded--;
@@ -268,16 +217,15 @@ class CombatJackboot:HDHumanoid{
 					cos(pitch)*8,0,height-7-sin(pitch)*8,
 					vel.x+cos(pitch)*cos(angle-random(86,90))*6,
 					vel.y+cos(pitch)*sin(angle-random(86,90))*6,
-					vel.z+sin(pitch)*random(1,3),0,
+					vel.z+sin(pitch)*random(5,7),0,
 					SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH
 				);
 			}
-			semi=false;//no semiauto!
+			
 		}
-		#### E 1 A_SetTics(random(3,7));
+		#### E 1 A_SetTics(random(3,8));
 		#### E 0 A_Jump(127,"see");
-		#### E 0 A_SpidRefire();
-		goto turntoaim;
+		goto roam;
 
 	jammed:
 		#### E 8;
@@ -287,39 +235,36 @@ class CombatJackboot:HDHumanoid{
 
 	ohforfuckssake:
 		#### E 6;
-
 	reload:
 		#### A 0 setstatelabel("reloadsg");
+	
 	reloadsg:
-		#### A 0{bfrightened=true;}
 		#### A 2 A_HDChase("melee",null);
 		#### A 0 A_StartSound("weapons/huntopen",8);
-		#### BCDA 2 A_HDChase("melee",null);
+		#### BCDA 2 A_HDChase("melee",null,flags:CHF_FLEE);
 	reloadsg2:
-		#### A 0{if(!threat)threat=target;}
 		#### BB 3 A_HDWander(flags:CHF_FLEE);
 		#### B 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
-			if(gunloaded>5)setstatelabel("reloadsgend");
+			if(gunloaded>=6)setstatelabel("reloadsgend");
 		}
 		#### CC 3 A_HDWander(flags:CHF_FLEE);
 		#### C 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
-			if(gunloaded>5)setstatelabel("reloadsgend");
+			if(gunloaded>=6)setstatelabel("reloadsgend");
 		}
 		#### DD 3 A_HDChase("melee",null,CHF_FLEE);
 		#### D 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
-			if(gunloaded>5)setstatelabel("reloadsgend");
+			if(gunloaded>=6)setstatelabel("reloadsgend");
 		}
 		#### A 0 A_StartSound("weapons/pocket",9);
 		#### ABCDA 2 A_HDWander();
 		loop;
 	reloadsgend:
-		#### A 0{bfrightened=false;}
 		#### BCD 3 A_HDWander(flags:CHF_FLEE);
 		#### A 0 A_StartSound("weapons/huntopen",8);
 		#### E 4 A_HDChase("melee","missile",CHF_DONTMOVE);
@@ -331,9 +276,8 @@ class CombatJackboot:HDHumanoid{
 		#### G 0{
 			A_ShoutAlert(0.2,SAF_SILENT);
 			if(target&&distance3d(target)<100)setstatelabel("see");
-			bfrightened=true;
 		}
-		#### ABCD 2 A_HDChase();
+		#### ABCD 2 A_HDChase(flags:CHF_FLEE);
 		#### G 0{bfrightened=false;}
 		---- A 0 setstatelabel("see");
 
@@ -346,7 +290,7 @@ class CombatJackboot:HDHumanoid{
 		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	xxxdeath:
-		#### M 0 A_JumpIf(wep<0,"xxxdeath2");
+		SPOS M 0 A_JumpIf(wep<0,"xxxdeath2");
 		#### M 5;
 		#### N 5 A_XScream();
 		#### OPQRST 5;
@@ -384,7 +328,7 @@ class CombatJackboot:HDHumanoid{
 		#### W 5 canraise{if(abs(vel.z)>=2.)setstatelabel("xdead2");}
 		wait;
 	raise:
-		#### A 0{
+		RCOP A 0{
 			jammed=false;
 		}
 		#### L 4 spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
@@ -392,14 +336,13 @@ class CombatJackboot:HDHumanoid{
 		#### JIH 4;
 		#### A 0 A_Jump(256,"see");
 	ungib:
-		#### U 12;
+		SPOS U 12;
 		#### T 8;
 		#### SRQ 6;
 		#### PON 4;
-		#### A 0 A_Jump(256,"see");
+		RCOP A 0 A_Jump(256,"see");
 	}
 }
-
 
 class DeadCombatJackboot:CombatJackboot{
 	override void postbeginplay(){
