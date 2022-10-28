@@ -297,12 +297,12 @@ states{
 		#### OPQRST 5;
 		goto xdead;
 	xxxdeath2:
-		#### O 5;
+		SPOS O 5;
 		#### P 5 A_XScream();
 		#### QRSTUV 5;
 		goto xdead2;
 	xdeath:
-		#### M 0 A_JumpIf(wep<0,"xdeath2");
+		SPOS M 0 A_JumpIf(wep<0,"xdeath2");
 		#### M 5;
 		#### N 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
@@ -316,7 +316,7 @@ states{
 		#### U 5 canraise{if(abs(vel.z)>=2.)setstatelabel("xdead");}
 		wait;
 	xdeath2:
-		#### O 5;
+		SPOS O 5;
 		#### P 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
 			A_XScream();
