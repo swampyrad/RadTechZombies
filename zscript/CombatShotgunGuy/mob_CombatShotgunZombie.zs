@@ -39,7 +39,7 @@ class CombatJackboot:HDHumanoid{
 		super.postbeginplay();
 
 			bhashelmet=true;
-			sprite=GetSpriteIndex("PLAYA1");
+			sprite=GetSpriteIndex("RCOPA1");
 			A_SetTranslation("BlackRedshirt");
      gunloaded=random(3,6);//5+1=6
      givearmour(1.,0.06,-0.4);
@@ -101,7 +101,7 @@ class CombatJackboot:HDHumanoid{
 	}
 	states{
 	spawn:
-		PLAY A 0;
+		RCOP A 0;
 	idle:
 	spawn2:
 		#### EEEEEE 1{
