@@ -93,7 +93,7 @@ override void deathdrop(){}
 			}
 		}
 		---- A 0 setstatelabel("see");
-	:
+	
 		/*
 		#### E 3 A_FaceTarget(16,16);
 		#### E 3{
