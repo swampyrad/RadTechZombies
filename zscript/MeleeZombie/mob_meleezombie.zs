@@ -89,18 +89,21 @@ override void deathdrop(){}
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
 			if(A_JumpIfTargetInLOS("null",20,0,128)){
 				A_Vocalize(seesound);
-				setstatelabel("jump");
+				setstatelabel("hunger");
 			}
 		}
 		---- A 0 setstatelabel("see");
-	jump:
+	:
+		/*
 		#### E 3 A_FaceTarget(16,16);
 		#### E 3{
 			A_Changevelocity(cos(pitch)*2,0,sin(-pitch)*2,CVF_RELATIVE);
 		}
 		#### E 2 A_FaceTarget(6,6,FAF_TOP);
 		#### E 1 A_ChangeVelocity(cos(pitch)*8,0,sin(-pitch-frandom(-4,1))*8,CVF_RELATIVE);
-  	    #### ABCD 2 A_HDChase();
+		*/
+  	    
+	    #### ABCD 2 A_HDChase();
 		---- A 0 setstatelabel("missile");
 
 	pain:
