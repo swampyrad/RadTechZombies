@@ -23,7 +23,8 @@ class MeleeZombie:UndeadHomeboy{
 		deathsound "grunt/death";
 		activesound "grunt/active";
 		tag "melee zombie";
-
+        
+        +ambush
 		+dropoff
 		+SLIDESONWALLS
 
@@ -41,11 +42,11 @@ override void deathdrop(){}
 	spawn:
 		POSS E 1{
 			A_HDLook();
-			A_Recoil(frandom(-0.1,0.1));
+			//A_Recoil(frandom(-0.1,0.1));
 		}
 		#### EEE random(5,17) A_HDLook();
 		#### E 1{
-			A_Recoil(frandom(-0.1,0.1));
+			//A_Recoil(frandom(-0.1,0.1));
 			A_SetTics(random(10,40));
 		}
 		#### B 0 A_Jump(28,"spawngrunt");
@@ -54,9 +55,9 @@ override void deathdrop(){}
 		loop;
 	spawngrunt:
 		POSS G 1{
-			A_Recoil(frandom(-0.4,0.4));
+			//A_Recoil(frandom(-0.4,0.4));
 			A_SetTics(random(30,80));
-			if(!random(0,7))A_Vocalize(activesound);
+			//if(!random(0,7))A_Vocalize(activesound);
 		}
 		#### A 0 A_Jump(256,"spawn");
 	spawnswitch:
@@ -64,11 +65,11 @@ override void deathdrop(){}
 		goto spawnwander;
 	spawnstill:
 		#### A 0 A_Look();
-		#### A 0 A_Recoil(random(-1,1)*0.4);
+		//#### A 0 A_Recoil(random(-1,1)*0.4);
 		#### CD 5 A_SetAngle(angle+random(-4,4));
 		#### A 0{
 			A_Look();
-			if(!random(0,127))A_Vocalize(activesound);
+			//if(!random(0,127))A_Vocalize(activesound);
 		}
 		#### AB 5 A_SetAngle(angle+random(-4,4));
 		#### B 1 A_SetTics(random(10,40));
@@ -79,31 +80,22 @@ override void deathdrop(){}
 		loop;
 
 	see:
-		#### ABCD random(3,4) A_HDChase();
+		#### ABCD random(4,5) A_HDChase();
 		loop;
 
 	missile://lunge code borrowed from babuin latch attack 
-		#### ABCD 2{
+		#### ABCD 4{
 			A_FaceTarget(16,16);
 			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
 			if(A_JumpIfTargetInLOS("null",20,0,128)){
-				A_Vocalize(seesound);
+				//A_Vocalize(seesound);
 				setstatelabel("hunger");
 			}
 		}
 		---- A 0 setstatelabel("see");
-	
-		/*
-		#### E 3 A_FaceTarget(16,16);
-		#### E 3{
-			A_Changevelocity(cos(pitch)*2,0,sin(-pitch)*2,CVF_RELATIVE);
-		}
-		#### E 2 A_FaceTarget(6,6,FAF_TOP);
-		#### E 1 A_ChangeVelocity(cos(pitch)*8,0,sin(-pitch-frandom(-4,1))*8,CVF_RELATIVE);
-		*/
-  	    
-	    #### ABCD 2 A_HDChase();
+	hunger:
+	    #### ABCD 3 A_HDChase();
 		---- A 0 setstatelabel("missile");
 
 	pain:
