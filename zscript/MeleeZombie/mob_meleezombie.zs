@@ -25,9 +25,10 @@ class MeleeZombie:UndeadHomeboy{
 		tag "melee zombie";
         
         +ambush
-		+dropoff
+		-nodropoff
 		+SLIDESONWALLS
 
+        scale 1.1;
 		radius 10;
 		speed 4;
 		mass 100;
@@ -40,12 +41,12 @@ override void deathdrop(){}
 
 	states{
 	spawn:
-		POSS E 1{
+		ZOMB F 1{
 			A_HDLook();
 			//A_Recoil(frandom(-0.1,0.1));
 		}
-		#### EEE random(5,17) A_HDLook();
-		#### E 1{
+		#### FFF random(5,17) A_HDLook();
+		#### F 1{
 			//A_Recoil(frandom(-0.1,0.1));
 			A_SetTics(random(10,40));
 		}
@@ -54,7 +55,7 @@ override void deathdrop(){}
 		#### B 8 A_Recoil(frandom(-0.2,0.2));
 		loop;
 	spawngrunt:
-		POSS G 1{
+		ZOMB G 1{
 			//A_Recoil(frandom(-0.4,0.4));
 			A_SetTics(random(30,80));
 			//if(!random(0,7))A_Vocalize(activesound);
@@ -86,7 +87,6 @@ override void deathdrop(){}
 	missile://lunge code borrowed from babuin latch attack 
 		#### ABCD 4{
 			A_FaceTarget(16,16);
-			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
 			if(A_JumpIfTargetInLOS("null",20,0,128)){
 				//A_Vocalize(seesound);
@@ -95,11 +95,11 @@ override void deathdrop(){}
 		}
 		---- A 0 setstatelabel("see");
 	hunger:
-	    #### ABCD 3 A_HDChase();
+	    #### FFEE 2 A_HDChase();
 		---- A 0 setstatelabel("missile");
 
 	pain:
-		POSS G 2;
+		ZOMB G 2;
 		#### G 3 A_Vocalize(painsound);
 		#### G 0{
 			A_ShoutAlert(0.1,SAF_SILENT);
@@ -120,25 +120,25 @@ override void deathdrop(){}
 		#### G 0{bfrightened=false;}
 		---- A 0 setstatelabel("see");
 	death:
-		POSS H 5;
+		#### H 5;
 		#### I 5 A_Vocalize(deathsound);
 		#### J 5 A_NoBlocking();
 		#### K 5;
 	dead:
-		POSS K 3 canraise{if(abs(vel.z)<2.)frame++;}
-		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
+		#### L 3 canraise{if(abs(vel.z)<2.)frame++;}
+		#### M 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	xxxdeath:
-		POSS M 5;
-		#### N 5{
+		POSS L 5;
+		#### M 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
 			A_XScream();
 		}
 		#### OPQRST 5;
 		goto xdead;
 	xdeath:
-		POSS M 5;
-		#### N 5{
+		POSS L 5;
+		#### M 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
 			A_XScream();
 		}
@@ -151,7 +151,7 @@ override void deathdrop(){}
 		#### U 5 canraise A_JumpIf(abs(vel.z)>=2.,"xdead");
 		wait;
 	raise:
-		POSS L 4;
+		ZOMB L 4;
 		#### LK 6;
 		#### JIH 4;
 		#### A 0 A_Jump(256,"see");
@@ -160,7 +160,7 @@ override void deathdrop(){}
 		#### T 8;
 		#### SRQ 6;
 		#### PONM 4;
-		POSS A 0 A_Jump(256,"see");
+		ZOMB A 0 A_Jump(256,"see");
 	}
 
 }
