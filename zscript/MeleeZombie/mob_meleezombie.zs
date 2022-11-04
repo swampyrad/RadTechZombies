@@ -24,11 +24,11 @@ class MeleeZombie:UndeadHomeboy{
 		activesound "grunt/active";
 		tag "melee zombie";
         
-        +ambush
+        	+ambush
 		-nodropoff
 		+SLIDESONWALLS
 
-        scale 1.1;
+        	scale 1.2;
 		radius 10;
 		speed 4;
 		mass 100;
@@ -87,6 +87,7 @@ override void deathdrop(){}
 	missile://lunge code borrowed from babuin latch attack 
 		#### ABCD 4{
 			A_FaceTarget(16,16);
+			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
 			if(A_JumpIfTargetInLOS("null",20,0,128)){
 				//A_Vocalize(seesound);
@@ -95,7 +96,7 @@ override void deathdrop(){}
 		}
 		---- A 0 setstatelabel("see");
 	hunger:
-	    #### FFEE 2 A_HDChase();
+	    #### FFEE 3 A_HDChase();
 		---- A 0 setstatelabel("missile");
 
 	pain:
