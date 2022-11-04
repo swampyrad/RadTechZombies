@@ -24,11 +24,11 @@ class MeleeZombie:UndeadHomeboy{
 		activesound "grunt/active";
 		tag "melee zombie";
         
-        	+ambush
+    	+ambush
 		-nodropoff
 		+SLIDESONWALLS
 
-        	scale 1.2;
+    	scale 1.2;
 		radius 10;
 		speed 4;
 		mass 100;
@@ -37,8 +37,15 @@ class MeleeZombie:UndeadHomeboy{
 		hitobituary "%o became zombie chow.";
 	}
 
-override void deathdrop(){}
-
+    override void deathdrop(){
+        if (!bhasdropped){
+            bhasdropped=true;
+            DropNewItem("HD9mMag15",16);
+			DropNewItem("ClipMagPickup",8);
+			DropNewItem("HDHandgunRandomDrop",4);
+		}
+    }
+    
 	states{
 	spawn:
 		ZOMB F 1{
