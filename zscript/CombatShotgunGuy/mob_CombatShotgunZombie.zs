@@ -39,7 +39,7 @@ class CombatJackboot:HDHumanoid{
 		super.postbeginplay();
 
 			bhashelmet=true;
-			sprite=GetSpriteIndex("PLAYA1");
+			sprite=GetSpriteIndex("RCOPA1");
 			A_SetTranslation("BlackRedshirt");
      gunloaded=random(3,6);//5+1=6
      givearmour(1.,0.06,-0.4);
@@ -101,7 +101,7 @@ class CombatJackboot:HDHumanoid{
 	}
 	states{
 	spawn:
-		PLAY A 0;
+		RCOP A 0;
 	idle:
 	spawn2:
 		#### EEEEEE 1{
@@ -296,12 +296,12 @@ class CombatJackboot:HDHumanoid{
 		#### OPQRST 5;
 		goto xdead;
 	xxxdeath2:
-		#### O 5;
+		SPOS O 5;
 		#### P 5 A_XScream();
 		#### QRSTUV 5;
 		goto xdead2;
 	xdeath:
-		#### M 0 A_JumpIf(wep<0,"xdeath2");
+		SPOS M 0 A_JumpIf(wep<0,"xdeath2");
 		#### M 5;
 		#### N 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
@@ -315,7 +315,7 @@ class CombatJackboot:HDHumanoid{
 		#### U 5 canraise{if(abs(vel.z)>=2.)setstatelabel("xdead");}
 		wait;
 	xdeath2:
-		#### O 5;
+		SPOS O 5;
 		#### P 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
 			A_XScream();

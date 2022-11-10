@@ -217,6 +217,243 @@ sprite RCOPL0, 52,60{
     patch RCOPL0,0,0
 }
 
+//Melee Zombie sprites (made by CaptainToenail)
+
+sprite ZOMBA1, 24,47{
+    offset 12, 47
+    patch ZOMBA1,0,0
+}
+
+sprite ZOMBA2A8, 30,47{
+    offset 15, 47
+    patch ZOMBA2A8,0,0
+}
+
+sprite ZOMBA3A7, 32,47{
+    offset 16, 47
+    patch ZOMBA3A7,0,0
+}
+
+sprite ZOMBA4A6, 24,47{
+    offset 12, 47
+    patch ZOMBA4A6,0,0
+}
+
+sprite ZOMBA5, 24,47{
+    offset 12, 47
+    patch ZOMBA5,0,0
+}
+
+sprite ZOMBB1, 24,47{
+    offset 12, 47
+    patch ZOMBB1,0,0
+}
+
+sprite ZOMBB2B8, 30,47{
+    offset 15, 47
+    patch ZOMBB2B8,0,0
+}
+
+sprite ZOMBB3B7, 32,47{
+    offset 16, 47
+    patch ZOMBB3B7,0,0
+}
+
+sprite ZOMBB4B6, 24,47{
+    offset 12, 47
+    patch ZOMBB4B6,0,0
+}
+
+sprite ZOMBB5, 24,47{
+    offset 12, 47
+    patch ZOMBB5,0,0
+}
+
+sprite ZOMBC1, 24,47{
+    offset 12, 47
+    patch ZOMBC1,0,0
+}
+
+sprite ZOMBC2C8, 30,47{
+    offset 15, 47
+    patch ZOMBC2C8,0,0
+}
+
+sprite ZOMBC3C7, 32,47{
+    offset 16, 47
+    patch ZOMBA3A7,0,0
+}
+
+sprite ZOMBC4C6, 24,47{
+    offset 12, 47
+    patch ZOMBC4C6,0,0
+}
+
+sprite ZOMBC5, 24,47{
+    offset 12, 47
+    patch ZOMBC5,0,0
+}
+
+sprite ZOMBD1, 24,47{
+    offset 12, 47
+    patch ZOMBD1,0,0
+}
+
+sprite ZOMBD2D8, 30,47{
+    offset 15, 47
+    patch ZOMBD2D8,0,0
+}
+
+sprite ZOMBD3D7, 32,47{
+    offset 16, 47
+    patch ZOMBD3D7,0,0
+}
+
+sprite ZOMBD4D6, 24,47{
+    offset 12, 47
+    patch ZOMBD4D6,0,0
+}
+
+sprite ZOMBD5, 24,47{
+    offset 12, 47
+    patch ZOMBD5,0,0
+}
+
+sprite ZOMBE1, 30,47{
+    offset 15, 47
+    patch ZOMBE1,0,0
+}
+
+sprite ZOMBE2E8, 30,47{
+    offset 15, 47
+    patch ZOMBE2E8,0,0
+}
+
+sprite ZOMBE3E7, 32,47{
+    offset 16, 47
+    patch ZOMBE3E7,0,0
+}
+
+sprite ZOMBE4E6, 26,47{
+    offset 13, 47
+    patch ZOMBE4E6,0,0
+}
+
+sprite ZOMBE5, 24,47{
+    offset 12, 47
+    patch ZOMBE5,0,0
+}
+
+sprite ZOMBF1, 30,47{
+    offset 15, 47
+    patch ZOMBF1,0,0
+}
+
+sprite ZOMBF2F8, 30,47{
+    offset 15, 47
+    patch ZOMBF2F8,0,0
+}
+
+sprite ZOMBF3F7, 32,47{
+    offset 16, 47
+    patch ZOMBF3F7,0,0
+}
+
+sprite ZOMBF4F6, 26,47{
+    offset 13, 47
+    patch ZOMBF4F6,0,0
+}
+
+sprite ZOMBF5, 24,47{
+    offset 12, 47
+    patch ZOMBF5,0,0
+}
+
+sprite ZOMBG1, 30,47{
+    offset 15, 47
+    patch ZOMBG1,0,0
+}
+
+sprite ZOMBG2G8, 24,47{
+    offset 12, 47
+    patch ZOMBG2G8,0,0
+}
+
+sprite ZOMBG3G7, 32,47{
+    offset 16, 47
+    patch ZOMBG3G7,0,0
+}
+
+sprite ZOMBG4G6, 26,47{
+    offset 13, 47
+    patch ZOMBG4G6,0,0
+}
+
+sprite ZOMBG5, 24,47{
+    offset 12, 47
+    patch ZOMBG5,0,0
+}
+
+sprite ZOMBH0, 26,47{
+    offset 13, 47
+    patch ZOMBH0,0,0
+}
+
+sprite ZOMBI0, 30,47{
+    offset 15, 47
+    patch ZOMBI0,0,0
+}
+
+sprite ZOMBJ0, 38,47{
+    offset 19, 47
+    patch ZOMBJ0,0,0
+}
+
+sprite ZOMBK0, 40,47{
+    offset 20, 47
+    patch ZOMBK0,0,0
+}
+
+sprite ZOMBL0, 40,47{
+    offset 20, 47
+    patch ZOMBL0,0,0
+}
+
+sprite ZOMBM0, 40,47{
+    offset 20, 47
+    patch ZOMBM0,0,0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
