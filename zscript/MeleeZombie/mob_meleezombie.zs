@@ -18,34 +18,27 @@ class MeleeZombie:UndeadHomeboy{
 		//$Title "Melee Zombie"
 		//$Sprite "POSSA1"
 
-		seesound "grunt/sight";
-		painsound "grunt/pain";
-		deathsound "grunt/death";
-		activesound "grunt/active";
+		seesound "meleezombie/sight";
+		painsound "meleezombie/pain";
+		deathsound "meleezombie/death";
+		activesound "meleezombie/active";
 		tag "melee zombie";
         
-    	+ambush
+        	+ambush
 		-nodropoff
 		+SLIDESONWALLS
 
-    	scale 1.2;
+        	scale 1.2;
 		radius 10;
-		speed 4;
+		speed 2;
 		mass 100;
 		painchance 200;
 		obituary "%o became zombie chow.";
 		hitobituary "%o became zombie chow.";
 	}
 
-    override void deathdrop(){
-        if (!bhasdropped){
-            bhasdropped=true;
-            DropNewItem("HD9mMag15",16);
-			DropNewItem("ClipMagPickup",8);
-			DropNewItem("HDHandgunRandomDrop",4);
-		}
-    }
-    
+override void deathdrop(){}
+
 	states{
 	spawn:
 		ZOMB F 1{
