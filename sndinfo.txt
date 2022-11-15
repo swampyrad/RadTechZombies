@@ -1,0 +1,4 @@
+meleezombie/sight   	MEL_SEE
+meleezombie/active		MEL_SEE
+meleezombie/pain		MEL_PAIN
+meleezombie/death		MEL_DEAD

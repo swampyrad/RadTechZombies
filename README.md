@@ -34,3 +34,5 @@ Sounds: Skulltag
 Sprites: id Software, Skulltag
 Sprite Edit: ItsNatureToDie
 Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary
+
+Melee Zombie sounds from Resident Evil 1 by Capcom
