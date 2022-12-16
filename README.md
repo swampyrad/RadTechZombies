@@ -25,6 +25,9 @@ Wields the Minerva 9mm Chaingun, has slower firerate, but unlike Vulcanette Zomb
 - Melee and Brawler Zombies
 Melee variants of the standard zombies, instead of shooting you, they want to beat you to a bloody pulp. Don't get cornered, or they can easily surround you if you're not careful.
 
+- Zombie Dogs
+These dogs didn't go to Heaven, now they're here to make your life Hell. Put them down quick before they tear you to bits. Watch out, some of them can be hard to spot...
+
 Minerva Minigunner Sprite Credits (copied from Realm667):
 
 Submitted: TheMightyHeracross
@@ -35,4 +38,5 @@ Sprites: id Software, Skulltag
 Sprite Edit: ItsNatureToDie
 Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary
 
-Melee Zombie sounds from Resident Evil 1 by Capcom
+Melee Zombie/Zombie Dog sounds from Resident Evil 1 by Capcom
+Zombie Dog sprites from Wolfenstein 3D by iD Software
