@@ -83,6 +83,27 @@ class RadtechZombiesHandler : EventHandler
 		// Enemy spawn lists.
     // --------------------
 
+    // Zombie Dog
+		Array<RTZSpawnEnemyEntry> spawns_zombiedog;  
+		spawns_zombiedog.push(addEnemyentry('Babuin', zombiedog_spawn_bias));
+		addEnemy('ZombieDog', spawns_zombiedog, zombiedog_persistent_spawning);
+
+    // Cloaked Zombie Dog 
+		Array<RTZSpawnEnemyEntry> spawns_cloaked_zombiedog;  
+		spawns_cloaked_zombiedog.push(addEnemyentry('SpecBabuin', cloaked_zombiedog_spawn_bias));
+		addEnemy('SpecZombieDog', spawns_cloaked_zombiedog, cloaked_zombiedog_persistent_spawning);
+
+    // Dead Zombie Dog
+		Array<RTZSpawnEnemyEntry> spawns_dead_zombiedog;  
+		spawns_dead_zombiedog.push(addEnemyentry('DeadBabuin', zombiedog_spawn_bias));
+		addEnemy('DeadZombieDog', spawns_dead_zombiedog, zombiedog_persistent_spawning);
+
+    // Dead Cloaked Zombie Dog 
+		Array<RTZSpawnEnemyEntry> spawns_dead_cloaked_zombiedog;  
+		spawns_dead_cloaked_zombiedog.push(addEnemyentry('DeadSpecBabuin', cloaked_zombiedog_spawn_bias));
+		addEnemy('DeadSpecZombieDog', spawns_dead_cloaked_zombiedog, cloaked_zombiedog_persistent_spawning);
+
+
     // 10mm Rifleman
 		Array<RTZSpawnEnemyEntry> spawns_TenMilRifleman;  
 		spawns_TenMilRifleman.push(addEnemyentry('ZombieSemiStormtrooper', tenmilrifl_zombieman_spawn_bias));
