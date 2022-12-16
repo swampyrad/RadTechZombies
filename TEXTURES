@@ -424,58 +424,411 @@ sprite ZOMBM0, 40,47{
     patch ZOMBM0,0,0
 }
 
+//Dog sprites from Wolfenstein 3D by iD Software
 
+sprite ZDOGA1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGA1,0,0
+}
 
+sprite ZDOGA2A8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGA2A8,0,0
+}
 
+sprite ZDOGA3A7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGA3A7,0,0
+}
 
+sprite ZDOGA4A6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGA4A6,0,0
+}
 
+sprite ZDOGA5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGA5,0,0
+}
 
+sprite ZDOGB1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGB1,0,0
+}
 
+sprite ZDOGB2B8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGB2B8,0,0
+}
 
+sprite ZDOGB3B7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGB3B7,0,0
+}
 
+sprite ZDOGB4B6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGB4B6,0,0
+}
 
+sprite ZDOGB5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGB5,0,0
+}
 
+sprite ZDOGC1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGC1,0,0
+}
 
+sprite ZDOGC2C8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGC2C8,0,0
+}
 
+sprite ZDOGC3C7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGC3C7,0,0
+}
 
+sprite ZDOGC4C6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGC4C6,0,0
+}
 
+sprite ZDOGC5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGC5,0,0
+}
 
+sprite ZDOGD1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGD1,0,0
+}
 
+sprite ZDOGD2D8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGD2D8,0,0
+}
 
+sprite ZDOGD3D7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGD3D7,0,0
+}
 
+sprite ZDOGD4D6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGD4D6,0,0
+}
 
+sprite ZDOGD5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGD5,0,0
+}
 
+sprite ZDOGE1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE1,0,0
+}
 
+sprite ZDOGE2, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE2,0,0
+}
 
+sprite ZDOGE3, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE3,0,0
+}
 
+sprite ZDOGE4, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE4,0,0
+}
 
+sprite ZDOGE5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE5,0,0
+}
 
+sprite ZDOGE6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE6,0,0
+}
 
+sprite ZDOGE7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE7,0,0
+}
 
+sprite ZDOGE8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE8,0,0
+}
 
+sprite ZDOGF1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF1,0,0
+}
 
+sprite ZDOGF2, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGE2,0,0
+}
 
+sprite ZDOGF3, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF3,0,0
+}
 
+sprite ZDOGF4, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF4,0,0
+}
 
+sprite ZDOGF5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF5,0,0
+}
 
+sprite ZDOGF6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF6,0,0
+}
 
+sprite ZDOGF7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF7,0,0
+}
 
+sprite ZDOGF8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGF8,0,0
+}
 
+sprite ZDOGG1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG1,0,0
+}
 
+sprite ZDOGG3, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG2,0,0
+}
 
+sprite ZDOGG3, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG3,0,0
+}
 
+sprite ZDOGG4, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG4,0,0
+}
 
+sprite ZDOGG5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG5,0,0
+}
 
+sprite ZDOGG6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG6,0,0
+}
 
+sprite ZDOGG7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG7,0,0
+}
 
+sprite ZDOGG8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGG8,0,0
+}
 
+sprite ZDOGH1, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH1,0,0
+}
 
+sprite ZDOGH2, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH2,0,0
+}
 
+sprite ZDOGH3, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH3,0,0
+}
 
+sprite ZDOGH4, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH4,0,0
+}
 
+sprite ZDOGH5, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH5,0,0
+}
 
+sprite ZDOGH6, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH6,0,0
+}
 
+sprite ZDOGH7, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH7,0,0
+}
 
+sprite ZDOGH8, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGH8,0,0
+}
 
+sprite ZDOGI0, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGI0,0,0
+}
 
+sprite ZDOGJ0, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGJ0,0,0
+}
+
+sprite ZDOGK0, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGK0,0,0
+}
+
+sprite ZDOGL0, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGL0,0,0
+}
+
+sprite ZDOGM0, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGM0,0,0
+}
+
+sprite ZDOGN0, 64, 64{
+    offset 32,64
+    xscale 0.75
+    yscale 0.75
+    patch ZDOGN0,0,0
+}
 

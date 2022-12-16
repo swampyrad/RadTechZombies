@@ -30,18 +30,13 @@ OptionMenu RadTechZombies
   StaticText ""
   Submenu "Minerva Minigunners", "MinervaGunners", 0, 1
   StaticText ""
-  /* i fixed them, they work now :3
-  StaticText "------------", "Yellow"
-  StaticText ""
-  StaticText "Warning:", "red"
-  StaticText "These enemies are still WIP, and they may not behave normally.", "grey"
-  StaticText "Please bear that in mind if you plan on loading them anyways.", "grey"
-  StaticText ""
-  */
   Submenu "Combat Shotgunners", "CombatShotgunners", 0, 1
   StaticText ""
   Submenu "Riot Police Jackboots", "RiotPoliceJackboots", 0, 1
   StaticText ""
+  Submenu "Zombie Dogs", "ZombieDog", 0, 1
+  StaticText ""
+
 	StaticText "--- Reset Options ---", "red"
 	StaticText ""
 	SafeCommand "Reset all options for Radtech Zombies", "RTZ_Reset_Cvars"
@@ -49,6 +44,43 @@ OptionMenu RadTechZombies
 
 // Prepare for sleep-deprived ted trying to write lore
 // Honestly most of this is going to likely have to be rewritten but I'll do it when I'm awake - [Ted]
+
+OptionMenu ZombieDog
+{
+  Title "------ Zombie Dogs Options ------"
+  StaticText "Notice:", "Green"
+  StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+  StaticText  "spawns of that given type.", "white"
+  StaticText ""
+	StaticText "Spawn Options", "Green"
+  StaticText  "Control the spawn rate of Zombie Dogs on Babuins", "white"
+	Option "Zombie Dogs Spawn Rate: ", "zombiedog_spawn_bias", "SpawnBias"
+	SafeCommand "Reset Zombie Dogs options", "resetcvar zombiedog_spawn_bias"
+ 	StaticText ""
+  StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "zombiedog_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar zombiedog_persistent_spawning"
+ 	StaticText ""
+ StaticText  "Control the spawn rate of Cloaked Zombie Dogs on Cloaked Babuins", "white"
+	Option "Cloaked Zombie Dogs Spawn Rate: ", "cloaked_zombiedog_spawn_bias", "SpawnBias"
+	SafeCommand "Reset Cloaked Zombie Dogs options", "resetcvar cloaked_zombiedog_spawn_bias"
+ 	StaticText ""
+  StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "cloaked_zombiedog_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar cloaked_zombiedog_persistent_spawning"
+ 	StaticText ""
+  StaticText ""
+	StaticText "Reset Options", "Green"
+	SafeCommand "Reset all options", "Doggos_reset_cvars"
+	StaticText ""
+	StaticText "--- Lore ---", "Green"
+	StaticText ""
+	StaticText "Man's best friend has become its worst enemy. These rabid canines have", "white"
+	StaticText "been corrupted by the Tyrant's demonic influence and are hellbent", "white"
+    StaticText "on turning you into their own personal chew toy.", "white"
+}
+
+
 
 OptionMenu 10mmHomies
 {

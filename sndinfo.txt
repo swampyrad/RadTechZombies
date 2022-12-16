@@ -1,4 +1,18 @@
+//custom sounds from Resident Evil 1 by Capcom
+
+//Melee Zombies
 meleezombie/sight   	MEL_SEE
 meleezombie/active		MEL_SEE
 meleezombie/pain		MEL_PAIN
 meleezombie/death		MEL_DEAD
+
+//Zombie Dogs
+dog/step	            dogstep
+dog/wormstep		    dogstep	
+$volume dog/wormstep 0.5
+
+dog/active              dogact
+dog/sight               dogsight
+dog/pain                dogpain
+dog/bite                dogbite
+dog/death               dogdie

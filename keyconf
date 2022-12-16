@@ -8,5 +8,6 @@ alias CJB_reset_cvars "resetcvar combshot_jackboot_spawn_bias; resetcvar combsho
 alias Doomer_reset_cvars "resetcvar doomjack_jackboot_spawn_bias; resetcvar doomjack_persistent_spawning;"
 alias Popo_reset_cvars "resetcvar riot_jackboot_spawn_bias; resetcvar riot_persistent_spawning;"
 alias Mgunna_reset_cvars "resetcvar minervazomb_chaingunner_spawn_bias; resetcvar minervazomb_herp_spawn_bias; resetcvar minervazomb_persistent_spawning;"
+alias Doggos_reset_cvars "resetcvar zombiedog_spawn_bias; resetcvar zombiedog_persistent_spawning; resetcvar cloaked_zombiedog_spawn_bias; resetcvar cloaked_zombiedog_persistent_spawning;"
 
-alias RTZ_Reset_Cvars "10Homies_reset_cvars; 10Riflemen_reset_cvars; Bayonetta_reset_cvars; Brolie_reset_cvars; Walker_reset_cvars; CJB_reset_cvars; Doomer_reset_cvars; Popo_reset_cvars; Mgunna_reset_cvars;"
+alias RTZ_Reset_Cvars "10Homies_reset_cvars; 10Riflemen_reset_cvars; Bayonetta_reset_cvars; Brolie_reset_cvars; Walker_reset_cvars; CJB_reset_cvars; Doomer_reset_cvars; Popo_reset_cvars; Mgunna_reset_cvars; Doggo_reset_cvars;"

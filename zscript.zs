@@ -1,5 +1,8 @@
 version "4.8"
 
+//Zombie Dogs
+#include "zscript/ZombieDog/mob_zombiedog.zs"
+
 //10mm Rifleman
 #include "zscript/10mmRifleman/mob_10mmRifleman.zs"
 

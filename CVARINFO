@@ -11,6 +11,14 @@
 // Enemies
 // --------------------
 
+// Zombie Dogs
+server int zombiedog_spawn_bias = 9;
+server bool zombiedog_persistent_spawning = false;
+
+// Cloaked Zombie Dogs
+server int cloaked_zombiedog_spawn_bias = 9;
+server bool cloaked_zombiedog_persistent_spawning = false;
+
 // 10mm Riflemen
 server int tenmilrifl_zombieman_spawn_bias = 19;
 server bool tenmilrifl_persistent_spawning = false;
