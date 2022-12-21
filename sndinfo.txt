@@ -5,6 +5,11 @@ meleezombie/sight   	MEL_SEE
 meleezombie/active		MEL_SEE
 meleezombie/pain		MEL_PAIN
 meleezombie/death		MEL_DEAD
+meleezombie/bite        MEL_BITE
+
+meleezombie/step        MEL_STEP
+meleezombie/wormstep    MEL_STEP
+$volume meleezombie/wormstep 0.5
 
 //Zombie Dogs
 dog/step	            dogstep
