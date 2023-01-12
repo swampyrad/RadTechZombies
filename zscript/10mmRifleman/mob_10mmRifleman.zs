@@ -233,10 +233,10 @@ void A_Eject10mmPistolCasing(){
 		//$Title "10mm Rifle Zombie"
 		//$Sprite "POSSA1"
 
-		seesound "grunt/sight";
-		painsound "grunt/pain";
-		deathsound "grunt/death";
-		activesound "grunt/active";
+		seesound "sigcowzombie/sight";
+		painsound "sigcowzombie/pain";
+		deathsound "sigcowzombie/death";
+		activesound "sigcowzombie/active";
 		tag "WilliamGates";
 
 		radius 10;
@@ -467,13 +467,13 @@ class BayonetRifleman:TenMilRifleman{
 
 	default{
 		//$Category "Monsters/Hideous Destructor"
-		//$Title "10mm Rifle Zombie"
+		//$Title "Bayonet Zombie"
 		//$Sprite "POSSA1"
 
-		seesound "grunt/sight";
-		painsound "grunt/pain";
-		deathsound "grunt/death";
-		activesound "grunt/active";
+		seesound "bayonetzombie/sight";
+		painsound "bayonetzombie/pain";
+		deathsound "bayonetzombie/death";
+		activesound "bayonetzombie/active";
 		tag "bayonet zombie";
 
 		radius 10;
