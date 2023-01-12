@@ -13,10 +13,10 @@ class RiotCopZombie:HDHumanoid{
 		//$Title "Riot Cop Shotgun Zombie"
 		//$Sprite "RCOPA1"
 
-		seesound "shotguy/sight";
-		painsound "shotguy/pain";
-		deathsound "shotguy/death";
-		activesound "shotguy/active";
+		seesound "lesslethalcop/sight";
+		painsound "lesslethalcop/pain";
+		deathsound "lesslethalcop/death";
+		activesound "lesslethalcop/active";
 		tag "UAC Police";
 
 		speed 10;
