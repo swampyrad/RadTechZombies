@@ -7,6 +7,10 @@ class ZombieDog:Babuin{
 		sprite=getspriteindex("ZDOG");
 	}
 
+    override void CheckFootStepSound(){
+		HDHumanoid.FootStepSound(self,0.4,drysound:"zombiedog/step");
+	}
+
 	default{
 		//$Category "Monsters/Hideous Destructor"
 		//$Title "ZombieDog"
@@ -47,7 +51,7 @@ class ZombieDog:Babuin{
 	idle:
 		#### A 0 A_JumpIf(bambush,"spawnstill");
 	spawnwander:
-		#### ABCD random(4,6){
+		#### ABCD random(6,8){
 			blookallaround=false;
 			hdmobai.wander(self);
 		}
@@ -98,10 +102,10 @@ class ZombieDog:Babuin{
 			else setstatelabel("roam");
 		}
 	seechase:
-		#### ABCD random(2,4) A_HDChase();
+		#### ABCD random(4,6) A_HDChase();
 		---- A 0 setstatelabel("seeend");
 	roam:
-		#### ABCD random(3,6){
+		#### ABCD random(5,7){
 			A_HDChase(flags:CHF_WANDER);
 			A_HDLook();
 		}
@@ -127,7 +131,7 @@ class ZombieDog:Babuin{
 		loop;
 		
 	missile:
-		#### ABCD 2{
+		#### ABCD 4{
 			A_FaceTarget(16,16);
 			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
