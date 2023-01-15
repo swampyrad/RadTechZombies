@@ -6,6 +6,11 @@ AddOptionMenu "OptionsMenu"
   Submenu "$RADTECHZEDS_MENU", "RadTechZombies"
 }
 
+AddOptionMenu "HDAddonMenu" {
+	Submenu"$RADTECHZEDS_MENU", "RadTechZombies"
+}
+
+
 // Fancy yet functional. - [Ted]
 OptionMenu RadTechZombies
 {
