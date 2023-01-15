@@ -9,10 +9,10 @@ class MinervaZombie:HDHumanoid{
 		painchance 170;
 		monster;
 		+floorclip
-		seesound "chainguy/sight";
-		painsound "chainguy/pain";
-		deathsound "chainguy/death";
-		activesound "chainguy/active";
+		seesound "minervazombie/sight";
+		painsound "minervazombie/pain";
+		deathsound "minervazombie/death";
+		activesound "minervazombie/active";
 		tag "massive firearms person";
 
 		health 120;

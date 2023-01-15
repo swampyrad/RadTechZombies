@@ -4,10 +4,10 @@ class CombatJackboot:HDHumanoid{
 		//$Title "Combat Shotgun Guy"
 		//$Sprite "PLAYA1"
 
-		seesound "shotguy/sight";
-		painsound "shotguy/pain";
-		deathsound "shotguy/death";
-		activesound "shotguy/active";
+		seesound "shotguncop/sight";
+		painsound "shotguncop/pain";
+		deathsound "shotguncop/death";
+		activesound "shotguncop/active";
 		tag "combat jackboot";
 
 		speed 10;

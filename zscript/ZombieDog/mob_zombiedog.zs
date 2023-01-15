@@ -6,9 +6,9 @@ class ZombieDog:Babuin{
 	void A_CheckFreedoomSprite(){
 		sprite=getspriteindex("ZDOG");
 	}
-	override void CheckFootStepSound(){
-		if(frame)HDHumanoid.FootStepSound(self,0.4,drysound:"dog/step");
-		else if(!frame)A_StartSound("dog/wormstep",88,CHANF_OVERLAP);
+
+    override void CheckFootStepSound(){
+		HDHumanoid.FootStepSound(self,0.4,drysound:"zombiedog/step");
 	}
 
 	default{
@@ -32,10 +32,13 @@ class ZombieDog:Babuin{
 
 		maxstepheight 24;maxdropoffheight 64;
 
-		seesound "dog/sight";
-		painsound "dog/pain";
-		deathsound "dog/death";
-		activesound "dog/active";
+		seesound "zombiedog/sight";
+		painsound "zombiedog/pain";
+		deathsound "zombiedog/death";
+		activesound "zombiedog/active";
+		hdmobbase.stepsound "zombiedog/step";
+		hdmobbase.stepsoundwet "zombiedog/wormstep";
+
 		
 		obituary "%o got chewed up by a zombie dog.";
 		damagefactor "hot",0.76;
@@ -48,7 +51,7 @@ class ZombieDog:Babuin{
 	idle:
 		#### A 0 A_JumpIf(bambush,"spawnstill");
 	spawnwander:
-		#### ABCD random(4,6){
+		#### ABCD random(6,8){
 			blookallaround=false;
 			hdmobai.wander(self);
 		}
@@ -99,10 +102,10 @@ class ZombieDog:Babuin{
 			else setstatelabel("roam");
 		}
 	seechase:
-		#### ABCD random(2,4) A_HDChase();
+		#### ABCD random(4,6) A_HDChase();
 		---- A 0 setstatelabel("seeend");
 	roam:
-		#### ABCD random(3,6){
+		#### ABCD random(5,7){
 			A_HDChase(flags:CHF_WANDER);
 			A_HDLook();
 		}
@@ -128,7 +131,7 @@ class ZombieDog:Babuin{
 		loop;
 		
 	missile:
-		#### ABCD 2{
+		#### ABCD 4{
 			A_FaceTarget(16,16);
 			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
@@ -177,7 +180,7 @@ class ZombieDog:Babuin{
 		#### KLM 5;
 	dead:
 	death.spawndead:
-		#### M 3 canraise{
+		ZDOG M 3 canraise{
 			if(abs(vel.z)<2)frame++;
 		}loop;
 	raise:
@@ -188,7 +191,7 @@ class ZombieDog:Babuin{
 		TROO UT 8;
 		TROO SRQ 6;
 		TROO PO 4;
-		#### A 0 A_Jump(256,"see");
+		ZDOG A 0 A_Jump(256,"see");
 	xdeath:
 		TROO O 0 A_XScream();
 		TROO OPQ 4{spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);}

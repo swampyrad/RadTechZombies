@@ -27,10 +27,10 @@ class DoomedZombieShotgunner:HDHumanoid{
 		//$Title "DoomedShotgun Guy"
 		//$Sprite "SPOSA1"
 
-		seesound "shotguy/sight";
-		painsound "shotguy/pain";
-		deathsound "shotguy/death";
-		activesound "shotguy/active";
+		seesound "doomshotguy/sight";
+		painsound "doomshotguy/pain";
+		deathsound "doomshotguy/death";
+		activesound "doomeshotguy/active";
 		tag "doomed jackboot";
 
 		speed 10;

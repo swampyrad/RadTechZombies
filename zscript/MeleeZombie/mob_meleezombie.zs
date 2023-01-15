@@ -3,7 +3,7 @@
 //   ------------------------------------------------------------
 class MeleeZombie:UndeadHomeboy{
 	
-  override void postbeginplay(){
+    override void postbeginplay(){
 		super.postbeginplay();
    
 		bhasdropped=false;
@@ -22,6 +22,10 @@ class MeleeZombie:UndeadHomeboy{
 		painsound "meleezombie/pain";
 		deathsound "meleezombie/death";
 		activesound "meleezombie/active";
+		meleesound "meleezombie/bite";
+		hdmobbase.stepsound "meleezombie/step";
+		hdmobbase.stepsoundwet "meleezombie/wormstep";
+		
 		tag "melee zombie";
         
         	+ambush
@@ -30,7 +34,7 @@ class MeleeZombie:UndeadHomeboy{
 
         	scale 1.2;
 		radius 10;
-		speed 2;
+		speed 3;
 		mass 100;
 		painchance 200;
 		obituary "%o became zombie chow.";
@@ -81,11 +85,11 @@ override void deathdrop(){}
 		loop;
 
 	see:
-		#### ABCD random(4,5) A_HDChase();
+		#### ABCD random(9,10) A_HDChase();
 		loop;
 
-	missile://lunge code borrowed from babuin latch attack 
-		#### ABCD 4{
+    missile://lunge code borrowed from babuin latch attack 
+		#### ABCD 8{
 			A_FaceTarget(16,16);
 			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
@@ -98,6 +102,16 @@ override void deathdrop(){}
 	hunger:
 	    #### FFEE 3 A_HDChase();
 		---- A 0 setstatelabel("missile");
+
+    meleehead://zombie bite attack
+    	#### FE 3;
+		#### G 5 {
+			pitch+=frandom(-40,-8);
+			A_HumanoidMeleeAttack(height*0.7);
+			A_CustomMeleeAttack(random(20,40),meleesound,"","teeth",true);
+		}
+		#### EF 3;
+		#### A 0 setstatelabel("meleeend");
 
 	pain:
 		ZOMB G 2;

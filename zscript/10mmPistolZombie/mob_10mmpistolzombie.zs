@@ -235,10 +235,10 @@ void A_Eject10mmPistolCasing(){
 		//$Title "10mm Pistol Zombie"
 		//$Sprite "POSSA1"
 
-		seesound "grunt/sight";
-		painsound "grunt/pain";
-		deathsound "grunt/death";
-		activesound "grunt/active";
+		seesound "tenmilhomeboy/sight";
+		painsound "tenmilhomeboy/pain";
+		deathsound "tenmilhomeboy/death";
+		activesound "tenmilhomeboy/active";
 		tag "$cc_zombie";
 
 		radius 10;
