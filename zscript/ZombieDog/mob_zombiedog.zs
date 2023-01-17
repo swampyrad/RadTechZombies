@@ -20,7 +20,7 @@ class ZombieDog:Babuin{
 		+cannotpush +pushable
 		-hdmobbase.climber
 		-hdmobbase.climbpastdropoff
-		health 90;radius 12;
+		health 50;radius 12;
 		height 32;deathheight 10;
 		scale 0.6;
 		speed 12;
@@ -170,14 +170,13 @@ class ZombieDog:Babuin{
 		#### ABCD 2 A_HDChase();
 		---- A 0 setstatelabel("see");
 	death:
-		#### I 5{
+		ZDOG I 4{
 			A_Vocalize(deathsound);
 			bpushable=false;
-			A_SpawnItemEx("BFGNecroShard",flags:SXF_TRANSFERPOINTERS|SXF_SETMASTER,240);
 		}
 	deathend:
-		#### J 5 A_NoBlocking();
-		#### KLM 5;
+		#### J 4 A_NoBlocking();
+		#### KLM 4;
 	dead:
 	death.spawndead:
 		ZDOG M 3 canraise{
@@ -266,13 +265,3 @@ class DeadSpecZombieDog:SpecZombieDog{
 		A_Die("spawndead");
 	}
 }
-
-/*
-class DeadDogSpawner:RandomSpawner{
-	default{
-		+ismonster
-		dropitem "DeadZombieDog",256,5;
-		dropitem "DeadSpecZombieDog",256,2;
-	}
-}
-*/
