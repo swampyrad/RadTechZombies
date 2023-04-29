@@ -91,7 +91,9 @@ class RadtechZombiesHandler : EventHandler
     // Cloaked Zombie Dog 
 		Array<RTZSpawnEnemyEntry> spawns_cloaked_zombiedog;  
 		spawns_cloaked_zombiedog.push(addEnemyentry('SpecBabuin', cloaked_zombiedog_spawn_bias));
+		spawns_cloaked_zombiedog.push(addEnemyentry('NinjaPirate', cloaked_zombiedog_spawn_bias));
 		addEnemy('SpecZombieDog', spawns_cloaked_zombiedog, cloaked_zombiedog_persistent_spawning);
+
 
     // Dead Zombie Dog
 		Array<RTZSpawnEnemyEntry> spawns_dead_zombiedog;  
@@ -101,6 +103,7 @@ class RadtechZombiesHandler : EventHandler
     // Dead Cloaked Zombie Dog 
 		Array<RTZSpawnEnemyEntry> spawns_dead_cloaked_zombiedog;  
 		spawns_dead_cloaked_zombiedog.push(addEnemyentry('DeadSpecBabuin', cloaked_zombiedog_spawn_bias));
+	    spawns_dead_cloaked_zombiedog.push(addEnemyentry('DeadNinjaPirate', cloaked_zombiedog_spawn_bias));
 		addEnemy('DeadSpecZombieDog', spawns_dead_cloaked_zombiedog, cloaked_zombiedog_persistent_spawning);
 
 
@@ -108,6 +111,7 @@ class RadtechZombiesHandler : EventHandler
 		Array<RTZSpawnEnemyEntry> spawns_TenMilRifleman;  
 		spawns_TenMilRifleman.push(addEnemyentry('ZombieSemiStormtrooper', tenmilrifl_zombieman_spawn_bias));
 		spawns_TenMilRifleman.push(addEnemyentry('ZombieAutoStormtrooper', tenmilrifl_zombieman_spawn_bias));
+		spawns_TenMilRifleman.push(addEnemyentry('ZombieSMGStormtrooper', tenmilrifl_zombieman_spawn_bias));
 		addEnemy('TenMilRifleman', spawns_TenMilRifleman, tenmilrifl_persistent_spawning);
 
     // 10mm Pistol Zombie
@@ -121,6 +125,7 @@ class RadtechZombiesHandler : EventHandler
 		Array<RTZSpawnEnemyEntry> spawns_Bayonetta;  
 		spawns_Bayonetta.push(addEnemyentry('ZombieSemiStormtrooper', bayonetta_zombieman_spawn_bias));
 		spawns_Bayonetta.push(addEnemyentry('ZombieAutoStormtrooper', bayonetta_zombieman_spawn_bias));
+		spawns_Bayonetta.push(addEnemyentry('ZombieSMGStormtrooper', bayonetta_zombieman_spawn_bias));
 		addEnemy('BayonetRifleman', spawns_Bayonetta, bayonetta_persistent_spawning);
 
     // Melee Zombiemen (God damn these dudes are everywhere - [Ted])
@@ -128,6 +133,9 @@ class RadtechZombiesHandler : EventHandler
 		spawns_meleezombie.push(addEnemyentry('UndeadHomeboy', meleezomb_homeboy_spawn_bias));
 		spawns_meleezombie.push(addEnemyentry('ZombieSemiStormtrooper', meleezomb_zombieman_spawn_bias));
 		spawns_meleezombie.push(addEnemyentry('ZombieAutoStormtrooper', meleezomb_zombieman_spawn_bias));
+		spawns_meleezombie.push(addEnemyentry('ZombieSMGStormtrooper', meleezomb_zombieman_spawn_bias));
+		spawns_meleezombie.push(addEnemyentry('Jackboot', meleezomb_jackboot_spawn_bias));
+		spawns_meleezombie.push(addEnemyentry('JackAndJillboot', meleezomb_jackboot_spawn_bias));
 		spawns_meleezombie.push(addEnemyentry('UndeadJackbootman', meleezomb_jackboot_spawn_bias));
 		spawns_meleezombie.push(addEnemyentry('VulcanetteZombie', meleezomb_chaingunner_spawn_bias));
 		addEnemy('MeleeZombie', spawns_meleezombie, meleezomb_persistent_spawning);
@@ -135,24 +143,28 @@ class RadtechZombiesHandler : EventHandler
     // Brawler Jackboot
 		Array<RTZSpawnEnemyEntry> spawns_brawler;  
 		spawns_brawler.push(addEnemyentry('Jackboot', brawler_jackboot_spawn_bias));
-		spawns_brawler.push(addEnemyentry('DeadJackboot', brawler_jackboot_spawn_bias));
+		spawns_brawler.push(addEnemyentry('JackAndJillboot', brawler_jackboot_spawn_bias));
+		spawns_brawler.push(addEnemyentry('UneadJackbootman', brawler_jackboot_spawn_bias));
 		addEnemy('BrawlerJackboot', spawns_brawler, brawler_persistent_spawning);
 
     // Combat Shotgunner
 		Array<RTZSpawnEnemyEntry> spawns_combatjackboot;  
 		spawns_combatjackboot.push(addEnemyentry('Jackboot', combshot_jackboot_spawn_bias));
+	    spawns_combatjackboot.push(addEnemyentry('JackAndJillboot', combshot_jackboot_spawn_bias));
 		spawns_combatjackboot.push(addEnemyentry('UndeadJackbootman', combshot_jackboot_spawn_bias));
 		addEnemy('CombatJackboot', spawns_combatjackboot, combshot_persistent_spawning);
 
     // Doomed Jackboot
 		Array<RTZSpawnEnemyEntry> spawns_doomjackboot;  
 		spawns_doomjackboot.push(addEnemyentry('Jackboot', doomjack_jackboot_spawn_bias));
+		spawns_doomjackboot.push(addEnemyentry('JackAndJillboot', doomjack_jackboot_spawn_bias));
 		spawns_doomjackboot.push(addEnemyentry('UndeadJackbootman', doomjack_jackboot_spawn_bias));
 		addEnemy('DoomedJackboot', spawns_doomjackboot, doomjack_persistent_spawning);
 
     // Riot Police Zombie
 		Array<RTZSpawnEnemyEntry> spawns_riotcop;  
 		spawns_riotcop.push(addEnemyentry('Jackboot', riot_jackboot_spawn_bias));
+	    spawns_riotcop.push(addEnemyentry('JackAndJillboot', riot_jackboot_spawn_bias));
 		spawns_riotcop.push(addEnemyentry('UndeadJackbootman', riot_jackboot_spawn_bias));
 		addEnemy('RiotCopZombie', spawns_riotcop, riot_persistent_spawning);
 
