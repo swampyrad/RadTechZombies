@@ -26,19 +26,21 @@ class MeleeZombie:UndeadHomeboy{
 		hdmobbase.stepsound "meleezombie/step";
 		hdmobbase.stepsoundwet "meleezombie/wormstep";
 		
-		tag "melee zombie";
+		tag "zombie";//"...brrrraaaaaiiiiiinnnnssssss..."
         
-        	+ambush
-		-nodropoff
+        +nofear //zombies have no sense of self preservation     
+        +ambush //zombies wait in silence
+		-nodropoff//zombies are too dumb not to walk off cliffs
 		+SLIDESONWALLS
 
-        	scale 1.2;
+    	scale 1.2;
 		radius 10;
 		speed 3;
 		mass 100;
 		painchance 200;
 		obituary "%o became zombie chow.";
 		hitobituary "%o became zombie chow.";
+		meleerange 36;//the default of 44 gives them too much reach
 	}
 
 override void deathdrop(){}
@@ -46,25 +48,42 @@ override void deathdrop(){}
 	states{
 	spawn:
 		ZOMB F 1{
+		    switch(random(0,5)){//rolls a random color
+		    
+		    case 0://defaults to green
+		    break;
+		    
+		    case 1:
+		    A_SetTranslation("Zombie_RedSuit");
+		    break;
+		    
+		    case 2:
+		    A_SetTranslation("Zombie_YellowSuit");
+		    break;
+		    
+		    case 3:
+		    A_SetTranslation("Zombie_OrangeSuit");
+		    break;
+		    
+		    case 4:
+		    A_SetTranslation("Zombie_BlueSuit");
+		    break;
+		    
+		    case 5:
+		    A_SetTranslation("Zombie_PinkSuit");
+		    break;
+		    
+		    }
 			A_HDLook();
-			//A_Recoil(frandom(-0.1,0.1));
 		}
 		#### FFF random(5,17) A_HDLook();
 		#### F 1{
 			//A_Recoil(frandom(-0.1,0.1));
 			A_SetTics(random(10,40));
 		}
-		#### B 0 A_Jump(28,"spawngrunt");
 		#### B 0 A_Jump(132,"spawnswitch");
 		#### B 8 A_Recoil(frandom(-0.2,0.2));
 		loop;
-	spawngrunt:
-		ZOMB G 1{
-			//A_Recoil(frandom(-0.4,0.4));
-			A_SetTics(random(30,80));
-			//if(!random(0,7))A_Vocalize(activesound);
-		}
-		#### A 0 A_Jump(256,"spawn");
 	spawnswitch:
 		#### A 0 A_JumpIf(bambush,"spawnstill");
 		goto spawnwander;
@@ -78,10 +97,10 @@ override void deathdrop(){}
 		}
 		#### AB 5 A_SetAngle(angle+random(-4,4));
 		#### B 1 A_SetTics(random(10,40));
-		#### A 0 A_Jump(256,"spawn");
+		loop;
 	spawnwander:
 		#### CDAB 5 A_HDWander();
-		#### A 0 A_Jump(64,"spawn");
+		#### A 0 A_Jump(64,"spawnswitch");
 		loop;
 
 	see:
@@ -89,7 +108,7 @@ override void deathdrop(){}
 		loop;
 
     missile://lunge code borrowed from babuin latch attack 
-		#### ABCD 8{
+		#### ABCD 10{
 			A_FaceTarget(16,16);
 			bnodropoff=false;
 			A_Changevelocity(1,0,0,CVF_RELATIVE);
@@ -100,22 +119,32 @@ override void deathdrop(){}
 		}
 		---- A 0 setstatelabel("see");
 	hunger:
-	    #### FFEE 3 A_HDChase();
+	    #### FFEEEF 4 A_HDChase();
 		---- A 0 setstatelabel("missile");
+    
+	meleebody:
+		#### FE 3;//randomizes between scratching or punching
+		#### G 5 {if(!random(0,2))A_HumanoidMeleeAttack(height*0.6);
+		          else A_CustomMeleeAttack(random(10,20),"bandage/rip","","nails",true);
+                 }
+        #### EF 3;
+		#### A 0 setstatelabel("meleeend");
 
     meleehead://zombie bite attack
-    	#### FE 3;
-		#### G 5 {
+    	#### FE 5;
+		#### G 6 {
 			pitch+=frandom(-40,-8);
 			A_HumanoidMeleeAttack(height*0.7);
+			meleerange=16;//has to be really close to bite you
 			A_CustomMeleeAttack(random(20,40),meleesound,"","teeth",true);
+		    meleerange=36;
 		}
-		#### EF 3;
+		#### EF 5;
 		#### A 0 setstatelabel("meleeend");
 
 	pain:
 		ZOMB G 2;
-		#### G 3 A_Vocalize(painsound);
+		#### G 5 A_Vocalize(painsound);
 		#### G 0{
 			A_ShoutAlert(0.1,SAF_SILENT);
 			if(
@@ -130,10 +159,27 @@ override void deathdrop(){}
 				vel+=((cos(ato),sin(ato))*speed,1.);
 				setstatelabel("missile");
 			}else bfrightened=true;
-		}
-		#### ABCD 2 A_HDChase();
+		}//zombie staggers a bit after being attacked
+		#### ABCD 3 A_HDChase();
 		#### G 0{bfrightened=false;}
 		---- A 0 setstatelabel("see");
+		
+	falldown:
+		#### H 5;
+		#### I 5 A_Vocalize(deathsound);
+		#### JJKKK 2 A_SetSize(-1,max(deathheight,height-10));
+		#### L 0 A_SetSize(-1,deathheight);
+		#### L 5;
+		#### M 10 A_KnockedDown();
+		wait;
+	standup:
+		#### LK 6;
+		#### J 0 A_Jump(160,2);
+		#### J 0 A_Vocalize(seesound);
+		#### JI 4 A_Recoil(-0.3);
+		#### HE 6;
+		#### A 0 setstatelabel("see");
+		
 	death:
 		#### H 5;
 		#### I 5 A_Vocalize(deathsound);
@@ -144,7 +190,7 @@ override void deathdrop(){}
 		#### M 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	xxxdeath:
-		POSS L 5;
+		POSS M 5;
 		#### M 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
 			A_XScream();
@@ -152,7 +198,7 @@ override void deathdrop(){}
 		#### OPQRST 5;
 		goto xdead;
 	xdeath:
-		POSS L 5;
+		POSS M 5;
 		#### M 5{
 			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
 			A_XScream();
@@ -179,3 +225,22 @@ override void deathdrop(){}
 	}
 
 }
+
+// color variations
+class MeleeZombie_Red:MeleeZombie{default{translation "Zombie_RedSuit";}}
+class MeleeZombie_Blue:MeleeZombie{default{translation "Zombie_BlueSuit";}}
+class MeleeZombie_Yellow:MeleeZombie{default{translation "Zombie_YellowSuit";}}
+class MeleeZombie_Orange:MeleeZombie{default{translation "Zombie_OrangeSuit";}}
+class MeleeZombie_Pink:MeleeZombie{default{translation "Zombie_PinkSuit";}}
+
+class MeleeZombieDropper:RandomSpawner{
+    default{
+    dropitem "MeleeZombie",255,10;
+    dropitem "MeleeZombie_Red",255, 8;
+    dropitem "MeleeZombie_Orange",255,6;
+    dropitem "MeleeZombie_Yellow",255,4;
+    dropitem "MeleeZombie_Blue",255,2;
+    dropitem "MeleeZombie_Pink",255,1;
+    }
+}
+
