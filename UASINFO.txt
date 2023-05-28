@@ -3,6 +3,6 @@ Looting:TenMilHomeboy:HD10mMag8*3,HDSpent10mm,PortableMedikit,PortableStimpack,H
 Looting:BrawlerJackboot:ShellPickup*1,FumbledShell*3,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
 Looting:DoomedJackboot:ShellPickup*3,FumbledShell*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
 Looting:MinervaZombie:HD9mMag30*3,HDLoose9mm*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
-Looting:MeleeZombie:HD4mMag50*3,HDLoose9mm*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
+Looting:MeleeZombie:HDPistolAmmo*15,HDRevolverAmmo*6,HDShellAmmo*8,SevenMilAmmo*7,HD10mmAmmo*8,HD45ACPAmmo*7,PortableMedikit,PortableStimpack,HDFirstAidSpray,HDRadiCola
 Looting:CombatJackboot:ShellPickup*3,FumbledShell*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
 Looting:RiotCopZombie:LLShellPickup*3,LLFumbledShell*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola

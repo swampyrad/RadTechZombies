@@ -8,3 +8,9 @@ TenMilZombie=
 "128:143=152:159",//khaki to green translation
 "144:151=153:159",
 "236:239=124:126"
+
+Zombie_RedSuit="122:123=174:175"
+Zombie_YellowSuit="122:123=163:164"
+Zombie_OrangeSuit="122:123=165:166"
+Zombie_BlueSuit="122:123=196:197"
+Zombie_PinkSuit="122:123=252:253"
