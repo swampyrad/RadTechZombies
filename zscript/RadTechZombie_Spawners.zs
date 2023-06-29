@@ -1,17 +1,42 @@
 // Struct for Enemyspawn information. 
 class RTZSpawnEnemy play
 {
-	string spawnname; // ID by string for spawner
-	Array<RTZSpawnEnemyEntry> spawnreplaces; // ID by string for spawnees
-	int spawnreplacessize; // Cached size of the above array
-	bool isPersistent; // Whether or not to persistently spawn.
+	// ID by string for spawner
+	string spawnName;
+
+	// ID by string for spawnees
+	Array<RTZSpawnEnemyEntry> spawnReplaces;
+	
+	// Whether or not to persistently spawn.
+	bool isPersistent;
+	
 	bool replaceEnemy;
+
+	string toString()
+	{
+
+		let replacements = "[";
+		if (spawnReplaces.size()) {
+			replacements = replacements..spawnReplaces[0].toString();
+
+			foreach (spawnReplace : spawnReplaces) replacements = replacements..", "..spawnReplace.toString();
+		}
+		replacements = replacements.."]";
+
+
+		return String.format("{ spawnName=%s, spawnReplaces=%s, isPersistent=%b, replaceEnemy=%b }", spawnName, replacements, isPersistent, replaceEnemy);
+	}
 }
 
 class RTZSpawnEnemyEntry play
 {
 	string name;
 	int    chance;
+
+	string toString()
+	{
+		return String.format("{ name=%s, chance=%s }", name, chance >= 0 ? "1/"..(chance + 1) : "never");
+	}
 }
 
 // One handler to rule them all. 
@@ -19,7 +44,7 @@ class RadtechZombiesHandler : EventHandler
 {
 	// List of persistent classes to completely ignore. 
 	// This -should- mean this mod has no performance impact. 
-	static const class<actor> blacklist[] =
+	static const string blacklist[] =
 	{
 		"HDSmoke",
 		"BloodTrail",
@@ -39,40 +64,43 @@ class RadtechZombiesHandler : EventHandler
 	
 	// List of Enemy-spawn associations.
 	// used for Enemy-replacement on mapload. 
-	array<RTZSpawnEnemy> Enemyspawnlist;
-	int Enemyspawnlistsize;
+	array<RTZSpawnEnemy> EnemySpawnList;
+	
+	bool cvarsAvailable;
 	
 	// appends an entry to Enemyspawnlist;
 	void addEnemy(string name, Array<RTZSpawnEnemyEntry> replacees, bool persists, bool rep=true)
 	{
+		if (hd_debug) {
+			let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": ["..replacees[0].toString();
+
+			if (replacees.size() > 1) foreach (replacee : replacees) msg = msg..", "..replacee.toString();
+
+			console.printf(msg.."]");
+		}
+
 		// Creates a new struct;
 		RTZSpawnEnemy spawnee = RTZSpawnEnemy(new('RTZSpawnEnemy'));
 		
 		// Populates the struct with relevant information,
-		spawnee.spawnname = name;
+		spawnee.spawnName = name;
 		spawnee.isPersistent = persists;
 		spawnee.replaceEnemy = rep;
-		for(int i = 0; i < replacees.size(); i++)
-		{
-			spawnee.spawnreplaces.push(replacees[i]);
-			spawnee.spawnreplacessize++;
-		}
+		
+		foreach (replacee : replacees) spawnee.spawnReplaces.push(replacee);
 		
 		// Pushes the finished struct to the array. 
-		Enemyspawnlist.push(spawnee);
-		Enemyspawnlistsize++;
+		enemySpawnList.push(spawnee);
 	}
 
-	RTZSpawnEnemyEntry addEnemyentry(string name, int chance)
+	RTZSpawnEnemyEntry addEnemyEntry(string name, int chance)
 	{
 		// Creates a new struct;
 		RTZSpawnEnemyEntry spawnee = RTZSpawnEnemyEntry(new('RTZSpawnEnemyEntry'));
-		spawnee.name = name.makelower();
+		spawnee.name = name.makeLower();
 		spawnee.chance = chance;
 		return spawnee;
-		
 	}
-	bool cvarsAvailable;
 	
 	// Populates the replacement and association arrays. 
 	void init()
@@ -176,97 +204,75 @@ class RadtechZombiesHandler : EventHandler
 }
 	
 	// Random stuff, stores it and forces negative values just to be 0.
-	bool giverandom(int chance)
+	bool giveRandom(int chance)
 	{
-		bool result = false;
-		int iii = random(0, chance);
-		if(iii < 0)
-			iii = 0;
-		if (iii == 0)
+		if (chance > -1)
 		{
-			if(chance > -1)
-				result = true;
+			let result = random(0, chance);
+
+			if (hd_debug) console.printf("Rolled a "..(result + 1).." out of "..(chance + 1));
+
+			return result == 0;
 		}
 		
-		return result;
+		return false;
 	}
 
 	// Tries to create the Enemy via random spawning.
-	bool trycreateEnemy(worldevent e, RTZSpawnEnemy f, int g, bool rep)
+	bool tryCreateEnemy(Actor thing, string spawnName, int chance, bool rep)
 	{
-		bool result = false;
-		if(giverandom(f.spawnreplaces[g].chance))
+		if (giveRandom(chance))
 		{
-			vector3 spawnpos = e.thing.pos;
-			let spawnEnemy = Actor.Spawn(f.spawnname, (spawnpos.x, spawnpos.y, spawnpos.z));
-			if(spawnEnemy)
+			if (Actor.Spawn(spawnName, thing.pos) && rep)
 			{
-				if(rep)
-				{
-					e.thing.destroy();
-					result = true;
-				}
+                if (hd_debug) console.printf(thing.getClassName().." -> "..spawnName);
+
+				thing.destroy();
+
+				return true;
 			}
 		}
-		return result;
+
+		return false;
 	}
 	
-	override void worldthingspawned(worldevent e)
+	override void worldThingSpawned(WorldEvent e)
 	 {
-		string candidatename;
-		
-		// loop controls.
-		int i, j;
-		
 		// Populates the main arrays if they haven't been already. 
-		if(!cvarsAvailable)
-			init();
+		if (!cvarsAvailable) init();
 		
-		
-		for(i = 0; i < blacklist.size(); i++)
-		{
-			if (e.thing is blacklist[i])
-				return;
-		}
-		
-		// Checks for null events. 
-		if(!e.Thing)
-		{
-			return;
-		}
+		// If thing spawned doesn't exist, quit
+		if (!e.thing) return;
 
-		candidatename  = e.Thing.GetClassName();
-		candidatename = candidatename.makelower();
-		
+		// If thing spawned is blacklisted, quit
+		foreach (bl : blacklist) if (e.thing is bl) return;
+
+		string candidateName = e.thing.getClassName();
+		candidateName = candidateName.makeLower();
+
+		handleEnemyReplacements(e.thing, candidateName);
+	}
+
+	private void handleEnemyReplacements(Actor thing, string candidateName)
+	{
+		// Checks if the level has been loaded more than 1 tic.
+		bool prespawn = !(level.maptime > 1);
+
 		// Iterates through the list of Enemy candidates for e.thing.
-		for(i = 0; i < Enemyspawnlistsize; i++)
+		foreach (enemySpawn : enemySpawnList)
 		{
-			// Tries to cast the Enemy as an inventory. 
-			let thing_inv_ptr = Inventory(e.thing);
-		
-			// Checks if the Enemy in question is owned.
-			bool owned = thing_inv_ptr && (thing_inv_ptr.owner);
-
-			// Checks if the level has been loaded more than 1 tic.
-			bool prespawn = !(level.maptime > 1);
-			
-			// Checks if persistent spawning is on.
-			bool persist = (Enemyspawnlist[i].isPersistent);
-			
 			// if an Enemy is owned or is an ammo (doesn't retain owner ptr), 
 			// do not replace it. 
-			if ((prespawn || persist) && (!owned && prespawn))
+			let item = Inventory(thing);
+			if ((prespawn || enemySpawn.isPersistent) && (!(item && item.owner) && prespawn))
 			{
-				int original_i = i;
-				for(j = 0; j < Enemyspawnlist[original_i].spawnreplacessize; j++)
+				foreach (spawnReplace : enemySpawn.spawnReplaces)
 				{
-					if(Enemyspawnlist[i].spawnreplaces[j].name == candidatename)
+					if (spawnReplace.name == candidateName)
 					{
-						if(trycreateEnemy(e, Enemyspawnlist[i], j, Enemyspawnlist[i].replaceEnemy))
-						{
-							j = Enemyspawnlist[i].spawnreplacessize;
-							i = Enemyspawnlistsize;
-						}
+						if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..enemySpawn.spawnName.."...");
+
+						if (tryCreateEnemy(thing, enemySpawn.spawnName, spawnReplace.chance, enemySpawn.replaceEnemy)) return;
 					}
 				}
 			}
