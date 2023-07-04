@@ -10,19 +10,16 @@ class RTZSpawnEnemy play
 	// Whether or not to persistently spawn.
 	bool isPersistent;
 	
+	// Whether or not to replace the original enemy
 	bool replaceEnemy;
 
 	string toString()
 	{
-
 		let replacements = "[";
-		if (spawnReplaces.size()) {
-			replacements = replacements..spawnReplaces[0].toString();
 
-			foreach (spawnReplace : spawnReplaces) replacements = replacements..", "..spawnReplace.toString();
-		}
+		foreach (spawnReplace : spawnReplaces) replacements = replacements..", "..spawnReplace.toString();
+
 		replacements = replacements.."]";
-
 
 		return String.format("{ spawnName=%s, spawnReplaces=%s, isPersistent=%b, replaceEnemy=%b }", spawnName, replacements, isPersistent, replaceEnemy);
 	}
@@ -46,20 +43,20 @@ class RadtechZombiesHandler : EventHandler
 	// This -should- mean this mod has no performance impact. 
 	static const string blacklist[] =
 	{
-		"HDSmoke",
-		"BloodTrail",
-		"CheckPuff",
-		"WallChunk",
-		"HDBulletPuff",
-		"HDFireballTail",
-		"ReverseImpBallTail",
-		"HDSmokeChunk",
-		"ShieldSpark",
-		"HDFlameRed",
-		"HDMasterBlood",
-		"PlantBit",
-		"HDBulletActor",
-		"HDLadderSection"
+		'HDSmoke',
+		'BloodTrail',
+		'CheckPuff',
+		'WallChunk',
+		'HDBulletPuff',
+		'HDFireballTail',
+		'ReverseImpBallTail',
+		'HDSmokeChunk',
+		'ShieldSpark',
+		'HDFlameRed',
+		'HDMasterBlood',
+		'PlantBit',
+		'HDBulletActor',
+		'HDLadderSection'
 	};
 	
 	// List of Enemy-spawn associations.
@@ -71,10 +68,11 @@ class RadtechZombiesHandler : EventHandler
 	// appends an entry to Enemyspawnlist;
 	void addEnemy(string name, Array<RTZSpawnEnemyEntry> replacees, bool persists, bool rep=true)
 	{
-		if (hd_debug) {
-			let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": ["..replacees[0].toString();
+		if (hd_debug)
+		{
+			let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": [";
 
-			if (replacees.size() > 1) foreach (replacee : replacees) msg = msg..", "..replacee.toString();
+			foreach (replacee : replacees) msg = msg..", "..replacee.toString();
 
 			console.printf(msg.."]");
 		}
@@ -86,8 +84,7 @@ class RadtechZombiesHandler : EventHandler
 		spawnee.spawnName = name;
 		spawnee.isPersistent = persists;
 		spawnee.replaceEnemy = rep;
-		
-		foreach (replacee : replacees) spawnee.spawnReplaces.push(replacee);
+		spawnee.spawnReplaces.copy(replacees);
 		
 		// Pushes the finished struct to the array. 
 		enemySpawnList.push(spawnee);
@@ -97,7 +94,7 @@ class RadtechZombiesHandler : EventHandler
 	{
 		// Creates a new struct;
 		RTZSpawnEnemyEntry spawnee = RTZSpawnEnemyEntry(new('RTZSpawnEnemyEntry'));
-		spawnee.name = name.makeLower();
+		spawnee.name = name;
 		spawnee.chance = chance;
 		return spawnee;
 	}
@@ -201,7 +198,7 @@ class RadtechZombiesHandler : EventHandler
 		spawns_minervazomb.push(addEnemyentry('VulcanetteZombie', minervazomb_chaingunner_spawn_bias));
 		spawns_minervazomb.push(addEnemyentry('EnemyHERP', minervazomb_herp_spawn_bias));
 		addEnemy('MinervaZombie', spawns_minervazomb, minervazomb_persistent_spawning);
-}
+	}
 	
 	// Random stuff, stores it and forces negative values just to be 0.
 	bool giveRandom(int chance)
@@ -247,10 +244,7 @@ class RadtechZombiesHandler : EventHandler
 		// If thing spawned is blacklisted, quit
 		foreach (bl : blacklist) if (e.thing is bl) return;
 
-		string candidateName = e.thing.getClassName();
-		candidateName = candidateName.makeLower();
-
-		handleEnemyReplacements(e.thing, candidateName);
+		handleEnemyReplacements(e.thing, e.thing.getClassName());
 	}
 
 	private void handleEnemyReplacements(Actor thing, string candidateName)
@@ -268,7 +262,7 @@ class RadtechZombiesHandler : EventHandler
 			{
 				foreach (spawnReplace : enemySpawn.spawnReplaces)
 				{
-					if (spawnReplace.name == candidateName)
+					if (spawnReplace.name ~== candidateName)
 					{
 						if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..enemySpawn.spawnName.."...");
 
