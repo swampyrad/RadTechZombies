@@ -215,50 +215,83 @@ class RadtechZombiesHandler : EventHandler
 		return false;
 	}
 
-	// Tries to create the Enemy via random spawning.
-	bool tryCreateEnemy(Actor thing, string spawnName, int chance, bool rep)
+    // Tries to replace the item during spawning.
+    bool tryReplaceEnemy(ReplaceEvent e, string spawnName, int chance)
 	{
-		if (giveRandom(chance))
+        if (giveRandom(chance))
 		{
-			if (Actor.Spawn(spawnName, thing.pos) && rep)
-			{
-                if (hd_debug) console.printf(thing.getClassName().." -> "..spawnName);
+            if (hd_debug) console.printf(e.replacee.getClassName().." -> "..spawnName);
 
-				thing.destroy();
+            e.replacement = spawnName;
 
-				return true;
-			}
+            return true;
 		}
 
 		return false;
 	}
+
+	// Tries to create the Enemy via random spawning.
+	bool tryCreateEnemy(Actor thing, string spawnName, int chance)
+	{
+		if (giveRandom(chance))
+		{
+			if (hd_debug) console.printf(thing.getClassName().." + "..spawnName);
+
+			Actor.Spawn(spawnName, thing.pos);
+
+			return true;
+		}
+
+        return false;
+    }
+
+	override void worldLoaded(WorldEvent e)
+	{
+		// Populates the main arrays if they haven't been already. 
+		if (!cvarsAvailable) init();
+	}
+
+    override void checkReplacement(ReplaceEvent e)
+	{
+        // If there's nothing to replace or if the replacement is final, quit.
+        if (!e.replacee || e.isFinal) return;
+
+        // If thing being replaced is blacklisted, quit.
+        foreach (bl : blacklist) if (e.replacee is bl) return;
+
+        string candidateName = e.replacee.getClassName();
+
+        // If current map is Range, quit.
+        if (level.MapName == 'RANGE') return;
+
+        handleEnemyReplacements(e, candidateName);
+    }
 	
 	override void worldThingSpawned(WorldEvent e)
 	 {
-		// Populates the main arrays if they haven't been already. 
-		if (!cvarsAvailable) init();
-		
-		// If thing spawned doesn't exist, quit
+		// If thing spawned doesn't exist, quit.
 		if (!e.thing) return;
 
-		// If thing spawned is blacklisted, quit
+		// If thing spawned is blacklisted, quit.
 		foreach (bl : blacklist) if (e.thing is bl) return;
 
-		handleEnemyReplacements(e.thing, e.thing.getClassName());
+		string candidateName = e.thing.getClassName();
+
+        // If current map is Range, quit.
+        if (level.MapName == 'RANGE') return;
+
+		handleEnemySpawns(e.thing, candidateName);
 	}
 
-	private void handleEnemyReplacements(Actor thing, string candidateName)
+	private void handleEnemyReplacements(ReplaceEvent e, string candidateName)
 	{
 		// Checks if the level has been loaded more than 1 tic.
 		bool prespawn = !(level.maptime > 1);
 
-		// Iterates through the list of Enemy candidates for e.thing.
+		// Iterates through the list of Enemy candidates for thing.
 		foreach (enemySpawn : enemySpawnList)
 		{
-			// if an Enemy is owned or is an ammo (doesn't retain owner ptr), 
-			// do not replace it. 
-			let item = Inventory(thing);
-			if ((prespawn || enemySpawn.isPersistent) && (!(item && item.owner) && prespawn))
+			if ((prespawn || enemySpawn.isPersistent) && enemySpawn.replaceEnemy)
 			{
 				foreach (spawnReplace : enemySpawn.spawnReplaces)
 				{
@@ -266,10 +299,40 @@ class RadtechZombiesHandler : EventHandler
 					{
 						if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..enemySpawn.spawnName.."...");
 
-						if (tryCreateEnemy(thing, enemySpawn.spawnName, spawnReplace.chance, enemySpawn.replaceEnemy)) return;
+						if (tryReplaceEnemy(e, enemySpawn.spawnName, spawnReplace.chance)) return;
 					}
 				}
 			}
 		}
 	}
+
+    private void handleEnemySpawns(Actor thing, string candidateName)
+	{
+        // Checks if the level has been loaded more than 1 tic.
+        bool prespawn = !(level.maptime > 1);
+
+        // Iterates through the list of Enemy candidates for e.thing.
+        foreach (enemySpawn : enemySpawnList)
+		{    
+            // if an Enemy is owned or is an ammo (doesn't retain owner ptr), 
+            // do not replace it. 
+            let item = Inventory(thing);
+            if (
+                (prespawn || enemySpawn.isPersistent)
+             && (!(item && item.owner) && prespawn)
+             && !enemySpawn.replaceEnemy
+            )
+			{
+                foreach (spawnReplace : enemySpawn.spawnReplaces)
+				{
+                    if (spawnReplace.name ~== candidateName)
+					{
+                        if (hd_debug) console.printf("Attempting to spawn "..itemSpawn.spawnName.." with "..candidateName.."...");
+
+                        if (tryCreateItem(thing, enemySpawn.spawnName, spawnReplace.chance)) return;
+                    }
+                }
+            }
+        }
+    }
 }
