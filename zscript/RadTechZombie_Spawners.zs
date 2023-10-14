@@ -333,9 +333,9 @@ class RadtechZombiesHandler : EventHandler
 				{
                     if (spawnReplace.name ~== candidateName)
 					{
-                        if (hd_debug) console.printf("Attempting to spawn "..itemSpawn.spawnName.." with "..candidateName.."...");
+                        if (hd_debug) console.printf("Attempting to spawn "..enemySpawn.spawnName.." with "..candidateName.."...");
 
-                        if (tryCreateItem(thing, enemySpawn.spawnName, spawnReplace.chance)) return;
+                        if (tryCreateEnemy(thing, enemySpawn.spawnName, spawnReplace.chance)) return;
                     }
                 }
             }
