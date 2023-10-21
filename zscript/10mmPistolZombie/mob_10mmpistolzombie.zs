@@ -151,18 +151,18 @@ void A_Eject10mmPistolCasing(){
 		else chamber=0;
 	}
 	override void deathdrop(){
-		if(bhasdropped && tenpis_handgun_spawn_bias == -1)
+		if(bhasdropped && tenpis_pistol_spawn_bias == -1)
 		{
 			DropNewItem("HD9mMag15",96);
 		}
-		if (bhasdropped && tenpis_handgun_spawn_bias > -1)
+		if (bhasdropped && tenpis_pistol_spawn_bias > -1)
 		{
 			DropNewItem("HD10mMag8", 96);
 		}
  		else
 		{
 			bhasdropped=true;
-    		if (tenpis_handgun_spawn_bias == -1)
+    		if (tenpis_pistol_spawn_bias == -1)
 			{
 				let ppp=DropNewWeapon("HDPistol");
 				ppp.weaponstatus[PISS_MAG]=thismag;
@@ -190,7 +190,7 @@ void A_Eject10mmPistolCasing(){
 	}
 
 	void A_PistolGuyUnload(int which=0){
-		if(thismag>=0 && tenpis_handgun_spawn_bias == -1)
+		if(thismag>=0 && tenpis_pistol_spawn_bias == -1)
 		{
 			actor aaa;int bbb;
 			[bbb,aaa]=A_SpawnItemEx("HD9mMag15",
@@ -202,7 +202,7 @@ void A_Eject10mmPistolCasing(){
 			hdmagammo(aaa).mags.push(thismag);
 			A_StartSound("weapons/pismagclick",8);
 		}
-		if(thismag>=0&& tenpis_handgun_spawn_bias < -1)
+		if(thismag>=0&& tenpis_pistol_spawn_bias < -1)
 		{
 			actor aaa;int bbb;
 			[bbb,aaa]=A_SpawnItemEx("HD10mMag8",
