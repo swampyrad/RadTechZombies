@@ -58,7 +58,7 @@ class CombatJackboot:HDHumanoid{
 			bhasdropped=true;
 			hdweapon wp=null;
 
-			if(wep==0 && cshotgun_shotgun_spawn_bias == -1)
+			if(wep==0 && cshotgun_hunter_spawn_bias == -1)
 			{
 				wp=DropNewWeapon("Hunter");
 				if(wp){
@@ -76,7 +76,7 @@ class CombatJackboot:HDHumanoid{
 					gunloaded=8;
 				}
 			}
-			if(wep==0 && cshotgun_shotgun_spawn_bias > -1)
+			if(wep==0 && cshotgun_hunter_spawn_bias > -1)
 			{
 				wp=DropNewWeapon("HDCombatShotgun");
 				if(wp){

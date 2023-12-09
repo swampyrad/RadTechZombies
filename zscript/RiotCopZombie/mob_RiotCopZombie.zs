@@ -60,11 +60,11 @@ class RiotCopZombie:HDHumanoid{
 	override void deathdrop(){
 		A_NoBlocking();
 		if(bhasdropped){
-			if(!bfriendly && llh_shotgun_spawn_bias > -1)
+			if(!bfriendly && llh_hunter_spawn_bias > -1)
 			{
 				DropNewItem("LLShellPickup",200);
 			}
-			if(!bfriendly && llh_shotgun_spawn_bias == -1)
+			if(!bfriendly && llh_hunter_spawn_bias == -1)
 			{
 				DropNewItem("ShellPickup",200);
 			}
@@ -73,11 +73,11 @@ class RiotCopZombie:HDHumanoid{
 			bhasdropped=true;
 			hdweapon wp=null;
 
-			if(wep==0 && llh_shotgun_spawn_bias == -1)
+			if(wep==0 && llh_hunter_spawn_bias == -1)
 			{
 				DropNewItem("ShellPickup");
 			}
-			if(wep==0 && llh_shotgun_spawn_bias > -1)
+			if(wep==0 && llh_hunter_spawn_bias > -1)
 			{
 				wp=DropNewWeapon("LLHunter");
 				if(wp){

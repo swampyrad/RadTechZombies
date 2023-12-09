@@ -111,7 +111,7 @@ class DoomedZombieShotgunner:HDHumanoid{
 					gunloaded=50;
 				}
 			}
-			if(wep==0 && dHunt_shotgun_spawn_bias > -1){
+			if(wep==0 && dHunt_hunter_spawn_bias > -1){
 				wp=DropNewWeapon("DoomHunter");
 				if(wp){
 					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
@@ -128,7 +128,7 @@ class DoomedZombieShotgunner:HDHumanoid{
 					gunloaded=8;
 				}
 			}
-			if(wep==0 && dHunt_shotgun_spawn_bias == -1){
+			if(wep==0 && dHunt_hunter_spawn_bias == -1){
 				wp=DropNewWeapon("Hunter");
 				if(wp){
 					wp.weaponstatus[HUNTS_FIREMODE]=semi?1:0;
