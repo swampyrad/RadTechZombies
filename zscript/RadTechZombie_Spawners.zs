@@ -308,12 +308,14 @@ class RadtechZombiesHandler : EventHandler {
         // Iterates through the list of Enemy candidates for e.thing.
         foreach (enemySpawn : enemySpawnList) {
 
-            // if an Enemy is owned or is an ammo (doesn't retain owner ptr),
-            // do not replace it.
+            // if currently in pre-spawn or configured to be persistent,
+            // and original thing being spawned is not an owned item,
+            // and not configured to replace original spawn,
+            // attempt to spawn new thing.
             let item = Inventory(thing);
             if (
                 (prespawn || enemySpawn.isPersistent)
-             && (!(item && item.owner) && prespawn)
+             && !(item && item.owner)
              && !enemySpawn.replaceEnemy
             ) {
                 foreach (spawnReplace : enemySpawn.spawnReplaces) {
