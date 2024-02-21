@@ -238,11 +238,11 @@ class MinervaZombie:HDHumanoid{
 		---- A 0 setstatelabel("spawn");
 	spawnwander:
 		MINZ A 0 A_HDLook();
-		MINZ CD 5 A_Wander();
+		MINZ CD 5 A_HDWander();
 		MINZ AB 5{
 			A_HDLook();
 			if(!random(0,15))A_Vocalize(activesound);
-			A_Wander();
+			A_HDWander();
 		}
 		MINZ A 0 A_Jump(196,"spawn");
 		loop;
