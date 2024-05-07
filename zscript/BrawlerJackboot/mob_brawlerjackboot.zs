@@ -7,7 +7,7 @@ class BrawlerJackboot:Jackboot{
 		super.postbeginplay();
    
 		bhasdropped=false;
-
+        gunloaded=0;
 	}
 
 	default{
@@ -89,6 +89,14 @@ override void deathdrop(){}
 			}
 		}
 		---- A 0 setstatelabel("see");
+	
+	//brawler should never interact with shotgun
+	reloadsg:
+	aiming:
+	shootsg:
+	chambersg:
+		goto roam;
+		
 	jump:
 		#### E 3 A_FaceTarget(16,16);
 		#### E 3{
