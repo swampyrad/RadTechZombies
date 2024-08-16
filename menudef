@@ -1,16 +1,6 @@
 // babby's first menudef :p
 // dragon's 15th menudef revamp :spamtondance: - [Ted]
 
-AddOptionMenu "OptionsMenu"
-{
-  Submenu "$RADTECHZEDS_MENU", "RadTechZombies"
-}
-
-AddOptionMenu "HDAddonMenu" {
-	Submenu"$RADTECHZEDS_MENU", "RadTechZombies"
-}
-
-
 // Fancy yet functional. - [Ted]
 OptionMenu RadTechZombies
 {
@@ -47,6 +37,16 @@ OptionMenu RadTechZombies
 	SafeCommand "Reset all options for Radtech Zombies", "RTZ_Reset_Cvars"
 }
 
+AddOptionMenu "OptionsMenu"
+{
+  Submenu "$RADTECHZEDS_MENU", "RadTechZombies"
+}
+
+AddOptionMenu "HDAddonMenu" {
+	Submenu"$RADTECHZEDS_MENU", "RadTechZombies"
+}
+
+
 // Prepare for sleep-deprived ted trying to write lore
 // Honestly most of this is going to likely have to be rewritten but I'll do it when I'm awake - [Ted]
 
@@ -59,7 +59,7 @@ OptionMenu ZombieDog
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of Zombie Dogs on Babuins", "white"
-	Option "Zombie Dogs Spawn Rate: ", "zombiedog_spawn_bias", "SpawnBias"
+	ScaleSlider "Zombie Dogs Spawn Rate: ", "zombiedog_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Zombie Dogs options", "resetcvar zombiedog_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -67,7 +67,7 @@ OptionMenu ZombieDog
 	SafeCommand "Reset persistence options", "resetcvar zombiedog_persistent_spawning"
  	StaticText ""
  StaticText  "Control the spawn rate of Cloaked Zombie Dogs on Cloaked Babuins", "white"
-	Option "Cloaked Zombie Dogs Spawn Rate: ", "cloaked_zombiedog_spawn_bias", "SpawnBias"
+	ScaleSlider "Cloaked Zombie Dogs Spawn Rate: ", "cloaked_zombiedog_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Cloaked Zombie Dogs options", "resetcvar cloaked_zombiedog_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -96,7 +96,7 @@ OptionMenu 10mmHomies
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the 10mm Homeboy on Zombiemen", "white"
-	Option "10mm Pistol Zombies Spawn Rate: ", "tenmilpis_zombieman_spawn_bias", "SpawnBias"
+	ScaleSlider "10mm Pistol Zombies Spawn Rate: ", "tenmilpis_zombieman_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset 10mm Homeboy options", "resetcvar tenmilpis_zombieman_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -123,7 +123,7 @@ OptionMenu 10mmRiflemen
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Sigcow Zombie on Zombiemen", "white"
-	Option "Sigcow Zombie Spawn Rate: ", "tenmilrifl_zombieman_spawn_bias", "SpawnBias"
+	ScaleSlider "Sigcow Zombie Spawn Rate: ", "tenmilrifl_zombieman_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Sigcow Zombie options", "resetcvar tenmilrifl_zombieman_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -150,7 +150,7 @@ OptionMenu BayonetZombs
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Bayonet Zombie on Zombiemen", "white"
-	Option "Bayonet Zombie Spawn Rate: ", "bayonetta_zombieman_spawn_bias", "SpawnBias"
+	ScaleSlider "Bayonet Zombie Spawn Rate: ", "bayonetta_zombieman_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Bayonet Zombie options", "resetcvar bayonetta_zombieman_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -177,22 +177,22 @@ OptionMenu MeleeZombs
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Melee Zombie on Zombiemen", "white"
-	Option "Melee Zombie Spawn Rate: ", "meleezomb_zombieman_spawn_bias", "SpawnBias"
+	ScaleSlider "Melee Zombie Spawn Rate: ", "meleezomb_zombieman_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Melee Zombie options", "resetcvar meleezomb_zombieman_spawn_bias"
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Melee Zombie on Undead Homeboys", "white"
-	Option "Melee Zombie Spawn Rate: ", "meleezomb_homeboy_spawn_bias", "SpawnBias"
+	ScaleSlider "Melee Zombie Spawn Rate: ", "meleezomb_homeboy_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Melee Zombie options", "resetcvar meleezomb_homeboy_spawn_bias"
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Melee Zombie on Jackboots", "white"
-	Option "Melee Zombie Spawn Rate: ", "meleezomb_jackboot_spawn_bias", "SpawnBias"
+	ScaleSlider "Melee Zombie Spawn Rate: ", "meleezomb_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Melee Zombie options", "resetcvar meleezomb_jackboot_spawn_bias"
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Melee Zombie on Chaingunners", "white"
-	Option "Melee Zombie Spawn Rate: ", "meleezomb_chaingunner_spawn_bias", "SpawnBias"
+	ScaleSlider "Melee Zombie Spawn Rate: ", "meleezomb_chaingunner_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Melee Zombie options", "resetcvar meleezomb_chaingunner_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -219,7 +219,7 @@ OptionMenu BrawlerJackboots
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Brawler Jackboot on Jackboots", "white"
-	Option "Brawler Jackboot Spawn Rate: ", "brawler_jackboot_spawn_bias", "SpawnBias"
+	ScaleSlider "Brawler Jackboot Spawn Rate: ", "brawler_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Brawler Jackboot options", "resetcvar brawler_jackboot_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -246,7 +246,7 @@ OptionMenu CombatShotgunners
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Combat Shotgunner on Jackboots", "white"
-	Option "Combat Shotgunner Spawn Rate: ", "combshot_jackboot_spawn_bias", "SpawnBias"
+	ScaleSlider "Combat Shotgunner Spawn Rate: ", "combshot_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Combat Shotgunner options", "resetcvar combshot_jackboot_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -273,7 +273,7 @@ OptionMenu DoomedJackboots
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of the Doomed Jackboot on Jackboots", "white"
-	Option "Doomed Jackboot Spawn Rate: ", "doomjack_jackboot_spawn_bias", "SpawnBias"
+	ScaleSlider "Doomed Jackboot Spawn Rate: ", "doomjack_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Doomed Jackboot options", "resetcvar doomjack_jackboot_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -300,7 +300,7 @@ OptionMenu RiotPoliceJackboots
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of Riot Police on Jackboots", "white"
-	Option "Riot Police Spawn Rate: ", "riot_jackboot_spawn_bias", "SpawnBias"
+	ScaleSlider "Riot Police Spawn Rate: ", "riot_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Doomed Jackboot options", "resetcvar riot_jackboot_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -327,11 +327,11 @@ OptionMenu MinervaGunners
   StaticText ""
 	StaticText "Spawn Options", "Green"
   StaticText  "Control the spawn rate of Minerva Minigunners on Chaingunners", "white"
-	Option "Minerva Minigunners Spawn Rate: ", "minervazomb_chaingunner_spawn_bias", "SpawnBias"
+	ScaleSlider "Minerva Minigunners Spawn Rate: ", "minervazomb_chaingunner_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset Minerva Minigunners options", "resetcvar minervazomb_chaingunner_spawn_bias"
   StaticText ""
   StaticText  "Control the spawn rate of Minerva Minigunners on enemy HERPs", "white"
-	Option "HERP Spawn Rate: ", "minervazomb_herp_spawn_bias", "SpawnBias"
+	ScaleSlider "HERP Spawn Rate: ", "minervazomb_herp_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
 	SafeCommand "Reset HERP options", "resetcvar minervazomb_herp_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -347,21 +347,4 @@ OptionMenu MinervaGunners
 	StaticText "Some form of Gunner who's decided to pick up a Minerva minigun before heading to fight.", "white"
 	StaticText "These guys'll spray you down with more 9mm than you could possibly stomach here.", "white"
   StaticText "Make sure to exercise extreme caution around them, they're especially dangerous when they decide to use a burst.", "white"
-}
-
-// Spawn Bias (for enemies that replace)
-OptionValue "SpawnBias"
-{
-	-1,    "Disabled"
-	 0,    "Replace All"
-	 2,    "1 in 3"
-	 4,    "1 in 5"
-	 9,    "1 in 10"
-	 14,   "1 in 15"
-	 19,   "1 in 20"
-	 24,   "1 in 25"
-	 49,   "1 in 50"
-	 99,   "1 in 100"
-	 149,  "1 in 150"
-	 199,  "1 in 200"
 }
