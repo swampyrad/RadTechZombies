@@ -2,3 +2,9 @@
 
 // Wow this is just like RTWP :))))) - [Ted]
 RADTECHZEDS_MENU = "\c[Green]Ⓡ\c- Radtech Zombies";
+
+// Menu Option Values
+MENU_ENABLED = "Enabled";
+MENU_DISABLED = "Disabled";
+MENU_REPLACEALL = "Replace All";
+MENU_WITHALL = "With All";

@@ -384,10 +384,10 @@ class MinervaZombie:HDHumanoid{
 	death:
 		MINZ H 5;
 		MINZ I 5{
-			A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
+			A_GibSplatter();
 			A_Vocalize(deathsound);
 		}
-		MINZ J 5 A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
+		MINZ J 5 A_GibSplatter();
 		MINZ KL 5;
 		MINZ M 5;
 	dead:
@@ -395,39 +395,39 @@ class MinervaZombie:HDHumanoid{
 		MINZ N 5 canraise{
 			if(abs(vel.z)>1)setstatelabel("dead");
 		}wait;
-	xxxdeath:
+	deadgib:
 		MINZ LKO 3;
 		MINZ P 3{
-			A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
+		 A_GibSplatter();
 			A_XScream();
 		}
 		MINZ R 2;
 		MINZ QRS 5;
-		---- A 0 setstatelabel("xdead");
+		---- A 0 setstatelabel("gibbed");
 
-	xdeath:
+	gib:
 		MINZ O 5;
 		MINZ P 3{
-			A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
+		 A_GibSplatter();
 			A_XScream();
 		}
-		MINZ R 2 A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
+		MINZ R 2 A_GibSplatter();
 		MINZ Q 5;
-		MINZ Q 0 A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
-		MINZ RS 5 A_SpawnItemEx("MegaBloodSplatter",0,0,34,0,0,0,0,160);
-	xdead:
+		MINZ Q 0 A_GibSplatter();
+		MINZ RS 5 A_GibSplatter();
+	gibbed:
 		MINZ STUV 3;
 		MINZ W 5 canraise{
 			if(abs(vel.z)>1)setstatelabel("dead");    
 		}wait;
 	raise:
-		MINZ N 2 A_SpawnItemEx("MegaBloodSplatter",0,0,4,0,0,3,0,SXF_NOCHECKPOSITION);
+		MINZ N 2 A_GibSplatter();
 		MINZ NML 6;
 		MINZ KJIH 4;
 		#### A 0 A_Jump(256,"see");
 	ungib:
-		MINZ W 6 A_SpawnItemEx("MegaBloodSplatter",0,0,4,0,0,3,0,SXF_NOCHECKPOSITION);
-		MINZ WV 12 A_SpawnItemEx("MegaBloodSplatter",0,0,4,0,0,3,0,SXF_NOCHECKPOSITION);
+		MINZ W 6 A_GibSplatter();
+		MINZ WV 12 A_GibSplatter();
 		MINZ UTSR 7;
 		MINZ QPOH 5;
 		#### A 0 A_Jump(256,"see");

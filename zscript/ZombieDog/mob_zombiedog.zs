@@ -191,15 +191,15 @@ class ZombieDog:Babuin{
 		TROO SRQ 6;
 		TROO PO 4;
 		ZDOG A 0 A_Jump(256,"see");
-	xdeath:
+	gib:
 		TROO O 0 A_XScream();
-		TROO OPQ 4{spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);}
+		TROO OPQ 4 A_GibSplatter();
 		TROO RST 4;
-		goto xdead;
-	xxxdeath:
+		goto gibbed;
+	deadgib:
 		TROO O 4 A_XScream();
 		TROO PQRST 4;
-	xdead:
+	gibbed:
 		TROO T 5 canraise{
 			if(abs(vel.z)<2)frame++;
 		}loop;
@@ -242,7 +242,7 @@ class SpecZombieDog:ZombieDog{
 		);
 		TNT1 A 0 A_SetTranslucent(1,0);
 		goto super::death;
-	xdeath:
+	gib:
 		TNT1 AAA 0 A_SpawnItemEx("HDSmoke",random(-1,1),random(-1,1),random(2,14),
 			vel.x,vel.y,vel.z+random(1,3),0,
 			SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION

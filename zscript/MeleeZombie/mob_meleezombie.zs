@@ -189,27 +189,27 @@ override void deathdrop(){}
 		#### L 3 canraise{if(abs(vel.z)<2.)frame++;}
 		#### M 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
-	xxxdeath:
+	deadgib:
 		POSS M 5;
 		#### M 5{
-			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+			A_GibSplatter();
 			A_XScream();
 		}
 		#### OPQRST 5;
-		goto xdead;
-	xdeath:
+		goto gibbed;
+	gib:
 		POSS M 5;
 		#### M 5{
-			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+			A_GibSplatter();
 			A_XScream();
 		}
 		#### O 0 A_NoBlocking();
-		#### OP 5 spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+		#### OP 5 A_GibSplatter();
 		#### QRST 5;
-		goto xdead;
-	xdead:
+		goto gibbed;
+	gibbed:
 		POSS T 3 canraise{if(abs(vel.z)<2.)frame++;}
-		#### U 5 canraise A_JumpIf(abs(vel.z)>=2.,"xdead");
+		#### U 5 canraise A_JumpIf(abs(vel.z)>=2.,"gibbed");
 		wait;
 	raise:
 		ZOMB L 4;
