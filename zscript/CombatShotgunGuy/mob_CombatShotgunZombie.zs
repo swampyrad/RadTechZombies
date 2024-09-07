@@ -289,38 +289,38 @@ class CombatJackboot:HDHumanoid{
 		#### K 3 canraise{if(abs(vel.z)<2.)frame++;}
 		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
-	xxxdeath:
+	deadgib:
 		SPOS M 0 A_JumpIf(wep<0,"xxxdeath2");
 		#### M 5;
 		#### N 5 A_XScream();
 		#### OPQRST 5;
-		goto xdead;
+		goto gibbed;
 	xxxdeath2:
 		SPOS O 5;
 		#### P 5 A_XScream();
 		#### QRSTUV 5;
 		goto xdead2;
-	xdeath:
+	gib:
 		SPOS M 0 A_JumpIf(wep<0,"xdeath2");
 		#### M 5;
 		#### N 5{
-			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+			A_GibSplatter();
 			A_XScream();
 		}
-		#### OP 5 spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+		#### OP 5 A_GibSplatter();
 		#### QRST 5;
-		goto xdead;
-	xdead:
+		goto gibbed;
+	gibbed:
 		#### T 3 canraise{if(abs(vel.z)<2.)frame++;}
-		#### U 5 canraise{if(abs(vel.z)>=2.)setstatelabel("xdead");}
+		#### U 5 canraise{if(abs(vel.z)>=2.)setstatelabel("gibbed");}
 		wait;
 	xdeath2:
 		SPOS O 5;
 		#### P 5{
-			spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+			A_GibSplatter();
 			A_XScream();
 		}
-		#### QR 5 spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+		#### QR 5 A_GibSplatter();
 		#### STUV 5;
 		goto xdead2;
 	xdead2:
@@ -331,7 +331,7 @@ class CombatJackboot:HDHumanoid{
 		RCOP A 0{
 			jammed=false;
 		}
-		#### L 4 spawn("MegaBloodSplatter",pos+(0,0,34),ALLOW_REPLACE);
+		#### L 4 A_GibSplatter();
 		#### LK 6;
 		#### JIH 4;
 		#### A 0 A_Jump(256,"see");
