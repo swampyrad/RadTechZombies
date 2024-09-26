@@ -248,7 +248,7 @@ class SpecZombieDog:ZombieDog{
 			SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION
 		);
 		TNT1 A 0 A_SetTranslucent(1,0);
-		goto super::xdeath;
+		goto super::gib;
 	}
 }
 class DeadZombieDog:ZombieDog{
