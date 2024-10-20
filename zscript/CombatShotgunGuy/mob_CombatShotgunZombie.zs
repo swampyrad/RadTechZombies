@@ -38,7 +38,7 @@ class CombatJackboot:HDHumanoid{
 	override void postbeginplay(){
 		super.postbeginplay();
 
-			bhashelmet=true;
+			bhashelmet=false;
 			sprite=GetSpriteIndex("RCOPA1");
 			A_SetTranslation("BlackRedshirt");
      gunloaded=random(3,6);//5+1=6
