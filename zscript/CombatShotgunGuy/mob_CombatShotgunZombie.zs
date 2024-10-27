@@ -8,7 +8,7 @@ class CombatJackboot:HDHumanoid{
 		painsound "shotguncop/pain";
 		deathsound "shotguncop/death";
 		activesound "shotguncop/active";
-		tag "combat jackboot";
+		tag "$UAC_POLICE_SHOTGUN";
 
 		speed 10;
 		decal "BulletScratch";
@@ -207,7 +207,7 @@ class CombatJackboot:HDHumanoid{
 		#### E 0 A_Jump(32,"missile");
 		---- A 0 setstatelabel("roam");
 	chambersg:
-		#### E 8{
+		#### D 6{
 			if(gunspent){
 				A_SetTics(random(3,10));
 				A_StartSound("weapons/huntrack",8);
@@ -223,6 +223,7 @@ class CombatJackboot:HDHumanoid{
 			}
 			
 		}
+		#### C 4;
 		#### E 1 A_SetTics(random(3,8));
 		#### E 0 A_Jump(127,"see");
 		goto roam;
