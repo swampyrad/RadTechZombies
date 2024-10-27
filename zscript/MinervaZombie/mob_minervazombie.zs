@@ -13,7 +13,7 @@ class MinervaZombie:HDHumanoid{
 		painsound "minervazombie/pain";
 		deathsound "minervazombie/death";
 		activesound "minervazombie/active";
-		tag "massive firearms person";
+		tag "$MINERVA_ZOMBIE";
 
 		health 120;
 		speed 9;
