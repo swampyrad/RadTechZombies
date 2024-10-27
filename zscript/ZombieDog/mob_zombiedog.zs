@@ -42,7 +42,7 @@ class ZombieDog:Babuin{
 		
 		obituary "%o got chewed up by a zombie dog.";
 		damagefactor "hot",0.76;
-		tag "zombie dog";
+		tag "$ZOMBIE_DOG";
 	}
 
 	states{
@@ -215,7 +215,7 @@ class SpecZombieDog:ZombieDog{
 
 		renderstyle "fuzzy";
 		dropitem "HDBlurSphere",1;
-		tag "cloaked zombie dog";
+		tag "$ZOMBIE_DOG_CLOAKED";
 	}
 	override void Tick(){
 		if(
