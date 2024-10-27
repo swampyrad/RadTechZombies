@@ -8,3 +8,28 @@ MENU_ENABLED = "Enabled";
 MENU_DISABLED = "Disabled";
 MENU_REPLACEALL = "Replace All";
 MENU_WITHALL = "With All";
+
+// 10mm Zombiemen
+10MMZOMBIE_PISTOL = "10mm homeboy";
+10MMZOMBIE_RIFLE = "sigcow zombie ";
+10MMZOMBIE_BAYONET = "bayonet zombie";
+
+//Doomed Shotgun Zombies
+DOOMED_SARGE = "doomed shotgunner";
+
+// Minerva Zombie
+MINERVA_ZOMBIE = "massive firearms person";
+
+// UAC Police Zombies
+UAC_POLICE_LESSLETHAL = "UAC security guard";
+UAC_POLICE_SHOTGUN = "UAC elite guard";
+
+// Zombie Dogs
+ZOMBIE_DOG = "guard dog";
+ZOMBIE_DOG_CLOAKED = "cloaked guard dog";
+
+// Melee Zombies
+MELEE_ZOMBIE = "walker zombie";
+
+// Brawler Zombies
+BRAWLER_ZOMBIE = "sprinter zombie";
