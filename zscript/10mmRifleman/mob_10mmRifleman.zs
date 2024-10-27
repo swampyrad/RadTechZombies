@@ -237,7 +237,7 @@ void A_Eject10mmPistolCasing(){
 		painsound "sigcowzombie/pain";
 		deathsound "sigcowzombie/death";
 		activesound "sigcowzombie/active";
-		tag "WilliamGates";
+		tag "$10MMZOMBIE_RIFLE";
 
 		radius 10;
 		speed 12;
@@ -474,7 +474,7 @@ class BayonetRifleman:TenMilRifleman{
 		painsound "bayonetzombie/pain";
 		deathsound "bayonetzombie/death";
 		activesound "bayonetzombie/active";
-		tag "bayonet zombie";
+		tag "$10MMZOMBIE_BAYONET";
 
 		radius 10;
 		speed 12;
@@ -544,8 +544,10 @@ class BayonetRifleman:TenMilRifleman{
 			A_Changevelocity(cos(pitch)*3,0,sin(-pitch)*3,CVF_RELATIVE);
 		}
 		#### E 2 A_FaceTarget(6,6,FAF_TOP);
-		#### E 1 A_ChangeVelocity(cos(pitch)*16,0,sin(-pitch-frandom(-4,1))*16,CVF_RELATIVE);
-   #### E 1 {
+		#### E 3 A_ChangeVelocity(cos(pitch)*12,0,
+		                          sin(-pitch-frandom(-4,1))*12,
+		                          CVF_RELATIVE);
+   #### E 3 {
           A_HDChase("melee",null);  
           A_CustomMeleeAttack(random(15,20),"imp/melee","","claws",true);
         //these simulate a slashing attack, HDChase does impact damage
