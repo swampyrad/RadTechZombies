@@ -26,7 +26,7 @@ class MeleeZombie:UndeadHomeboy{
 		hdmobbase.stepsound "meleezombie/step";
 		hdmobbase.stepsoundwet "meleezombie/wormstep";
 		
-		tag "zombie";//"...brrrraaaaaiiiiiinnnnssssss..."
+		tag "$melee_zombie";//"...brrrraaaaaiiiiiinnnnssssss..."
         
         +nofear //zombies have no sense of self preservation     
         +ambush //zombies wait in silence
