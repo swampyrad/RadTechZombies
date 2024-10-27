@@ -31,7 +31,7 @@ class DoomedZombieShotgunner:HDHumanoid{
 		painsound "doomshotguy/pain";
 		deathsound "doomshotguy/death";
 		activesound "doomeshotguy/active";
-		tag "doomed jackboot";
+		tag "$DOOMED_SARGE";
 
 		speed 10;
 		decal "BulletScratch";
