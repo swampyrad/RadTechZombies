@@ -17,7 +17,7 @@ class RiotCopZombie:HDHumanoid{
 		painsound "lesslethalcop/pain";
 		deathsound "lesslethalcop/death";
 		activesound "lesslethalcop/active";
-		tag "UAC Police";
+		tag "$UAC_POLICE_LESSLETHAL";
 
 		speed 10;
 		decal "BulletScratch";
@@ -208,7 +208,7 @@ states{
 		#### E 0 A_Jump(32,"missile");
 		---- A 0 setstatelabel("roam");
 	chambersg:
-		#### E 8{
+		#### D 6{
 			if(gunspent){
 				A_SetTics(random(3,10));
 				A_StartSound("weapons/huntrack",8);
@@ -224,6 +224,7 @@ states{
 			}
 			
 		}
+		#### C 4;
 		#### E 1 A_SetTics(random(3,8));
 		#### E 0 A_Jump(127,"see");
 		goto roam;
