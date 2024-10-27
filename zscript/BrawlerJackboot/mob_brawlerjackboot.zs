@@ -19,7 +19,7 @@ class BrawlerJackboot:Jackboot{
 		painsound "grunt/pain";
 		deathsound "grunt/death";
 		activesound "grunt/active";
-		tag "brawler zombie";
+		tag "$BRAWLER_ZOMBIE";
 
 		+dropoff
 		+SLIDESONWALLS
