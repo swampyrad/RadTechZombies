@@ -16,7 +16,7 @@ class TenMilHomeboy:HDHumanoid{
 
 	override void postbeginplay(){
 		super.postbeginplay();
-   A_SetTranslation("TenMilZombie");
+        A_SetTranslation("TenMilZombie");
 		bhasdropped=false;
 		aimpoint1=(-1,-1);
 		aimpoint2=(-1,-1);
@@ -105,7 +105,7 @@ class TenMilHomeboy:HDHumanoid{
 		if(firemode>=0)firemode=randompick(0,0,0,1);
 	}
 
-void A_Eject10mmPistolCasing(){
+    void A_Eject10mmPistolCasing(){
 		HDWeapon.EjectCasing(self,"TenMilBrass",
       -frandom(89,92),
       (frandom(6,7),0,0),(13,0,0));
@@ -239,7 +239,7 @@ void A_Eject10mmPistolCasing(){
 		painsound "tenmilhomeboy/pain";
 		deathsound "tenmilhomeboy/death";
 		activesound "tenmilhomeboy/active";
-		tag "$cc_zombie";
+		tag "$10MMZOMBIE_PISTOL";
 
 		radius 10;
 		speed 12;
@@ -298,7 +298,7 @@ void A_Eject10mmPistolCasing(){
 		#### ABCD 3 A_TurnTowardsTarget();
 		loop;
 	shoot:
-  #### E 3;//takes a bit longer to start aiming
+        #### E 3;//takes a bit longer to start aiming
 		#### E 3 A_LeadTarget(1);
 		#### E 1 A_LeadTarget(2);
 		#### E 2 A_LeadAim(500,3);
@@ -313,7 +313,7 @@ void A_Eject10mmPistolCasing(){
 			){
 				pitch+=frandom(-2.4,2);
 				angle+=frandom(-2,2);
-				setstatelabel("fire");
+				setstatelabel("shoot");//needs to aim after every shot
 			}else A_SetTics(random(8,12));//raising this to lower magdump firerate
 		}
 		#### E 0 A_HDMonsterRefire("see",25);
