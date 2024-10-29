@@ -40,3 +40,11 @@ Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the 
 
 Melee Zombie/Zombie Dog sounds from Resident Evil 1 by Capcom
 Zombie Dog sprites from Wolfenstein 3D by iD Software
+
+Pistol Zombie Sprite Credits:
+Leviathan (Creator)
+Metal_Spaghetti (Armless Player sprites used as a base to make this)
+JoeyTD (Bloodstain on hand holding the Pistol)
+Solmyr (Other Arm sprites)
+iD Software (Death and Gib sprites from Zombieman)
+UndeadZeratul (for helping me dump the WAD files :3)
