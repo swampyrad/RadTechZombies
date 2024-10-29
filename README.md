@@ -31,20 +31,21 @@ These dogs didn't go to Heaven, now they're here to make your life Hell. Put the
 Minerva Minigunner Sprite Credits (copied from Realm667):
 
 Submitted: TheMightyHeracross
-Code: TheMightyHeracross, Ghastly (ZScript conversion)
-GLDefs: Graf Zhal (lights.pk3)
-Sounds: Skulltag
-Sprites: id Software, Skulltag
-Sprite Edit: ItsNatureToDie
-Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary
+- Code: TheMightyHeracross, Ghastly (ZScript conversion)
+- GLDefs: Graf Zhal (lights.pk3)
+- Sounds: Skulltag
+- Sprites: id Software, Skulltag
+- Sprite Edit: ItsNatureToDie
+- Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary
 
 Melee Zombie/Zombie Dog sounds from Resident Evil 1 by Capcom
+
 Zombie Dog sprites from Wolfenstein 3D by iD Software
 
 Pistol Zombie Sprite Credits:
-Leviathan (Creator)
-Metal_Spaghetti (Armless Player sprites used as a base to make this)
-JoeyTD (Bloodstain on hand holding the Pistol)
-Solmyr (Other Arm sprites)
+- Leviathan (Creator)
+- Metal_Spaghetti (Armless Player sprites used as a base to make this)
+- JoeyTD (Bloodstain on hand holding the Pistol)
+- Solmyr (Other Arm sprites)
 iD Software (Death and Gib sprites from Zombieman)
-UndeadZeratul (for helping me dump the WAD files :3)
+- UndeadZeratul (for helping me dump the WAD files :3)
