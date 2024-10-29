@@ -30,7 +30,7 @@ These dogs didn't go to Heaven, now they're here to make your life Hell. Put the
 
 Minerva Minigunner Sprite Credits (copied from Realm667):
 
-Submitted: TheMightyHeracross
+- Submitted: TheMightyHeracross
 - Code: TheMightyHeracross, Ghastly (ZScript conversion)
 - GLDefs: Graf Zhal (lights.pk3)
 - Sounds: Skulltag
