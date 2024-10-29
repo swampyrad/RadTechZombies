@@ -47,5 +47,5 @@ Pistol Zombie Sprite Credits:
 - Metal_Spaghetti (Armless Player sprites used as a base to make this)
 - JoeyTD (Bloodstain on hand holding the Pistol)
 - Solmyr (Other Arm sprites)
-iD Software (Death and Gib sprites from Zombieman)
+- iD Software (Death and Gib sprites from Zombieman)
 - UndeadZeratul (for helping me dump the WAD files :3)
