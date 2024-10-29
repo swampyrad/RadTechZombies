@@ -233,7 +233,7 @@ class TenMilHomeboy:HDHumanoid{
 	default{
 		//$Category "Monsters/Hideous Destructor"
 		//$Title "10mm Pistol Zombie"
-		//$Sprite "POSSA1"
+		//$Sprite "ZPISA1"
 
 		seesound "tenmilhomeboy/sight";
 		painsound "tenmilhomeboy/pain";
@@ -250,7 +250,7 @@ class TenMilHomeboy:HDHumanoid{
 	}
 	states{
 	spawn:
-		POSS E 1{
+		ZPIS E 1{
 			A_HDLook();
 			A_Recoil(frandom(-0.1,0.1));
 		}
@@ -265,7 +265,7 @@ class TenMilHomeboy:HDHumanoid{
 		#### B 8 A_Recoil(frandom(-0.2,0.2));
 		loop;
 	spawngrunt:
-		POSS G 1{
+		ZPIS G 1{
 			A_Recoil(frandom(-0.4,0.4));
 			A_SetTics(random(30,80));
 			if(!random(0,7))A_Vocalize(activesound);
@@ -321,14 +321,14 @@ class TenMilHomeboy:HDHumanoid{
 	nope:
 		#### E 10;
 	reload:
-		POSS ABCD 4 A_HDChase("melee",null,CHF_FLEE);
+		ZPIS ABCD 4 A_HDChase("melee",null,CHF_FLEE);
 		#### A 7 A_PistolGuyUnload();
 		#### BC 6 A_HDChase("melee",null,CHF_FLEE);
 		#### D 8 A_HDReload();
 		---- A 0 setstatelabel("see");
 
 	pain:
-		POSS G 2;
+		ZPIS G 2;
 		#### G 3 A_Vocalize(painsound);
 		#### G 0{
 			A_ShoutAlert(0.1,SAF_SILENT);
@@ -349,25 +349,25 @@ class TenMilHomeboy:HDHumanoid{
 		#### G 0{bfrightened=false;}
 		---- A 0 setstatelabel("see");
 	death:
-		POSS H 5;
-		#### I 5 A_Vocalize(deathsound);
+		ZPIS H 5;
+		ZPIS I 5 A_Vocalize(deathsound);
 		#### J 5 A_NoBlocking();
 		#### K 5;
 	dead:
-		POSS K 3 canraise{if(abs(vel.z)<2.)frame++;}
+		ZPIS K 3 canraise{if(abs(vel.z)<2.)frame++;}
 		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	deadgib:
-		POSS M 5;
-		#### N 5{
+		ZPIS M 5;
+		ZPIS N 5{
 			A_GibSplatter();
 			A_XScream();
 		}
 		#### OPQRST 5;
 		goto gibbed;
 	gib:
-		POSS M 5;
-		#### N 5{
+		ZPIS M 5;
+		ZPIS N 5{
 			A_GibSplatter();
 			A_XScream();
 		}
@@ -376,19 +376,21 @@ class TenMilHomeboy:HDHumanoid{
 		#### QRST 5;
 		goto gibbed;
 	gibbed:
-		POSS T 3 canraise{if(abs(vel.z)<2.)frame++;}
+		ZPIS T 3 canraise{if(abs(vel.z)<2.)frame++;}
 		#### U 5 canraise A_JumpIf(abs(vel.z)>=2.,"gibbed");
 		wait;
 	raise:
-		POSS L 4;
+		ZPIS L 4;
 		#### LK 6;
-		#### JIH 4;
+		#### JI 4;
+		ZPIS H 4;
 		#### A 0 A_Jump(256,"see");
 	ungib:
-		POSS U 12;
+		ZPIS U 12;
 		#### T 8;
 		#### SRQ 6;
-		#### PONM 4;
-		POSS A 0 A_Jump(256,"see");
+		#### PON 4;
+		ZPIS M 4;
+		#### A 0 A_Jump(256,"see");
 	}
 }
