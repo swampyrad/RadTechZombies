@@ -140,7 +140,7 @@ class TenMilHomeboy:HDHumanoid{
 
 		pitch+=frandom(0,spread)-frandom(0,spread);
 		angle+=frandom(0,spread)-frandom(0,spread);
-		HDBulletActor.FireBullet(self,"HDB_10",spread:3.,speedfactor:frandom(0.97,1.03));
+		HDBulletActor.FireBullet(self,"HDB_10",spread:15.,speedfactor:frandom(0.97,1.03));
 
 		A_StartSound("weapons/delta10mm",CHAN_WEAPON);
 		pitch+=frandom(-0.4,0.3);
