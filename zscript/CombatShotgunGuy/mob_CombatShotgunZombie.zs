@@ -18,8 +18,8 @@ class CombatJackboot:HDHumanoid{
 		painchance 200;
 		accuracy 1;
 
-		obituary "%o was mortally wounded by a combat jackboot.";
-		hitobituary "%o needs to brush up on their CQC training.";
+		obituary "%o felt the long-arm of the law.";
+		hitobituary "%o fought the law, and the law won.";
 	}
 	bool semi;
 	int gunloaded;
