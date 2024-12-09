@@ -208,12 +208,12 @@ sprite RCOPJ0, 42,60{
 }
 
 sprite RCOPK0, 48,60{
-    offset 24, 60
+    offset 24, 58
     patch RCOPK0,0,0
 }
 
 sprite RCOPL0, 52,60{
-    offset 26, 60
+    offset 26, 55
     patch RCOPL0,0,0
 }
 
