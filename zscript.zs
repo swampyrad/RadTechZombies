@@ -18,7 +18,6 @@ version "4.10"
 //Melee Zombie, they're hungry, and you look delicious
 #include "zscript/MeleeZombie/mob_MeleeZombie.zs"
 
-
 //Brawler Shotgun Guy, uses their shotgun as a club
 #include "zscript/BrawlerJackboot/mob_BrawlerJackboot.zs"
 
@@ -27,6 +26,9 @@ version "4.10"
 
 //Riot Cop Zombie, carries a less-lethal pellet shotgun
 #include "zscript/RiotCopZombie/mob_RiotCopZombie.zs"
+
+//Sten Zombie, carries a Sten and tries to be stealthy
+#include "zscript/StenZombie/mob_StenZombie.zs"
 
 //RadTech Zombie Spawner event handler
 #include "zscript/RadTechZombie_Spawners.zs"

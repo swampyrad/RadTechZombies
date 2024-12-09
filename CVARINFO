@@ -31,6 +31,10 @@ server bool tenmilpis_persistent_spawning = false;
 server int bayonetta_zombieman_spawn_bias = 14;
 server bool bayonetta_persistent_spawning = false;
 
+// Sten Zombiemen
+server int stengunner_spawn_bias = 14;
+server bool stengunner_persistent_spawning = false;
+
 // Melee Zombiemen
 server int meleezomb_homeboy_spawn_bias = 9;
 server int meleezomb_zombieman_spawn_bias = 14;

@@ -81,6 +81,19 @@ minervazombie/death1			dspodth1
 minervazombie/death2			dspodth2
 minervazombie/death3			dspodth3
 
+//  Sten Zombies
+
+$random stenzombie/sight 		{ stenzombie/sight1  stenzombie/sight2  stenzombie/sight3 }
+$random stenzombie/death		{ stenzombie/death1  stenzombie/death2  stenzombie/death3 }
+stenzombie/sight1			dsposit1
+stenzombie/sight2			dsposit2
+stenzombie/sight3			dsposit3
+stenzombie/active			dsposact
+stenzombie/pain			    dspopain
+stenzombie/death1			dspodth1
+stenzombie/death2			dspodth2
+stenzombie/death3			dspodth3
+
 
 //  Brawler Zombies
 

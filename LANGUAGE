@@ -1,7 +1,7 @@
 [enu default]
 
 // Wow this is just like RTWP :))))) - [Ted]
-RADTECHZEDS_MENU = "\c[Green]Ⓡ\c- Radtech Zombies";
+RADTECHZEDS_MENU = "\c[Green]Ⓡ\c- RadTech Zombies";
 
 // Menu Option Values
 MENU_ENABLED = "Enabled";
@@ -20,9 +20,12 @@ DOOMED_SARGE = "doomed shotgunner";
 // Minerva Zombie
 MINERVA_ZOMBIE = "massive firearms person";
 
+// Sten Zombie
+STEN_ZOMBIE = "sten zombie";
+
 // UAC Police Zombies
-UAC_POLICE_LESSLETHAL = "UAC security guard";
-UAC_POLICE_SHOTGUN = "UAC elite guard";
+UAC_POLICE_LESSLETHAL = "UAC security";
+UAC_POLICE_SHOTGUN = "UAC officer";
 
 // Zombie Dogs
 ZOMBIE_DOG = "guard dog";

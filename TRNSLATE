@@ -9,6 +9,17 @@ TenMilZombie=
 "144:151=153:159",
 "236:239=124:126"
 
+StenZombie=//green armor with a black rifle
+"128:143=152:159",
+"144:151=153:159",
+"236:239=124:126",
+"58:66=128:136",
+"214:223=141:148",
+"176:191=24:47",
+"16:34=68:79",
+"92:111=5:8"
+
+//melee zombie recolors
 Zombie_RedSuit="122:123=174:175"
 Zombie_YellowSuit="122:123=163:164"
 Zombie_OrangeSuit="122:123=165:166"
