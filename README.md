@@ -13,14 +13,17 @@ Wields 10mm Pistols and Sig-Cows, slightly deadlier than SMG and Pistol Zombieme
 - Doomed Jackboots:
 Commonly known to wield Doomed Shotguns, their shots follow a much wider horizontal spread due to the lack of proper chokes.
 
-- Combat Jackboots:
-Wields Combat Shotguns, these blood-drenched goons wear body armor for better defense, but as a tradeoff they sacrifice semi-auto and side-saddles for mobility, resulting in slower firerate and taking longer to reload than usual.
+- UAC Officers:
+Wields Combat Shotguns, as high-ranking members of UAC's security forces, these guards are privileged to use lethal force. These blood-drenched goons wear body armor for better defense, but as a tradeoff they sacrifice semi-auto and side-saddles for a lighter weapon, resulting in slower firerate and taking longer to reload than usual, but are more agile and ruthless than the average jackboot.
 
-- Riot Police Jackboots:
-Wields Less-Lethal Shotguns, members of UAC's private security firm, these undead guards now roam the corridors looking for any "criminal scum" to bring swift justice to in the form of hardened rubber.
+- UAC Security:
+Wields Less-Lethal Shotguns, lowly members of UAC's private security firm, their duties involve supervising transfers of company property and keeping civilians out of unauthorized areas. After falling victim to the invasion, these undead guards now roam the corridors looking for any "criminal scum" to bring swift justice to in the form of hardened rubber.
 
 - Minerva Zombies:
 Wields the Minerva 9mm Chaingun, has slower firerate, but unlike Vulcanette Zombies, they can be incapacitated.
+
+- Sten Zombies:
+Wields suppressed Sten SMGs, they move silently and prefer to stay out of sight, hiding after taking a few quick shots.
 
 - Melee and Brawler Zombies
 Melee variants of the standard zombies, instead of shooting you, they want to beat you to a bloody pulp. Don't get cornered, or they can easily surround you if you're not careful.
