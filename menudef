@@ -27,9 +27,9 @@ OptionMenu RadTechZombies
   StaticText ""
   Submenu "Minerva Minigunners", "MinervaGunners", 0, 1
   StaticText ""
-  Submenu "Combat Shotgunners", "CombatShotgunners", 0, 1
+  Submenu "UAC Officers", "CombatShotgunners", 0, 1
   StaticText ""
-  Submenu "Riot Police Jackboots", "RiotPoliceJackboots", 0, 1
+  Submenu "UAC Security", "RiotPoliceJackboots", 0, 1
   StaticText ""
   Submenu "Zombie Dogs", "ZombieDog", 0, 1
   StaticText ""
@@ -269,15 +269,15 @@ OptionMenu BrawlerJackboots
 
 OptionMenu CombatShotgunners
 {
-  Title "------ Combat Shotgunners Options ------"
+  Title "------ UAC Officers Options ------"
   StaticText "Notice:", "Green"
   StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
   StaticText  "spawns of that given type.", "white"
   StaticText ""
 	StaticText "Spawn Options", "Green"
-  StaticText  "Control the spawn rate of the Combat Shotgunner on Jackboots", "white"
-	ScaleSlider "Combat Shotgunner Spawn Rate: ", "combshot_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
-	SafeCommand "Reset Combat Shotgunner options", "resetcvar combshot_jackboot_spawn_bias"
+  StaticText  "Control the spawn rate of the UAC Officer on Jackboots", "white"
+	ScaleSlider "UAC Officer Spawn Rate: ", "combshot_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset UAC Officer options", "resetcvar combshot_jackboot_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "combshot_persistent_spawning", "OnOff"
@@ -289,9 +289,9 @@ OptionMenu CombatShotgunners
 	StaticText ""
 	StaticText "--- Lore ---", "Green"
 	StaticText ""
-	StaticText "A former sergeant who's either damaged his gun or himself enough to now only be limited to melee.", "white"
-	StaticText "These sergeants are usually easy prey to take down due to their limited range and lack of armor.", "white"
-  StaticText "Though, the swift slam of a shotgun stock is definitely nothing to scoff at.", "white"
+	StaticText "A former member of UAC's security forces, given the authority to carry a proper shotgun.", "white"
+	StaticText "These sergeants are armored, unlike most jackboots you'll run into. However, instead of a", "white"
+  	StaticText "a Hunter, they carry a Combat Shotgun, allowing for faster movement at the cost of firerate.", "white"
 }
 
 OptionMenu DoomedJackboots
@@ -323,15 +323,15 @@ OptionMenu DoomedJackboots
 
 OptionMenu RiotPoliceJackboots
 {
-  Title "------ Riot Police Jackboots Options ------"
+  Title "------ UAC Security Options ------"
   StaticText "Notice:", "Green"
   StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
   StaticText  "spawns of that given type.", "white"
   StaticText ""
 	StaticText "Spawn Options", "Green"
-  StaticText  "Control the spawn rate of Riot Police on Jackboots", "white"
-	ScaleSlider "Riot Police Spawn Rate: ", "riot_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
-	SafeCommand "Reset Doomed Jackboot options", "resetcvar riot_jackboot_spawn_bias"
+  StaticText  "Control the spawn rate of UAC Security on Jackboots", "white"
+	ScaleSlider "UAC Security Spawn Rate: ", "riot_jackboot_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset UAC Security options", "resetcvar riot_jackboot_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "riot_persistent_spawning", "OnOff"
@@ -343,9 +343,9 @@ OptionMenu RiotPoliceJackboots
 	StaticText ""
 	StaticText "--- Lore ---", "Green"
 	StaticText ""
-	StaticText "A former cop trying his best to defend himself and his comrades in the fray.", "white"
-	StaticText "They're usually ineffective due to the less-lethal hunters they carry on them.", "white"
-  StaticText "Those shells will still stun you heavily if you take one to your gut though.", "white"
+	StaticText "A former security guard trying his best to defend himself and his comrades in the fray.", "white"
+	StaticText "They're usually ineffective due to the less-lethal Hunters they carry on them.", "white"
+  	StaticText "Those shells will still stun you heavily if you take one to your gut, though.", "white"
 }
 
 OptionMenu MinervaGunners
