@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// Sten guy, is sneaky and has a silenced SMG
+// Sten guy, is sneaky and has a silenced weapon
 //   ------------------------------------------------------------
 class StenZombie:HDHumanoid{
 	//tracking ammo
@@ -10,33 +10,31 @@ class StenZombie:HDHumanoid{
 
 	double spread;
 
-
-	//specific to undead homeboy
-	int user_weapon; //0 random, 1 semi, 2 auto
-
 	override void postbeginplay(){
 		super.postbeginplay();
-        A_SetTranslation("StenZombie");
+  
+    givearmour(1.);//wears a vest just like the SS guards
+  
 		bhasdropped=false;
 		aimpoint1=(-1,-1);
 		aimpoint2=(-1,-1);
 
-		//specific to undead homeboy
-		thismag=random(15,30);
-		chamber=0;
-		if(
-			user_weapon==2
-			||(
-				user_weapon!=1
-				&&!random(0,8)
-			)
-		)firemode=randompick(0,0,0,1);
-		else firemode=-1;
+    //random chance to spawn with a Sten or a Hushpuppy
+    firemode=randompick(0,0,1,1,0,0);
+
+    if(firemode==0){//silenced pistol
+		  thismag=random(7,15);
+		}else if(firemode==1){//silenced Sten
+		  thismag=random(15,29);
+		  firemode=1;//Sten is always full-auto
+		}
+		
+		chamber=2;
 	}
+	
 	virtual bool noammo(){
 		return thismag<1;
 	}
-
 
 	/*
 	These functions were originally meant to be a prototype for a lot of generalized
@@ -59,8 +57,6 @@ class StenZombie:HDHumanoid{
 		)setstatelabel(shootstate);
 		if(bfloat||floorz>=pos.z)A_ChangeVelocity(0,frandom(-0.1,0.1)*speed,0,CVF_RELATIVE);
 	}
-
-
 
 	//aiming and leading targets
 	vector2 aimpoint1;
@@ -101,8 +97,6 @@ class StenZombie:HDHumanoid{
 		pitch+=apadj.y*ticstolead;
 		angle+=apadj.x*ticstolead;
 
-		//fidget with the fire selector
-		if(firemode>=0)firemode=randompick(0,0,0,1);
 	}
 
     void A_Eject9mmCasing(){
@@ -150,37 +144,55 @@ class StenZombie:HDHumanoid{
 		if(thismag>0)thismag--;
 		else chamber=0;
 	}
+	
 	override void deathdrop(){
-		if(bhasdropped)
+		if(bhasdropped)//chance to drop ammo if died more than once
 		{
-			DropNewItem("HD9mMag30",96);
+		  if(firemode==1)
+			  DropNewItem("HD9mMag30",96);
+			else if(firemode==0)
+			  DropNewItem("HD9mMag15",96);
 		}
- 		else
+ 		else//drop weapon and ammo on first death
 		{
 			bhasdropped=true;
-    		if (sten_clipbox_spawn_bias == -1)
-			{
-				let ppp=DropNewWeapon("HDSMG");
-				ppp.weaponstatus[STENS_MAG]=thismag;
-				ppp.weaponstatus[STENS_CHAMBER]=chamber;
-    			DropNewItem("HD9mMag30",96);
-				if(firemode>=0)
-				{
-					//ppp.weaponstatus[0]|=PISF_SELECTFIRE;
-					if(firemode>0)ppp.weaponstatus[0]|=PISF_FIREMODE;
-				}
-			}
-			else
-			{
-				let ppp=DropNewWeapon("HDStenMk2");
-				ppp.weaponstatus[STENS_MAG]=thismag+chamber/2;
-				ppp.weaponstatus[STENS_CHAMBER]=0;
-    			DropNewItem("HD9mMag30",96);
-				if(firemode>=0)
-				{
-					//ppp.weaponstatus[0]|=PISF_SELECTFIRE;
-					if(firemode>0)ppp.weaponstatus[0]|=PISF_FIREMODE;
-				}
+			
+			//drop a SMG if Sten spawns disabled
+			if(firemode==1){
+    	  if (sten_clipbox_spawn_bias == -1)
+			  {
+				  let ppp=DropNewWeapon("HDSMG");
+				  ppp.weaponstatus[SMGS_MAG]=thismag;
+				  ppp.weaponstatus[SMGS_CHAMBER]=chamber;
+				  ppp.weaponstatus[SMGS_AUTO]=2;
+    			DropNewItem("HD9mMag30",256);
+			  }//otherwise drop a Sten
+			  else
+			  {
+				  let ppp=DropNewWeapon("HDStenMk2");
+				  ppp.weaponstatus[STENS_MAG]=thismag+chamber/2;
+				  ppp.weaponstatus[STENS_CHAMBER]=0;
+				  ppp.weaponstatus[STENS_AUTO]=2;//drop with full-auto enabled
+    			DropNewItem("HD9mMag30",256);
+			  }//drop a pistol if Hushpuppy spawns are disabled
+		  }else if(firemode==0){
+			  if(hushpuppy_clipbox_spawn_bias == -1
+			      &&hushpuppy_pistol_spawn_bias == -1
+			    )
+			  {
+				  let ppp=DropNewWeapon("HDPistol");
+				  ppp.weaponstatus[PISS_MAG]=thismag;
+				  ppp.weaponstatus[PISS_CHAMBER]=chamber;
+    		  DropNewItem("HD9mMag15",256);
+			  }//otherwise drop a Hushpuppy
+			  else
+			  {
+				  let ppp=DropNewWeapon("HushPuppyPistol");
+				  ppp.weaponstatus[PUPPY_MAG]=thismag;
+				  ppp.weaponstatus[PUPPY_CHAMBER]=chamber;
+				  ppp.weaponstatus[0]|=PUPF_FIREMODE;//drop with slidelock disabled
+    		  DropNewItem("HD9mMag15",256);
+			  }
 			}
 		}
 	}
@@ -189,25 +201,36 @@ class StenZombie:HDHumanoid{
 		if(thismag>=0)
 		{
 			actor aaa;int bbb;
+			if(firemode==1)//drop an SMG mag if using a Sten
 			[bbb,aaa]=A_SpawnItemEx("HD9mMag30",
 				cos(pitch)*10,0,height-8-sin(pitch)*10,
 				vel.x,vel.y,vel.z,
 				0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH
+			);//drop a pistol mag if using a Hushpuppy
+			else 	if(firemode==0)[bbb,aaa]=A_SpawnItemEx("HD9mMag15",
+				cos(pitch)*10,0,height-8-sin(pitch)*10,
+				vel.x,vel.y,vel.z,
+				0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH
 			);
+			
 			hdmagammo(aaa).mags.clear();
 			hdmagammo(aaa).mags.push(thismag);
 			A_StartSound("weapons/pismagclick",8);
 		}
 		thismag=-1;
 	}
+	
 	bool A_HDReload(int which=0){
 		if(thismag>=0)return false;
-		thismag=30;
 		
+		if(firemode==1)//Sten
+		  thismag=30;
+		else 	if(firemode==0)//Hushpuppy
+		  thismag=15;
+		  
 		A_StartSound("weapons/pismagclick",8);
 		return true;
 	}
-
 
 	//defaults and states
 	default{
@@ -215,108 +238,109 @@ class StenZombie:HDHumanoid{
 		//$Title "Sten Zombie"
 		//$Sprite "POSSA1"
 
+    +ambush //don't move until you see the player
+
 		seesound "stenzombie/sight";
 		painsound "stenzombie/pain";
 		deathsound "stenzombie/death";
 		activesound "stenzombie/active";
 		tag "$STEN_ZOMBIE";
+		
+		hdmobbase.stepsound "stenzombie/step";
+		//"mein fuhrer, i'm trying to sneak around, but i'm fash and fabulous,
+    // and the click from my heels keeps alerting the amerikaner"
 
 		radius 10;
-		speed 12;
+		speed 15;
 		mass 100;
 		painchance 200;
-		obituary "%o was silenced by a Sten zombie.";
-		hitobituary "%o was bludgeoned by a Sten zombie.";
+		obituary "%o was silenced by an elite guard.";
+		hitobituary "%o was knocked out by an elite guard.";
+		
+		translation "192:207=103:111","240:247=5:8";
+		//changes blue uniform to black
 	}
 	states{
 	spawn:
-		POSS E 1{
+		SSEG A 1{
 			A_HDLook();
 			A_Recoil(frandom(-0.1,0.1));
+			if(target)A_ClearTarget();//forget target so they can hide and wait for them to show up again
 		}
-		#### EEE random(5,17) A_HDLook();
-		#### E 1{
+		#### AAA random(5,17) A_HDLook();
+		#### A 1{
 			A_Recoil(frandom(-0.1,0.1));
 			A_SetTics(random(10,40));
 		}
 		#### B 0 A_JumpIf(noammo(),"reload");
-		#### B 0 A_Jump(28,"spawngrunt");
 		#### B 0 A_Jump(132,"spawnswitch");
-		#### B 8 A_Recoil(frandom(-0.2,0.2));
+		#### B 6 A_Recoil(frandom(-0.2,0.2));
 		loop;
-	spawngrunt:
-		POSS G 1{
-			A_Recoil(frandom(-0.4,0.4));
-			A_SetTics(random(30,80));
-			//if(!random(0,7))A_Vocalize(activesound);
-		}
-		#### A 0 A_Jump(256,"spawn");
 	spawnswitch:
 		#### A 0 A_JumpIf(bambush,"spawnstill");
 		goto spawnwander;
 	spawnstill:
 		#### A 0 A_Look();
 		#### A 0 A_Recoil(random(-1,1)*0.4);
-		#### CD 5 A_SetAngle(angle+random(-4,4));
-		#### A 0{
-			A_Look();
-		//if(!random(0,127))A_Vocalize(activesound);
-		}
-		#### AB 5 A_SetAngle(angle+random(-4,4));
+		#### CD 6 A_SetAngle(angle+random(-4,4));
+		#### A 0 A_Look();
+		#### AB 8 A_SetAngle(angle+random(-4,4));
 		#### B 1 A_SetTics(random(10,40));
 		#### A 0 A_Jump(256,"spawn");
 	spawnwander:
-		#### CDAB 5 A_HDWander();
+		#### CDAB 10 A_HDWander();
 		#### A 0 A_Jump(64,"spawn");
 		loop;
 
 	see:
-		#### ABCD random(3,4) A_HDChase();
+		#### ABCD random(5,6) A_HDChase();
 		#### A 0 A_JumpIf(noammo(),"reload");
+		#### A 0 A_JumpIf(!checksight(target),"spawn");//wait around if target is out of sight
 		loop;
 	missile:
-		#### ABCD 3 A_TurnTowardsTarget();
+		#### CD 5 A_TurnTowardsTarget();
 		loop;
 	shoot:
-        #### E 3;//takes a bit longer to start aiming
-		#### E 3 A_LeadTarget(1);
-		#### E 1 A_LeadTarget(2);
-		#### E 2 A_LeadAim(500,3);
+    #### F 3;//takes a bit longer to start aiming
+		#### F 3 A_LeadTarget(1);
+		#### F 1 A_LeadTarget(2);
+		#### F 2 A_LeadAim(500,3);
 	fire:
-		#### F 1 bright light("SHOT") A_StenGuyAttack();
+		#### G 1 bright light("SHOT") A_StenGuyAttack();
 	postshot:
-		#### E 3;//adding a tic here
+		#### F 4 A_SetTics(random(4,5));
 		#### E 0 A_JumpIf(thismag<1||!target,"nope");
 		#### E 0{
-			if(
+			if(//increase spread if using full-auto
 				firemode>0
 			){
 				pitch+=frandom(-2.4,2);
 				angle+=frandom(-2,2);
-			}else A_SetTics(random(6,10));
-		}
+			}else A_SetTics(random(6,8));
+		}//random chance to run away after shooting
 		#### E 0 A_JumpIf(!random(0,9), "retreat");
 		#### E 0 A_HDMonsterRefire("see",25);
 		goto fire;
 	nope:
-		#### E 10;
+		#### F 10;
 	reload:
-		POSS ABCD 2 A_HDChase("melee",null,CHF_FLEE);
+		SSEG CD 5 A_HDChase("melee",null,CHF_FLEE);
 		#### A 7 A_StenGuyUnload();
-		#### BC 6 A_HDChase("melee",null,CHF_FLEE);
+		#### BC 5 A_HDChase("melee",null,CHF_FLEE);
 		#### D 8 A_HDReload();
 		---- A 0 setstatelabel("see");
 
 	pain:
-		POSS G 2;
-		#### G 3 A_Vocalize(painsound);
-		#### G 0{
+		SSEG H 1;
+		#### H 4 A_Vocalize(painsound);
+		#### H 0{
 			A_ShoutAlert(0.1,SAF_SILENT);
+			//random chance to dodge and return fire immediately
 			if(
 				floorz==pos.z
 				&&target
 				&&(
-					!random(0,4)
+					!random(0,3)
 					||distance3d(target)<128
 				)
 			){
@@ -325,60 +349,113 @@ class StenZombie:HDHumanoid{
 				setstatelabel("missile");
 			}else bfrightened=true;
 		}
-		#### ABCD 2 A_HDChase();
-		#### G 0{bfrightened=false;}
+		#### H 0 A_JumpIf(!random(0,3)||health<=50,"retreat");//chance to retreat after getting hurt
+		#### ABCD 3 A_HDChase();
+		#### A 0{bfrightened=false;}
 		---- A 0 setstatelabel("see");
 	retreat:
-	  	#### G 0{bfrightened=true;}
-			#### ABCDABCD 1 A_HDChase();
-			#### G 0 A_JumpIf(!random(0,3), "retreat");
-			#### ABCDABCD 1 A_HDChase();
-		  #### G 0{bfrightened=false;}
-			#### G 0 A_JumpIf(!target, "spawnwander");
+	  	#### A 0{bfrightened=true;}
+			#### AABBCCDD 2 A_HDChase();
+			#### A 0 A_JumpIf(!random(0,3), "retreat");
+			#### ABCD 3 A_HDChase();
+		  #### A 0{bfrightened=false;}
+			#### A 0 A_JumpIf(!checksight(target), "spawnstill");//lie in wait until player is visible again
 	    ---- A 0 setstatelabel("see");
+	    
 	death:
-		POSS H 5;
-		POSS I 5 A_Vocalize(deathsound);
-		#### J 5 A_NoBlocking();
-		#### K 5;
+		SSEG I 5;
+		#### J 5 A_Vocalize(deathsound);
+		#### K 5 A_NoBlocking();
+		#### L 5;
 	dead:
-		POSS K 3 canraise{if(abs(vel.z)<2.)frame++;}
-		#### L 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
+		SSEG L 3 canraise{if(abs(vel.z)<2.)frame++;}
+		#### M 5 canraise{if(abs(vel.z)>=2.)setstatelabel("dead");}
 		wait;
 	deadgib:
-		POSS M 5;
-		POSS N 5{
+		SSEG N 5;
+		SSEG O 5{
 			A_GibSplatter();
 			A_XScream();
 		}
-		#### OPQRST 5;
+		#### PQRSTU 5;
 		goto gibbed;
 	gib:
-		POSS M 5;
-		POSS N 5{
-			A_GibSplatter();
-			A_XScream();
-		}
-		#### O 0 A_NoBlocking();
-		#### OP 5 A_GibSplatter();
-		#### QRST 5;
-		goto gibbed;
+		SSEG N 5 A_GibSplatter();
+		SSEG O 0 A_GibSplatter();
+		SSEG O 5 A_XScream();
+		SSEG PQ 5 A_GibSplatter();
+		SSEG RSTU 5;
 	gibbed:
-		POSS T 3 canraise{if(abs(vel.z)<2.)frame++;}
-		#### U 5 canraise A_JumpIf(abs(vel.z)>=2.,"gibbed");
+		SSEG U 3 canraise A_JumpIf(abs(vel.z)<2,1);
+		wait;
+		SSEG V 5 canraise A_JumpIf(abs(vel.z)>=2,"gibbed");
 		wait;
 	raise:
-		POSS L 4;
-		#### LK 6;
-		#### JI 4;
-		POSS H 4;
-		#### A 0 A_Jump(256,"see");
+		SSEG M 4;
+		SSEG MLK 6;
+		SSEG JIH 4;
+		---- A 0 setstatelabel("see");
 	ungib:
-		POSS U 12;
-		#### T 8;
-		#### SRQ 6;
-		#### PON 4;
-		POSS M 4;
-		#### A 0 A_Jump(256,"see");
+		SSEG V 4;
+		SSEG VUT 8;
+		SSEG SRQ 6;
+		SSEG PON 4;
+		SSEG A 0;
+		---- A 0 setstatelabel("see");
+	}
+	//heal player if punched to death
+	override void die(actor source,actor inflictor,int dmgflags){
+		if(
+			bplayingid
+			&&source
+			&&source==inflictor
+			&&source.player
+			&&HDFist(source.player.readyweapon)
+		){
+			source.A_StartSound("nazi/punched",19450430,CHANF_OVERLAP);
+			let ppp=hdplayerpawn(source);
+			if(!ppp)source.givebody(20);
+			else{
+				let www=HDBleedingWound.FindBiggest(ppp,HDBW_FINDPATCHED|HDBW_FINDhealing);
+				if(!!www)www.destroy();
+				ppp.bloodloss-=50;
+				ppp.aggravateddamage-=max(1,ppp.aggravateddamage>>3);
+				ppp.fatigue>>=1;
+				ppp.stunned=0;
+				ppp.givebody(6);
+			}
+		}
+		super.die(source,inflictor,dmgflags);
+	}
+}
+
+class StenZombie_Black:StenZombie{
+  default{
+    translation "192:207=103:111","240:247=5:8","161:163=109:111","164:166=5:7";
+		//changes blue uniform and blonde hair to black
+	}
+}
+
+class StenZombie_Red:StenZombie{
+  default{
+    translation "192:207=103:111","240:247=5:8","161:163=221:223","164:166=233:235";
+		//changes blue uniform to black and blonde hair to red
+	}
+}
+
+class StenZombie_Brown:StenZombie{
+  default{
+    translation "192:207=103:111","240:247=5:8","161:166=74:79";
+		//changes blue uniform to black and blonde hair to brown
+	}
+}
+
+//spawn with random hair color, so they don't all look the same
+class StenZombieSpawner:RandomSpawner{
+	default{
+		dropitem "StenZombie",256,10;
+		dropitem "StenZombie_Black",256,10;
+		dropitem "StenZombie_Red",256,10;
+		dropitem "StenZombie_Brown",256,10;
 	}
 }
