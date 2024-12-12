@@ -32,7 +32,8 @@ server int bayonetta_zombieman_spawn_bias = 14;
 server bool bayonetta_persistent_spawning = false;
 
 // Sten Zombiemen
-server int stengunner_spawn_bias = 14;
+server int stengunner_zombie_spawn_bias = 14;
+server int stengunner_ss_spawn_bias = 9;
 server bool stengunner_persistent_spawning = false;
 
 // Melee Zombiemen

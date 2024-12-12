@@ -6,3 +6,4 @@ Looting:MinervaZombie:HD9mMag30*3,HDLoose9mm*9,PortableMedikit,PortableStimpack,
 Looting:MeleeZombie:HDPistolAmmo*15,HDRevolverAmmo*6,HDShellAmmo*8,SevenMilAmmo*7,HD10mmAmmo*8,HD45ACPAmmo*7,PortableMedikit,PortableStimpack,HDFirstAidSpray,HDRadiCola
 Looting:CombatJackboot:ShellPickup*3,FumbledShell*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
 Looting:RiotCopZombie:LLShellPickup*3,LLFumbledShell*9,PortableMedikit,PortableStimpack,HDFirstAidSpray*3,HDRadiCola
+Looting:StenZombie:HD9mMag30*3,HD9mMag15*3,PortableMedikit,PortableStimpack,HDPistolAmmo*15,HDFirstAidSpray*3,HDRadiCola

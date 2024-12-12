@@ -1,5 +1,5 @@
 //UAC Police sprites by Swampyrad
-//based off Bloodless Sargeant sprites by HorrorMovieRei
+//based off the Bloodless Sergeant sprites by HorrorMovieRei
 //police cap based off Wolfensten 3D Nazi Guard sprites
 //from Spriter's Resource, ripped by Grim
 
@@ -28,8 +28,6 @@ sprite RCOPA5, 35,56{
     patch RCOPA5,0,0
 }
 
-
-
 sprite RCOPB1, 35,58{
     offset 17, 58
     patch RCOPB1,0,0
@@ -54,8 +52,6 @@ sprite RCOPB5, 34,56{
     offset 17, 56
     patch RCOPB5,0,0
 }
-
-
 
 sprite RCOPC1, 32,58{
     offset 16, 58
@@ -82,8 +78,6 @@ sprite RCOPC5, 34,56{
     patch RCOPC5,0,0
 }
 
-
-
 sprite RCOPD1, 34,58{
     offset 17, 58
     patch RCOPD1,0,0
@@ -108,8 +102,6 @@ sprite RCOPD5, 35,56{
     offset 17, 56
     patch RCOPD5,0,0
 }
-
-
 
 sprite RCOPE1, 26,58{
     offset 13, 58
@@ -136,8 +128,6 @@ sprite RCOPE5, 26,56{
     patch RCOPE5,0,0
 }
 
-
-
 sprite RCOPF1, 26,58{
     offset 13, 58
     patch RCOPF1,0,0
@@ -162,8 +152,6 @@ sprite RCOPF5, 26,56{
     offset 13, 56
     patch RCOPF5,0,0
 }
-
-
 
 sprite RCOPG1, 31,60{
     offset 13, 60
@@ -190,8 +178,6 @@ sprite RCOPG5, 31,60{
     patch RCOPG5,0,0
 }
 
-
-
 sprite RCOPH0, 33,60{
     offset 16, 60
     patch RCOPH0,0,0
@@ -217,11 +203,266 @@ sprite RCOPL0, 52,60{
     patch RCOPL0,0,0
 }
 
+//SS Elite Guard sprites by DoomJedi, based off the
+//Wolf 3D SS Guard by id Software
+
+sprite SSEGA1, 29, 56{
+  offset 15, 56
+  patch SSEGA1,0,0
+}
+
+sprite SSEGA2, 25, 56{
+  offset 12, 56
+  patch SSEGA2,0,0
+}
+
+sprite SSEGA3, 37, 56{
+  offset 18, 56
+  patch SSEGA3,0,0
+}
+
+sprite SSEGA4, 32, 56{
+  offset 16, 56
+  patch SSEGA4,0,0
+}
+
+sprite SSEGA5, 30, 55{
+  offset 15, 55
+  patch SSEGA5,0,0
+}
+
+sprite SSEGA6, 31, 57{
+  offset 15, 57
+  patch SSEGA6,0,0
+}
+
+sprite SSEGA7, 36, 56{
+  offset 18, 56
+  patch SSEGA7,0,0
+}
+
+sprite SSEGA8, 25, 57{
+  offset 12, 57
+  patch SSEGA8,0,0
+}
+
+sprite SSEGB1, 28, 55{
+  offset 14, 55
+  patch SSEGB1,0,0
+}
+
+sprite SSEGB2, 24, 56{
+  offset 12, 56
+  patch SSEGB2,0,0
+}
+
+sprite SSEGB3, 31, 57{
+  offset 15, 57
+  patch SSEGB3,0,0
+}
+
+sprite SSEGB4, 27, 57{
+  offset 13, 57
+  patch SSEGB4,0,0
+}
+
+sprite SSEGB5, 29, 57{
+  offset 14, 57
+  patch SSEGB5,0,0
+}
+
+sprite SSEGB6, 25, 58{
+  offset 12, 58
+  patch SSEGB6,0,0
+}
+
+sprite SSEGB7, 24, 57{
+  offset 12, 57
+  patch SSEGB7,0,0
+}
+
+sprite SSEGB8, 23, 56{
+  offset 11, 56
+  patch SSEGB8,0,0
+}
+
+sprite SSEGC1, 25, 54{
+  offset 12, 54
+  patch SSEGC1,0,0
+}
+
+sprite SSEGC2, 30, 56{
+  offset 15, 56
+  patch SSEGC2,0,0
+}
+
+sprite SSEGC3, 37, 56{
+  offset 18, 56
+  patch SSEGC3,0,0
+}
+
+sprite SSEGC4, 26, 56{
+  offset 13, 56
+  patch SSEGC4,0,0
+}
+
+sprite SSEGC5, 26, 55{
+  offset 13, 55
+  patch SSEGC5,0,0
+}
+
+sprite SSEGC6, 27, 55{
+  offset 13, 55
+  patch SSEGC6,0,0
+}
+
+sprite SSEGC7, 34, 55{
+  offset 17, 55
+  patch SSEGC7,0,0
+}
+
+sprite SSEGC8, 28, 54{
+  offset 14, 54
+  patch SSEGC8,0,0
+}
+
+sprite SSEGD1, 28, 55{
+  offset 14, 55
+  patch SSEGD1,0,0
+}
+
+sprite SSEGD2, 24, 55{
+  offset 12, 55
+  patch SSEGD2,0,0
+}
+
+sprite SSEGD3, 32, 57{
+  offset 16, 57
+  patch SSEGD3,0,0
+}
+
+sprite SSEGD4, 27, 57{
+  offset 13, 57
+  patch SSEGD4,0,0
+}
+
+sprite SSEGD5, 29, 57{
+  offset 14, 57
+  patch SSEGD5,0,0
+}
+
+sprite SSEGD6, 25, 58{
+  offset 12, 58
+  patch SSEGD6,0,0
+}
+
+sprite SSEGD7, 26, 57{
+  offset 13, 57
+  patch SSEGD7,0,0
+}
+
+sprite SSEGD8, 25, 56{
+  offset 12, 56
+  patch SSEGD8,0,0
+}
+
+sprite SSEGE0, 28, 55{
+  offset 14, 55
+  patch SSEGE0,0,0
+}
+
+sprite SSEGF0, 24, 55{
+  offset 12, 55
+  patch SSEGF0,0,0
+}
+
+sprite SSEGG0, 24, 55{
+  offset 12, 55
+  patch SSEGG0,0,0
+}
+
+sprite SSEGH0, 29, 56{
+  offset 14, 56
+  patch SSEGH0,0,0
+}
+
+sprite SSEGI0, 32, 54{
+  offset 16, 54
+  patch SSEGI0,0,0
+}
+
+sprite SSEGJ0, 33, 48{
+  offset 16, 48
+  patch SSEGJ0,0,0
+}
+
+sprite SSEGK0, 40, 42{
+  offset 20, 42
+  patch SSEGK0,0,0
+}
+
+sprite SSEGL0, 40, 27{
+  offset 20, 25
+  patch SSEGL0,0,0
+}
+
+sprite SSEGM0, 51, 16{
+  offset 25, 12
+  patch SSEGM0,0,0
+}
+
+//SS Elite Guard gib sprites by Swampyrad
+//(edits of the SS Guard gibs using parts of
+// DoomJedi's sprites for the head/hair chunks)
+sprite SSEGN0, 37, 59{
+  offset 18, 59
+  patch SSEGN0,0,0
+}
+
+sprite SSEGO0, 44, 62{
+  offset 22, 62
+  patch SSEGO0,0,0
+}
+
+sprite SSEGP0, 48, 61{
+  offset 24, 61
+  patch SSEGP0,0,0
+}
+
+sprite SSEGQ0, 53, 55{
+  offset 26, 53
+  patch SSEGQ0,0,0
+}
+
+sprite SSEGR0, 55, 50{
+  offset 27, 48
+  patch SSEGR0,0,0
+}
+
+sprite SSEGS0, 57, 42{
+  offset 28, 40
+  patch SSEGS0,0,0
+}
+
+sprite SSEGT0, 57, 35{
+  offset 28, 33
+  patch SSEGT0,0,0
+}
+
+sprite SSEGU0, 57, 25{
+  offset 28, 23
+  patch SSEGU0,0,0
+}
+
+sprite SSEGV0, 57, 20{
+  offset 28, 18
+  patch SSEGV0,0,0
+}
+
 //Melee Zombie sprites (made by CaptainToenail)
+//(sprite defs removed since offsets are now baked in)
 
-//sprite defs removed since offsets are now baked in
-
-//Dog sprites from Wolfenstein 3D by iD Software
+//Dog sprites from Wolfenstein 3D by id Software
 
 sprite ZDOGA1, 64, 64{
     offset 32,64

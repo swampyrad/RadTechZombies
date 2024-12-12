@@ -17,7 +17,7 @@ OptionMenu RadTechZombies
   StaticText ""
   Submenu "Bayonet Zombies", "BayonetZombs", 0, 1
   StaticText ""
-  Submenu "Sten Zombies", "StenZombs", 0, 1
+  Submenu "Elite Guards", "StenZombs", 0, 1
   StaticText ""
   Submenu "Melee Zombies", "MeleeZombs", 0, 1
   StaticText ""
@@ -172,15 +172,19 @@ OptionMenu BayonetZombs
 
 OptionMenu StenZombs
 {
-  Title "------ Sten Zombie Options ------"
+  Title "------ Elite Guard Options ------"
   StaticText "Notice:", "Green"
   StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
   StaticText  "spawns of that given type.", "white"
   StaticText ""
 	StaticText "Spawn Options", "Green"
-  StaticText  "Control the spawn rate of the Sten Zombie on Zombiemen", "white"
-	ScaleSlider "Sten Zombie Spawn Rate: ", "stengunner_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
-	SafeCommand "Reset Sten Zombie options", "resetcvar stengunner_spawn_bias"
+  StaticText  "Control the spawn rate of the SS Elite Guard on Zombiemen", "white"
+	ScaleSlider "Elite Guard Spawn Rate: ", "stengunner_zombie_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset SS Elite Guard options", "resetcvar stengunner_zombie_spawn_bias"
+ 	StaticText ""
+ 	StaticText  "Control the spawn rate of the SS Elite Guard on SS Guards", "white"
+	ScaleSlider "Elite Guard Spawn Rate: ", "stengunner_ss_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset SS Elite Guard options", "resetcvar stengunner_ss_spawn_bias"
  	StaticText ""
   StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "stengunner_persistent_spawning", "OnOff"
@@ -192,10 +196,10 @@ OptionMenu StenZombs
 	StaticText ""
 	StaticText "--- Lore ---", "Green"
 	StaticText ""
-	StaticText "A zombieman that has managed to find themselves a supressed Sten SMG.", "white"
-	StaticText "They're sneaky little buggers, and will try to approach you silently.", "white"
-	StaticText "Once in range, they'll take a few quick shots at you before running for safety.", "white"
-  StaticText "Keep your wits about you, or a clank and a hiss may be the last thing you hear.", "white"
+	StaticText "A female Nazi assassin, skilled in the use of silenced weaponry.", "white"
+	StaticText "They're sneaky little devils, and will stay hidden until they spot a target closeby.", "white"
+	StaticText "Once they see you, they'll take a few quick shots at you before running for safety.", "white"
+  StaticText "Keep your wits about you, or a click and a hiss may be the last thing you hear.", "white"
 }
 
 OptionMenu MeleeZombs

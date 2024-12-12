@@ -4,9 +4,9 @@
 
 meleezombie/sight   	MEL_SEE
 meleezombie/active		MEL_SEE
-meleezombie/pain		MEL_PAIN
-meleezombie/death		MEL_DEAD
-meleezombie/bite        MEL_BITE
+meleezombie/pain		  MEL_PAIN
+meleezombie/death		  MEL_DEAD
+meleezombie/bite      MEL_BITE
 
 meleezombie/step        MEL_STEP
 meleezombie/wormstep    MEL_STEP 
@@ -15,26 +15,26 @@ $volume meleezombie/wormstep 0.5
 
 //  Zombie Dogs
 
-zombiedog/step	            dogstep
+zombiedog/step	          dogstep
 zombiedog/wormstep		    dogstep	
 $volume dog/wormstep 0.5
 
-zombiedog/active              dogact
-zombiedog/sight               dogsight
-zombiedog/pain                dogpain
-zombiedog/bite                dogbite
-zombiedog/death               dogdie
+zombiedog/active          dogact
+zombiedog/sight           dogsight
+zombiedog/pain            dogpain
+zombiedog/bite            dogbite
+zombiedog/death           dogdie
 
 
 //  10mm Pistol Zombies
 
-$random tenmilhomeboy/sight 		{ tenmilhomeboy/sight1  tenmilhomeboy/sight2  tenmilhomeboy/sight3 }
+$random tenmilhomeboy/sight 	{ tenmilhomeboy/sight1  tenmilhomeboy/sight2  tenmilhomeboy/sight3 }
 $random tenmilhomeboy/death		{ tenmilhomeboy/death1  tenmilhomeboy/death2  tenmilhomeboy/death3 }
 tenmilhomeboy/sight1			dsposit1
 tenmilhomeboy/sight2			dsposit2
 tenmilhomeboy/sight3			dsposit3
 tenmilhomeboy/active			dsposact
-tenmilhomeboy/pain			    dspopain
+tenmilhomeboy/pain			  dspopain
 tenmilhomeboy/death1			dspodth1
 tenmilhomeboy/death2			dspodth2
 tenmilhomeboy/death3			dspodth3
@@ -48,7 +48,7 @@ sigcowzombie/sight1			dsposit1
 sigcowzombie/sight2			dsposit2
 sigcowzombie/sight3			dsposit3
 sigcowzombie/active			dsposact
-sigcowzombie/pain			dspopain
+sigcowzombie/pain			  dspopain
 sigcowzombie/death1			dspodth1
 sigcowzombie/death2			dspodth2
 sigcowzombie/death3			dspodth3
@@ -56,13 +56,13 @@ sigcowzombie/death3			dspodth3
 
 //  Bayonet Zombies
 
-$random bayonetzombie/sight 		{ bayonetzombie/sight1  bayonetzombie/sight2  bayonetzombie/sight3 }
+$random bayonetzombie/sight 	{ bayonetzombie/sight1  bayonetzombie/sight2  bayonetzombie/sight3 }
 $random bayonetzombie/death		{ bayonetzombie/death1  bayonetzombie/death2  bayonetzombie/death3 }
 bayonetzombie/sight1			dsposit1
 bayonetzombie/sight2			dsposit2
 bayonetzombie/sight3			dsposit3
 bayonetzombie/active			dsposact
-bayonetzombie/pain			    dspopain
+bayonetzombie/pain			  dspopain
 bayonetzombie/death1			dspodth1
 bayonetzombie/death2			dspodth2
 bayonetzombie/death3			dspodth3
@@ -70,40 +70,55 @@ bayonetzombie/death3			dspodth3
 
 //  Minerva Zombies
 
-$random minervazombie/sight 		{ minervazombie/sight1  minervazombie/sight2  minervazombie/sight3 }
+$random minervazombie/sight 	{ minervazombie/sight1  minervazombie/sight2  minervazombie/sight3 }
 $random minervazombie/death		{ minervazombie/death1  minervazombie/death2  minervazombie/death3 }
 minervazombie/sight1			dsposit1
 minervazombie/sight2			dsposit2
 minervazombie/sight3			dsposit3
 minervazombie/active			dsposact
-minervazombie/pain			    dspopain
+minervazombie/pain			  dspopain
 minervazombie/death1			dspodth1
 minervazombie/death2			dspodth2
 minervazombie/death3			dspodth3
 
 //  Sten Zombies
 
-$random stenzombie/sight 		{ stenzombie/sight1  stenzombie/sight2  stenzombie/sight3 }
-$random stenzombie/death		{ stenzombie/death1  stenzombie/death2  stenzombie/death3 }
-stenzombie/sight1			dsposit1
-stenzombie/sight2			dsposit2
-stenzombie/sight3			dsposit3
-stenzombie/active			dsposact
-stenzombie/pain			    dspopain
-stenzombie/death1			dspodth1
-stenzombie/death2			dspodth2
-stenzombie/death3			dspodth3
+$random stenzombie/pain		{ stenzombie/pain1  stenzombie/pain2  stenzombie/pain3  stenzombie/pain4 }
+$random stenzombie/death	{ stenzombie/death1  stenzombie/death2  stenzombie/death3  stenzombie/death4  stenzombie/death5 }
 
+$alias stenzombie/sight			stenzombie/pain
+$volume stenzombie/sight	0.0
+$alias stenzombie/active		stenzombie/pain
+$volume stenzombie/active 0.0
+
+$random stenzombie/step { stenzombie/step1  stenzombie/step2  stenzombie/step3  stenzombie/step4 }
+$attenuation stenzombie/step 2
+
+stenzombie/step1      eg_step1
+stenzombie/step2      eg_step2
+stenzombie/step3      eg_step3
+stenzombie/step4      eg_step4
+
+stenzombie/pain1		  eg_hurt1
+stenzombie/pain2      eg_hurt2
+stenzombie/pain3      eg_hurt3
+stenzombie/pain4      eg_hurt4
+
+stenzombie/death1			eg_deth1
+stenzombie/death2			eg_deth2
+stenzombie/death3			eg_deth3
+stenzombie/death4		  eg_deth4
+stenzombie/death5		  eg_deth5
 
 //  Brawler Zombies
 
-$random brawlerzombie/sight 		{ brawlerzombie/sight1  brawlerzombie/sight2  brawlerzombie/sight3 }
+$random brawlerzombie/sight 	{ brawlerzombie/sight1  brawlerzombie/sight2  brawlerzombie/sight3 }
 $random brawlerzombie/death		{ brawlerzombie/death1  brawlerzombie/death2  brawlerzombie/death3 }
 brawlerzombie/sight1			dsposit1
 brawlerzombie/sight2			dsposit2
 brawlerzombie/sight3			dsposit3
 brawlerzombie/active			dsposact
-brawlerzombie/pain			    dspopain
+brawlerzombie/pain			  dspopain
 brawlerzombie/death1			dspodth1
 brawlerzombie/death2			dspodth2
 brawlerzombie/death3			dspodth3
@@ -111,13 +126,13 @@ brawlerzombie/death3			dspodth3
 
 //  UAC Cop Zombies
 
-$random lesslethalcop/sight 		{ lesslethalcop/sight1  lesslethalcop/sight2  lesslethalcop/sight3 }
+$random lesslethalcop/sight 	{ lesslethalcop/sight1  lesslethalcop/sight2  lesslethalcop/sight3 }
 $random lesslethalcop/death		{ lesslethalcop/death1  lesslethalcop/death2  lesslethalcop/death3 }
 lesslethalcop/sight1			dsposit1
 lesslethalcop/sight2			dsposit2
 lesslethalcop/sight3			dsposit3
 lesslethalcop/active			dsposact
-lesslethalcop/pain		    	dspopain
+lesslethalcop/pain		    dspopain
 lesslethalcop/death1			dspodth1
 lesslethalcop/death2			dspodth2
 lesslethalcop/death3			dspodth3
@@ -131,7 +146,7 @@ shotguncop/sight1			dsposit1
 shotguncop/sight2			dsposit2
 shotguncop/sight3			dsposit3
 shotguncop/active			dsposact
-shotguncop/pain		    	dspopain
+shotguncop/pain		    dspopain
 shotguncop/death1			dspodth1
 shotguncop/death2			dspodth2
 shotguncop/death3			dspodth3
@@ -139,7 +154,7 @@ shotguncop/death3			dspodth3
 
 //  Doomed Jackboots
 
-$random doomshotguy/sight 		{ doomshotguy/sight1  doomshotguy/sight2  doomshotguy/sight3 }
+$random doomshotguy/sight 	{ doomshotguy/sight1  doomshotguy/sight2  doomshotguy/sight3 }
 $random doomshotguy/death		{ doomshotguy/death1  doomshotguy/death2  doomshotguy/death3 }
 doomshotguy/sight1			dsposit1
 doomshotguy/sight2			dsposit2

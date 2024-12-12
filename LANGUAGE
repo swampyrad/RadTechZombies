@@ -21,7 +21,7 @@ DOOMED_SARGE = "doomed shotgunner";
 MINERVA_ZOMBIE = "massive firearms person";
 
 // Sten Zombie
-STEN_ZOMBIE = "sten zombie";
+STEN_ZOMBIE = "Elite Guard";
 
 // UAC Police Zombies
 UAC_POLICE_LESSLETHAL = "UAC security";
