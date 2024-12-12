@@ -22,8 +22,8 @@ Wields Less-Lethal Shotguns, lowly members of UAC's private security firm, their
 - Minerva Zombies:
 Wields the Minerva 9mm Chaingun, has slower firerate, but unlike Vulcanette Zombies, they can be incapacitated.
 
-- Sten Zombies:
-Wields suppressed Sten SMGs, they move silently and prefer to stay out of sight, hiding after taking a few quick shots.
+- Elite Guards:
+Female assassins carrying silenced Stens and pistols, they wait silently for their target, hoping to catch you off-guard.
 
 - Melee and Brawler Zombies
 Melee variants of the standard zombies, instead of shooting you, they want to beat you to a bloody pulp. Don't get cornered, or they can easily surround you if you're not careful.
@@ -41,9 +41,13 @@ Minerva Minigunner Sprite Credits (copied from Realm667):
 - Sprite Edit: ItsNatureToDie
 - Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary
 
-Melee Zombie/Zombie Dog sounds from Resident Evil 1 by Capcom
+Female SS Guard sprites by DoomJedi, based on the "Wolf 3D" SS Guard by id Software
 
-Zombie Dog sprites from Wolfenstein 3D by iD Software
+Elite Guard sounds from "Return to Castle Wolfenstein" by id Software
+
+Melee Zombie/Zombie Dog sounds from "Resident Evil" by Capcom
+
+Zombie Dog sprites from "Wolfenstein 3D" by id Software
 
 Pistol Zombie Sprite Credits:
 - Leviathan (Creator)
