@@ -150,13 +150,13 @@ class RadtechZombiesHandler : EventHandler {
         spawns_Bayonetta.push(addEnemyentry('ZombieSMGStormtrooper', bayonetta_zombieman_spawn_bias));
         addEnemy('BayonetRifleman', spawns_Bayonetta, bayonetta_persistent_spawning);
 
-        // Sten Zombieman
+        // Sten Zombie
         Array<RTZSpawnEnemyEntry> spawns_StenGunner;
-        spawns_StenGunner.push(addEnemyentry('ZombieSemiStormtrooper', stengunner_spawn_bias));
-        spawns_StenGunner.push(addEnemyentry('ZombieAutoStormtrooper', stengunner_spawn_bias));
-        spawns_StenGunner.push(addEnemyentry('ZombieSMGStormtrooper', stengunner_spawn_bias));
-        addEnemy('StenZombie', spawns_StenGunner, stengunner_persistent_spawning);
-
+        spawns_StenGunner.push(addEnemyentry('ZombieSemiStormtrooper', stengunner_zombie_spawn_bias));
+        spawns_StenGunner.push(addEnemyentry('ZombieAutoStormtrooper', stengunner_zombie_spawn_bias));
+        spawns_StenGunner.push(addEnemyentry('ZombieSMGStormtrooper', stengunner_zombie_spawn_bias));
+        spawns_StenGunner.push(addEnemyentry('HoopBubble', stengunner_ss_spawn_bias));
+        addEnemy('StenZombieSpawner', spawns_StenGunner, stengunner_persistent_spawning);
 
         // Melee Zombiemen (God damn these dudes are everywhere - [Ted])
         Array<RTZSpawnEnemyEntry> spawns_meleezombie;
