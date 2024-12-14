@@ -295,7 +295,7 @@ class StenZombie:HDHumanoid{
 	see:
 		#### ABCD random(5,6) A_HDChase();
 		#### A 0 A_JumpIf(noammo(),"reload");
-		#### A 0 A_JumpIf(!checksight(target),"spawn");//wait around if target is out of sight
+		#### A 0 A_JumpIf(target&&!checksight(target),"spawn");//wait around if target is out of sight
 		loop;
 	missile:
 		#### CD 5 A_TurnTowardsTarget();
@@ -359,7 +359,7 @@ class StenZombie:HDHumanoid{
 			#### A 0 A_JumpIf(!random(0,3), "retreat");
 			#### ABCD 3 A_HDChase();
 		  #### A 0{bfrightened=false;}
-			#### A 0 A_JumpIf(!checksight(target), "spawnstill");//lie in wait until player is visible again
+			#### A 0 A_JumpIf(target&&!checksight(target), "spawnstill");//lie in wait until player is visible again
 	    ---- A 0 setstatelabel("see");
 	    
 	death:
