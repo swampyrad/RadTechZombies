@@ -28,6 +28,9 @@ Female assassins carrying silenced Stens and pistols, they wait silently for the
 - Melee and Brawler Zombies
 Melee variants of the standard zombies, instead of shooting you, they want to beat you to a bloody pulp. Don't get cornered, or they can easily surround you if you're not careful.
 
+- Wither
+Undead Imp skeletons kept alive by demon magic. Weaker than normal imps, and more fragile. Falls apart when killed, and can't be revived.
+
 - Zombie Dogs
 These dogs didn't go to Heaven, now they're here to make your life Hell. Put them down quick before they tear you to bits. Watch out, some of them can be hard to spot...
 
@@ -48,6 +51,8 @@ Elite Guard sounds from "Return to Castle Wolfenstein" by id Software
 Melee Zombie/Zombie Dog sounds from "Resident Evil" by Capcom
 
 Zombie Dog sprites from "Wolfenstein 3D" by id Software
+
+Wither sprites by Burgish and DeVloek, original Wither code and death animation by DeVloek, Wither sounds by id Software
 
 Pistol Zombie Sprite Credits:
 - Leviathan (Creator)
