@@ -31,6 +31,8 @@ OptionMenu RadTechZombies
   StaticText ""
   Submenu "UAC Security", "RiotPoliceJackboots", 0, 1
   StaticText ""
+  Submenu "Withers", "SkellyImp", 0, 1
+  StaticText ""
   Submenu "Zombie Dogs", "ZombieDog", 0, 1
   StaticText ""
 
@@ -87,7 +89,32 @@ OptionMenu ZombieDog
     StaticText "on turning you into their own personal chew toy.", "white"
 }
 
-
+OptionMenu SkellyImp
+{
+  Title "------ Withers Options ------"
+  StaticText "Notice:", "Green"
+  StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+  StaticText  "spawns of that given type.", "white"
+  StaticText ""
+	StaticText "Spawn Options", "Green"
+  StaticText  "Control the spawn rate of Withers on Imps", "white"
+	ScaleSlider "Zombie Dogs Spawn Rate: ", "wither_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset Zombie Dogs options", "resetcvar wither_spawn_bias"
+ 	StaticText ""
+  StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "wither_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar wither_persistent_spawning"
+ 	StaticText ""
+  StaticText ""
+	StaticText "Reset Options", "Green"
+	SafeCommand "Reset all options", "SkellyImps_reset_cvars"
+	StaticText ""
+	StaticText "--- Lore ---", "Green"
+	StaticText ""
+	StaticText "An Imp that hasn't had a decent meal for far too long, being reduced to", "white"
+	StaticText "skin and bones. They've worked up quite an appetite, and a heaping plate of", "white"
+    StaticText "'human BBQ' would really hit the spot about now, so don't end up on the menu.", "white"
+}
 
 OptionMenu 10mmHomies
 {

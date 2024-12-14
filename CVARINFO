@@ -19,6 +19,10 @@ server bool zombiedog_persistent_spawning = false;
 server int cloaked_zombiedog_spawn_bias = 9;
 server bool cloaked_zombiedog_persistent_spawning = false;
 
+// Withers
+server int wither_spawn_bias = 9;
+server bool wither_persistent_spawning = false;
+
 // 10mm Riflemen
 server int tenmilrifl_zombieman_spawn_bias = 19;
 server bool tenmilrifl_persistent_spawning = false;

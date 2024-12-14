@@ -36,3 +36,6 @@ MELEE_ZOMBIE = "walker zombie";
 
 // Brawler Zombies
 BRAWLER_ZOMBIE = "sprinter zombie";
+
+//Withers
+WITHER = "Wither";

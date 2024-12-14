@@ -165,3 +165,16 @@ doomshotguy/death1			dspodth1
 doomshotguy/death2			dspodth2
 doomshotguy/death3			dspodth3
 
+//  Wither
+
+wither/sight      WITHSEE
+wither/active     WITHACT
+wither/pain       WITHPAIN
+wither/death      WITHDTH
+wither/bones      WITHBONE
+$pitchset wither/sight 0.7 0.8
+$pitchset wither/active 0.8 0.9
+$pitchset wither/pain 0.7 0.9
+$pitchset wither/death 0.9 1.0
+$pitchset wither/bones 0.7 1.0
+$volume wither/bones 0.5
