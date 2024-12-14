@@ -116,7 +116,6 @@ class RadtechZombiesHandler : EventHandler {
         spawns_cloaked_zombiedog.push(addEnemyentry('NinjaPirate', cloaked_zombiedog_spawn_bias));
         addEnemy('SpecZombieDog', spawns_cloaked_zombiedog, cloaked_zombiedog_persistent_spawning);
 
-
         // Dead Zombie Dog
         Array<RTZSpawnEnemyEntry> spawns_dead_zombiedog;
         spawns_dead_zombiedog.push(addEnemyentry('DeadBabuin', zombiedog_spawn_bias));
@@ -128,6 +127,10 @@ class RadtechZombiesHandler : EventHandler {
         spawns_dead_cloaked_zombiedog.push(addEnemyentry('DeadNinjaPirate', cloaked_zombiedog_spawn_bias));
         addEnemy('DeadSpecZombieDog', spawns_dead_cloaked_zombiedog, cloaked_zombiedog_persistent_spawning);
 
+        // Wither
+        Array<RTZSpawnEnemyEntry> spawns_wither;
+        spawns_wither.push(addEnemyentry('DoomImp', wither_spawn_bias));
+        addEnemy('Wither', spawns_wither, wither_persistent_spawning);
 
         // 10mm Rifleman
         Array<RTZSpawnEnemyEntry> spawns_TenMilRifleman;
