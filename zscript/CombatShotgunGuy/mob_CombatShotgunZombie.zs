@@ -4,6 +4,8 @@ class CombatJackboot:HDHumanoid{
 		//$Title "Combat Shotgun Guy"
 		//$Sprite "PLAYA1"
 
+    +ambush
+
 		seesound "shotguncop/sight";
 		painsound "shotguncop/pain";
 		deathsound "shotguncop/death";
@@ -17,6 +19,8 @@ class CombatJackboot:HDHumanoid{
 		maxtargetrange 4000;
 		painchance 200;
 		accuracy 1;
+		
+		translation "112:116=160:162";
 
 		obituary "%o felt the long-arm of the law.";
 		hitobituary "%o fought the law, and the law won.";
@@ -38,13 +42,14 @@ class CombatJackboot:HDHumanoid{
 	override void postbeginplay(){
 		super.postbeginplay();
 
-			bhashelmet=false;
-			sprite=GetSpriteIndex("RCOPA1");
-			A_SetTranslation("BlackRedshirt");
-     gunloaded=random(3,6);//5+1=6
-     givearmour(1.,0.06,-0.4);
-     choke=0;//no choke on combat shotgun
-  		semi=0;//no semiauto on combat shotgun
+		bhashelmet=false;
+		sprite=GetSpriteIndex("RCOPA1");
+		//A_SetTranslation("GoldBadge");
+			
+    gunloaded=random(3,6);//5+1=6
+    givearmour(1.,0.06,-0.4);
+    choke=0;//no choke on combat shotgun
+  	semi=0;//no semiauto on combat shotgun
 	}
 
 	override void deathdrop(){
@@ -125,7 +130,7 @@ class CombatJackboot:HDHumanoid{
 			vel.xy-=(cos(angle),sin(angle))*frandom(-0.4,0.4);
 			A_SetTics(random(30,80));
 		}
-		#### A 0 A_Vocalize(activesound);
+	//	#### A 0 A_Vocalize(activesound);
 		---- A 0 setstatelabel("spawn2");
 	spawnstill:
 		#### C 0{
@@ -135,7 +140,7 @@ class CombatJackboot:HDHumanoid{
 		#### CD 5{angle+=random(-4,4);}
 		#### A 0{
 			A_HDLook();
-			if(!random(0,15))A_Vocalize(activesound);
+	//		if(!random(0,15))A_Vocalize(activesound);
 		}
 		#### AB 5{angle+=random(-4,4);}
 		#### B 1 A_SetTics(random(10,40));
@@ -143,7 +148,7 @@ class CombatJackboot:HDHumanoid{
 	spawnwander:
 		#### CD 5 A_HDWander();
 		#### A 0 {
-			if(!random(0,15))A_Vocalize(activesound);
+	//		if(!random(0,15))A_Vocalize(activesound);
 			A_HDLook();
 		}
 		#### AB 5 A_HDWander();
@@ -244,19 +249,19 @@ class CombatJackboot:HDHumanoid{
 		#### A 0 A_StartSound("weapons/huntopen",8);
 		#### BCDA 2 A_HDChase("melee",null,flags:CHF_FLEE);
 	reloadsg2:
-		#### BB 3 A_HDWander(flags:CHF_FLEE);
+		#### BBB 3 A_HDWander(flags:CHF_FLEE);
 		#### B 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
 			if(gunloaded>=6)setstatelabel("reloadsgend");
 		}
-		#### CC 3 A_HDWander(flags:CHF_FLEE);
+		#### CCC 3 A_HDWander(flags:CHF_FLEE);
 		#### C 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
 			if(gunloaded>=6)setstatelabel("reloadsgend");
 		}
-		#### DD 3 A_HDChase("melee",null,CHF_FLEE);
+		#### DDD 3 A_HDChase("melee",null,CHF_FLEE);
 		#### D 0{
 			gunloaded++;
 			A_StartSound("weapons/huntreload",8);
