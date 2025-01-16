@@ -44,6 +44,8 @@ Minerva Minigunner Sprite Credits (copied from Realm667):
 - Sprite Edit: ItsNatureToDie
 - Idea Base: Minigunner's avatar, David G's sprites, lack of a minigunner on the Beastiary
 
+UAC Guard sounds from Postal by Running With Scissors
+
 Female SS Guard sprites by DoomJedi, based on the "Wolf 3D" SS Guard by id Software
 
 Elite Guard sounds from "Return to Castle Wolfenstein" by id Software
