@@ -354,6 +354,7 @@ class Wither:FighterImp{
 		#### G 8 A_FireballerScratch("HDWitherBall",random(5,15));
 		#### F 4;
 		---- A 0 setstatelabel("see");
+	
 	pain:
 		#### H 3 A_GiveInventory("HDFireEnder",3);
 		#### H 3 A_Vocalize(painsound);
@@ -362,9 +363,15 @@ class Wither:FighterImp{
 		#### BCD 2 A_FastChase();
 		#### A 0 A_JumpIf(firefatigue>(HDCONST_MAXFIREFATIGUE*1.6),"see");
 		goto missile;
-		
-		//falls apart on death, bones fly everywhere
-		//doesn't leave a corpse behind
+	
+	//NOINCAP doesn't work got some reason, 
+	//so i'm just overriding the
+	//falldown state directly
+	falldown:
+	  goto pain;	
+	  
+	//falls apart on death, bones fly everywhere
+	//doesn't leave a corpse behind
 	death:
 		TNT1 A 10
 		{
