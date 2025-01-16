@@ -123,34 +123,39 @@ brawlerzombie/death1			dspodth1
 brawlerzombie/death2			dspodth2
 brawlerzombie/death3			dspodth3
 
+//UAC Guard sounds from Postal by Running With Scissors
 
-//  UAC Cop Zombies
+//  UAC Security
 
 $random lesslethalcop/sight 	{ lesslethalcop/sight1  lesslethalcop/sight2  lesslethalcop/sight3 }
-$random lesslethalcop/death		{ lesslethalcop/death1  lesslethalcop/death2  lesslethalcop/death3 }
-lesslethalcop/sight1			dsposit1
-lesslethalcop/sight2			dsposit2
-lesslethalcop/sight3			dsposit3
-lesslethalcop/active			dsposact
-lesslethalcop/pain		    dspopain
-lesslethalcop/death1			dspodth1
-lesslethalcop/death2			dspodth2
-lesslethalcop/death3			dspodth3
+$random lesslethalcop/active 	{ lesslethalcop/active1  lesslethalcop/active2 }
+$random lesslethalcop/pain		{ lesslethalcop/pain1  lesslethalcop/pain2  lesslethalcop/pain3 }
 
+lesslethalcop/sight1			secsee1
+lesslethalcop/sight2			secsee2
+lesslethalcop/sight3			secsee3
+lesslethalcop/active1			secact1
+lesslethalcop/active2			secact2
+lesslethalcop/pain1		    secpain1
+lesslethalcop/pain2		    secpain2
+lesslethalcop/death 			secdeath
 
-//  Combat Jackboots
+//  UAC Officers
 
-$random shotguncop/sight 		{ shotguncop/sight1  shotguncop/sight2  shotguncop/sight3 }
-$random shotguncop/death		{ shotguncop/death1  shotguncop/death2  shotguncop/death3 }
-shotguncop/sight1			dsposit1
-shotguncop/sight2			dsposit2
-shotguncop/sight3			dsposit3
-shotguncop/active			dsposact
-shotguncop/pain		    dspopain
-shotguncop/death1			dspodth1
-shotguncop/death2			dspodth2
-shotguncop/death3			dspodth3
+$random shotguncop/sight 	  { shotguncop/sight1  shotguncop/sight2 }
+$random shotguncop/active 	{ shotguncop/active1  shotguncop/active2 }
+$random shotguncop/pain		  { shotguncop/pain1  shotguncop/pain2  shotguncop/pain3 }
+$random shotguncop/death		{ shotguncop/death1  shotguncop/death2 }
 
+shotguncop/sight1			  copsee1
+shotguncop/sight2			  copsee2
+shotguncop/active1			copact1
+shotguncop/active2			copact2
+shotguncop/pain1		    coppain1
+shotguncop/pain2		    coppain2
+shotguncop/pain3		    coppain3
+shotguncop/death1			  copdeth1
+shotguncop/death2			  copdeth2
 
 //  Doomed Jackboots
 
