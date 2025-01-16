@@ -13,6 +13,8 @@ class RiotCopZombie:HDHumanoid{
 		//$Title "Riot Cop Shotgun Zombie"
 		//$Sprite "RCOPA1"
 
+    +ambush
+
 		seesound "lesslethalcop/sight";
 		painsound "lesslethalcop/pain";
 		deathsound "lesslethalcop/death";
@@ -26,8 +28,9 @@ class RiotCopZombie:HDHumanoid{
 		maxtargetrange 4000;
 		painchance 200;
 		accuracy 1;
+		
+		translation "112:116=194:196";
 
-		//placeholder
 		obituary "%o thought less-lethal meant non-lethal.";
 		hitobituary "%o was a victim of police brutality.";
 	}
@@ -38,23 +41,25 @@ class RiotCopZombie:HDHumanoid{
 	int turnamount;
 	int choke; //record here because the gun should only drop once
 	double shotspread; //related to aim, NOT choke. Sorry about shitty names
+	
 	override void beginplay(){
 		super.beginplay();
 		bhasdropped=0;
-
-		wep=0;
+  	wep=0;
 	}
+	
 	override void postbeginplay(){
 		super.postbeginplay();
 
 		bhashelmet=false;
 		sprite=GetSpriteIndex("RCOPA1");
+		//A_SetTranslation("BlueBadge");
 			
-        gunloaded=random(2,6);
-        givearmour(1.,0.06,-0.4);
-        choke=0;//no choke 
-  		semi=0;//no semiauto
-  		jammed=false;//just in case
+    gunloaded=random(2,6);
+    givearmour(1.,0.06,-0.4);
+    choke=0;//no choke 
+  	semi=0;//no semiauto
+  	jammed=false;//just in case
 	}
 
 	override void deathdrop(){
@@ -126,7 +131,7 @@ states{
 			vel.xy-=(cos(angle),sin(angle))*frandom(-0.4,0.4);
 			A_SetTics(random(30,80));
 		}
-		#### A 0 A_Vocalize(activesound);
+	//	#### A 0 A_Vocalize(activesound);
 		---- A 0 setstatelabel("spawn2");
 	spawnstill:
 		#### C 0{
@@ -136,7 +141,7 @@ states{
 		#### CD 5{angle+=random(-4,4);}
 		#### A 0{
 			A_HDLook();
-			if(!random(0,15))A_Vocalize(activesound);
+		//	if(!random(0,15))A_Vocalize(activesound);
 		}
 		#### AB 5{angle+=random(-4,4);}
 		#### B 1 A_SetTics(random(10,40));
@@ -144,7 +149,7 @@ states{
 	spawnwander:
 		#### CD 5 A_HDWander();
 		#### A 0 {
-			if(!random(0,15))A_Vocalize(activesound);
+		//	if(!random(0,15))A_Vocalize(activesound);
 			A_HDLook();
 		}
 		#### AB 5 A_HDWander();
