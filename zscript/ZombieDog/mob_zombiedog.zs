@@ -111,7 +111,8 @@ class ZombieDog:Babuin{
 		}
 		---- A 0 setstatelabel("seeend");
 	seeend:
-		#### A 0 givebody(random(2,12));
+	//#### A 0 givebody(random(2,12));
+	//dogs don't regen, they're not magical like demons are
 		#### A 0 A_Jump(256,"see");
 	melee:
 		#### EE 3{
