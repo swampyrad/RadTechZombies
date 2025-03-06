@@ -209,7 +209,7 @@ class Wither:FighterImp{
 		meleedamage 4;
 
 		painchance 80;
-		translation "";//disable translation
+		translation "0";//disable translation
 		Obituary "%o was grilled by a Wither.";
 		hitobituary "%o got boned by a Wither";
 	}
@@ -248,17 +248,6 @@ class Wither:FighterImp{
 			inflictor,source,damage,mod,flags,angle
 		);
 	}
-	
-	/*
-	bool strafeleft;
-	void A_Strafe(){
-		A_FaceLastTargetPos(10);
-		strafeleft=(random(0,2))?blefthanded:!blefthanded;
-		vector2 newdir=angletovector((strafeleft?angle+90:angle-90)+frandom(-20,20),frandom(0.5,2.5));
-		vel.xy+=newdir;
-		if(floorz==pos.z)vel.z+=randompick(-2.,1.);
-	}
-	*/
 	
 	states{
 	spawn:
@@ -302,28 +291,30 @@ class Wither:FighterImp{
 		#### E 0 A_Jump(16,"hork");
 		goto lead;
 
+  //takes 2x longer to throw fireballs
 	lead:
 		#### E 0 A_Strafe();
-		#### E 4 A_FaceLastTargetPos(40,gunheight);
+		#### E 8 A_FaceLastTargetPos(40,gunheight);
 		#### E 0 A_Strafe();
-		#### E 1 A_FaceLastTargetPos(20,gunheight);
+		#### E 2 A_FaceLastTargetPos(20,gunheight);
 		#### E 0 A_Strafe();
-		#### F 4 A_LeadTarget(min(20,lasttargetdist/getdefaultbytype("HDImpBall").speed));
+		#### F 8 A_LeadTarget(min(20,lasttargetdist/getdefaultbytype("HDWitherBall").speed));
 		#### E 0 A_JumpIf(!hdmobai.TryShoot(self,gunheight,256,10,10,flags:HDMobAI.TS_GEOMETRYOK),"see");
-		#### G 6 A_SpawnProjectile("HDWitherBall",34,0,0,CMF_AIMDIRECTION,pitch-frandom(0,0.1));
-		#### F 4 A_ChangeVelocity(0,frandom(-3,3),0,CVF_RELATIVE);
+		#### G 12 A_SpawnProjectile("HDWitherBall",34,0,0,CMF_AIMDIRECTION,pitch-frandom(0,0.1));
+		#### F 8 A_ChangeVelocity(0,frandom(-3,3),0,CVF_RELATIVE);
 		---- A 0 A_JumpIfTargetInsideMeleeRange("melee");
 		#### E 0 A_JumpIf(!hdmobai.TryShoot(self,gunheight,512,10,10,flags:HDMobAI.TS_GEOMETRYOK),"see");
 		#### E 0 A_Jump(16,"see");
 		#### E 0 A_Jump(140,"coverfire");
 		---- A 0 setstatelabel("see");
-
+/*
 	spam:
 		#### E 3 A_SetTics(random(4,6));
 		#### EF 2 A_Strafe();
 		#### G 6 A_SpawnProjectile("HDWitherBall",gunheight,0,frandom(-3,4),CMF_AIMDIRECTION,pitch+frandom(-2,1.8));
 		#### F 4;
 		#### F 0 A_JumpIf(firefatigue>HDCONST_MAXFIREFATIGUE,"pain");
+*/
 		//fall through to more cover fire
 	coverfire:
 		---- A 0 A_JumpIfTargetInLOS("see");
@@ -331,11 +322,12 @@ class Wither:FighterImp{
 		---- A 0 setstatelabel("see");
 	coverdecide:
 		#### E 0 A_JumpIf(!hdmobai.TryShoot(self,32,512,10,10,flags:HDMobAI.TS_GEOMETRYOK),"see");
-		---- A 0 A_Jump(180,"spam");
+	//	---- A 0 A_Jump(180,"spam");
 		---- A 0 A_Jump(90,"hork");
 		---- A 0 setstatelabel("missile");
+
 	hork:
-		#### E 0 A_Jump(156,"spam");
+	//	#### E 0 A_Jump(156,"spam");
 		---- A 0 A_FaceLastTargetPos(40,gunheight);
 		#### E 2 A_Strafe();
 		#### E 0 A_Vocalize(seesound);
@@ -348,11 +340,13 @@ class Wither:FighterImp{
 		#### E 0 A_JumpIf(!hdmobai.TryShoot(self,32,256,10,10,flags:HDMobAI.TS_GEOMETRYOK),"see");
 		#### E 0 A_Watch();
 		---- A 0 setstatelabel("see");
+
+  //takes 2x linger to scratch you
 	melee:
-		#### EE 4 A_FaceLastTargetPos();
-		#### F 2;
-		#### G 8 A_FireballerScratch("HDWitherBall",random(5,15));
+		#### EE 8 A_FaceLastTargetPos();
 		#### F 4;
+		#### G 16 A_FireballerScratch("HDWitherBall",random(5,15));
+		#### F 8;
 		---- A 0 setstatelabel("see");
 	
 	pain:
