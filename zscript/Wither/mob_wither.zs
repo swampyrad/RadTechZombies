@@ -209,7 +209,7 @@ class Wither:FighterImp{
 		meleedamage 4;
 
 		painchance 80;
-		translation "0";//disable translation
+		translation 0;//disable translation
 		Obituary "%o was grilled by a Wither.";
 		hitobituary "%o got boned by a Wither";
 	}
