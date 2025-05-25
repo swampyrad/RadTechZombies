@@ -47,35 +47,8 @@ override void deathdrop(){}
 
 	states{
 	spawn:
-		ZOMB F 1{
-		    switch(random(0,5)){//rolls a random color
-		    
-		    case 0://defaults to green
-		    break;
-		    
-		    case 1:
-		    A_SetTranslation("Zombie_RedSuit");
-		    break;
-		    
-		    case 2:
-		    A_SetTranslation("Zombie_YellowSuit");
-		    break;
-		    
-		    case 3:
-		    A_SetTranslation("Zombie_OrangeSuit");
-		    break;
-		    
-		    case 4:
-		    A_SetTranslation("Zombie_BlueSuit");
-		    break;
-		    
-		    case 5:
-		    A_SetTranslation("Zombie_PinkSuit");
-		    break;
-		    
-		    }
-			A_HDLook();
-		}
+		ZOMB F 1 A_HDLook();
+		
 		#### FFF random(5,17) A_HDLook();
 		#### F 1{
 			//A_Recoil(frandom(-0.1,0.1));
@@ -233,7 +206,7 @@ class MeleeZombie_Yellow:MeleeZombie{default{translation "Zombie_YellowSuit";}}
 class MeleeZombie_Orange:MeleeZombie{default{translation "Zombie_OrangeSuit";}}
 class MeleeZombie_Pink:MeleeZombie{default{translation "Zombie_PinkSuit";}}
 
-class MeleeZombieDropper:RandomSpawner{
+class MeleeZombieSpawner:RandomSpawner{
     default{
     dropitem "MeleeZombie",255,10;
     dropitem "MeleeZombie_Red",255, 8;
