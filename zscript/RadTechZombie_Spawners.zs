@@ -171,7 +171,7 @@ class RadtechZombiesHandler : EventHandler {
         spawns_meleezombie.push(addEnemyentry('JackAndJillboot', meleezomb_jackboot_spawn_bias));
         spawns_meleezombie.push(addEnemyentry('UndeadJackbootman', meleezomb_jackboot_spawn_bias));
         spawns_meleezombie.push(addEnemyentry('VulcanetteZombie', meleezomb_chaingunner_spawn_bias));
-        addEnemy('MeleeZombie', spawns_meleezombie, meleezomb_persistent_spawning);
+        addEnemy('MeleeZombieSpawner', spawns_meleezombie, meleezomb_persistent_spawning);
 
         // Brawler Jackboot
         Array<RTZSpawnEnemyEntry> spawns_brawler;
